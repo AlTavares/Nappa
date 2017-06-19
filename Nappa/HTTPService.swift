@@ -50,7 +50,7 @@ public enum ParameterEncoding {
 public typealias Parameters = [String: Any]
 public typealias Headers = [String: String]
 
-public struct Nappa {
+public struct HTTPService {
 
     public struct Configuration {
         static var urlSessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default

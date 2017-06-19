@@ -16,7 +16,7 @@ struct DefaultRequestAdapter: HTTPRequestAdapter {
     var configuration: URLSessionConfiguration
 
     init() {
-        configuration = Nappa.Configuration.urlSessionConfiguration
+        configuration = HTTPService.Configuration.urlSessionConfiguration
     }
 
     func performRequest(request: URLRequest, queue: DispatchQueue, completionHandler: @escaping (DataResponse) -> Void) {

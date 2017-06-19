@@ -55,7 +55,7 @@ class NappaSpec: QuickSpec {
     }
     
     func test(url urlString: String, method: HTTPMethod, withEncoding encoding: ParameterEncoding, params: Parameters, expectedParams: Parameters) {
-        let service = Nappa()
+        let service = HTTPService()
         var response: JSONResponse!
         waitUntil(timeout: 5) { done in
             service.request(method: method, url: urlString, parameters: params, headers: Stubs.headers, parameterEncoding: encoding).responseJSON { res in
