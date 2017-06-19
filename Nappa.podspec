@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = "2.0"
   s.tvos.deployment_target = "9.0"
   s.source       = { :git => "https://github.com/AlTavares/Nappa.git", :tag => s.version.to_s }
-  s.source_files  = "Nappa/**/*"
+  s.source_files  = "Nappa/*.{h,m,swift}"
   s.frameworks  = "Foundation"
   s.dependency 'Result', '~> 3.2'
 end
