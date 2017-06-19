@@ -6,7 +6,7 @@
 //  Copyright © 2017 Alexandre Tavares. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for Nappa.
 FOUNDATION_EXPORT double NappaVersionNumber;
