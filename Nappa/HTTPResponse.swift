@@ -26,6 +26,7 @@ public protocol Response: CustomStringConvertible, CustomDebugStringConvertible 
     /// The error that may be occurred in the request.
     var error: HTTPServiceError? { get set }
 
+    init()
 }
 
 public extension Response {
@@ -68,6 +69,8 @@ public struct DataResponse: Response {
     public var data: Data?
     public var error: HTTPServiceError?
 
+    public init(){}
+
     public var result: Result<Data, HTTPResponseError> {
         return serializeResponseData()
     }
@@ -93,6 +96,8 @@ public struct JSONResponse: Response {
     public var data: Data?
     public var error: HTTPServiceError?
 
+    public init(){}
+
     public var result: Result<Any, HTTPResponseError> {
         return serializeResponseJSON()
     }
@@ -116,6 +121,8 @@ public struct StringResponse: Response {
     public var response: HTTPURLResponse?
     public var data: Data?
     public var error: HTTPServiceError?
+
+    public init(){}
 
     public var result: Result<String, HTTPResponseError> {
         return serializeResponseString()
