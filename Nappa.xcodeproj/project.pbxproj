@@ -16,9 +16,9 @@
 		24A3A16C1EF83972000B04EA /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A3A1661EF83972000B04EA /* HTTPServiceErrors.swift */; };
 		24A3A16D1EF83972000B04EA /* ResultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A3A1671EF83972000B04EA /* ResultExtension.swift */; };
 		24A3A1721EF83BC5000B04EA /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A3A1711EF83BC5000B04EA /* Result.framework */; };
-		24A3A1751EF83C98000B04EA /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A3A1731EF83C98000B04EA /* Nimble.framework */; };
-		24A3A1761EF83C98000B04EA /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A3A1741EF83C98000B04EA /* Quick.framework */; };
 		24A3A1781EF83E72000B04EA /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A3A1771EF83E72000B04EA /* NappaSpec.swift */; };
+		24A466F91EFB220800EEDB59 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A3A1731EF83C98000B04EA /* Nimble.framework */; };
+		24A466FA1EFB220800EEDB59 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A3A1741EF83C98000B04EA /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +63,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				24A3A1521EF8395B000B04EA /* Nappa.framework in Frameworks */,
-				24A3A1751EF83C98000B04EA /* Nimble.framework in Frameworks */,
-				24A3A1761EF83C98000B04EA /* Quick.framework in Frameworks */,
+				24A466F91EFB220800EEDB59 /* Nimble.framework in Frameworks */,
+				24A466FA1EFB220800EEDB59 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,7 +430,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = NappaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tavares.NappaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -446,7 +446,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = NappaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tavares.NappaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
