@@ -13,9 +13,9 @@ public protocol HTTPRequestAdapter {
 }
 
 public struct DefaultRequestAdapter: HTTPRequestAdapter {
-    var configuration: URLSessionConfiguration
+    public var configuration: URLSessionConfiguration
 
-    init() {
+    public init() {
         configuration = HTTPService.Configuration.urlSessionConfiguration
     }
 
