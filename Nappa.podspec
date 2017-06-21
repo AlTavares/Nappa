@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Nappa"
-  s.version      = "1.1.0"
+  s.version      = "1.1.1"
   s.summary      = "Swift Networking Framework."
   s.description  = <<-DESC
     Wrapper around URLSession that uses Dependency injection making it easy to test network requests.
