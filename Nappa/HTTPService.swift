@@ -139,21 +139,18 @@ public struct HTTPRequest {
         }
         request.allHTTPHeaderFields = headerFields
 
-
         adapter.performRequest(request: request, queue: queue, completionHandler: completionHandler)
     }
 
     public func responseJSON(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (JSONResponse) -> Void) {
         response(queue: queue) { dataResponse in
-            let jsonResponse = JSONResponse(request: dataResponse.request, response: dataResponse.response, data: dataResponse.data)
-            completionHandler(jsonResponse)
+            completionHandler(JSONResponse(response: dataResponse))
         }
     }
 
     public func responseString(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (StringResponse) -> Void) {
         response(queue: queue) { dataResponse in
-            let stringResponse = StringResponse(request: dataResponse.request, response: dataResponse.response, data: dataResponse.data)
-            completionHandler(stringResponse)
+            completionHandler(StringResponse(response: dataResponse))
         }
     }
 

@@ -56,6 +56,10 @@ public extension Response {
         self.data = data
         self.error = error
     }
+
+    public init<SomeResponse:Response>(response: SomeResponse) {
+        self.init(request: response.request, response: response.response, data: response.data, error: response.error)
+    }
 }
 
 public struct DataResponse: Response {
