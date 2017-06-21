@@ -9,7 +9,7 @@
 import Foundation
 import Result
 
-protocol Response: CustomStringConvertible, CustomDebugStringConvertible {
+public protocol Response: CustomStringConvertible, CustomDebugStringConvertible {
     associatedtype Value
     /// The URL request sent to the server.
     var request: URLRequest? { get set }
@@ -26,10 +26,9 @@ protocol Response: CustomStringConvertible, CustomDebugStringConvertible {
     /// The error that may be occurred in the request.
     var error: HTTPServiceError? { get set }
 
-    init()
 }
 
-extension Response {
+public extension Response {
 
     /// The textual representation used when written to an output stream, which includes whether the result was a
     /// success or failure.
@@ -50,7 +49,7 @@ extension Response {
         return output.joined(separator: "\n")
     }
 
-    init(request: URLRequest? = nil, response: HTTPURLResponse? = nil, data: Data? = nil, error: HTTPServiceError? = nil) {
+    public init(request: URLRequest? = nil, response: HTTPURLResponse? = nil, data: Data? = nil, error: HTTPServiceError? = nil) {
         self.init()
         self.request = request
         self.response = response
