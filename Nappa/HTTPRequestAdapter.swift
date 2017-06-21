@@ -12,14 +12,14 @@ public protocol HTTPRequestAdapter {
     func performRequest(request: URLRequest, queue: DispatchQueue, completionHandler: @escaping (DataResponse) -> Void)
 }
 
-struct DefaultRequestAdapter: HTTPRequestAdapter {
+public struct DefaultRequestAdapter: HTTPRequestAdapter {
     var configuration: URLSessionConfiguration
 
     init() {
         configuration = HTTPService.Configuration.urlSessionConfiguration
     }
 
-    func performRequest(request: URLRequest, queue: DispatchQueue, completionHandler: @escaping (DataResponse) -> Void) {
+    public func performRequest(request: URLRequest, queue: DispatchQueue, completionHandler: @escaping (DataResponse) -> Void) {
         let urlSession = URLSession(configuration: configuration)
 
         let dataTask = urlSession.dataTask(with: request) { data, response, error in
