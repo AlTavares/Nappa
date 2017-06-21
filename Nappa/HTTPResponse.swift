@@ -118,7 +118,8 @@ public struct StringResponse: Response {
         return serializeResponseString()
     }
 
-    public func serializeResponseString(encoding: String.Encoding = String.Encoding.utf8) -> Result<String, HTTPResponseError> {
+    ///Serialize string using passed encoding, if none is passed it tries to get the encoding from the server, falling back to the http default
+    public func serializeResponseString(encoding: String.Encoding? = nil) -> Result<String, HTTPResponseError> {
         guard let response = response else {
             return .failure(.responseNil)
         }
@@ -129,7 +130,15 @@ public struct StringResponse: Response {
             return .failure(.emptyData)
         }
 
-        if let string = String(data: validData, encoding: encoding) {
+        var convertedEncoding = encoding
+        if let encodingName = response.textEncodingName as CFString?, convertedEncoding == nil {
+            convertedEncoding = String.Encoding(rawValue: CFStringConvertEncodingToNSStringEncoding(
+                CFStringConvertIANACharSetNameToEncoding(encodingName))
+            )
+        }
+
+        let actualEncoding = convertedEncoding ?? String.Encoding.isoLatin1
+        if let string = String(data: validData, encoding: actualEncoding) {
             return .success(string)
         } else {
             return .failure(.unableToEncodeString)
