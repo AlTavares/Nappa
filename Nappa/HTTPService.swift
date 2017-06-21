@@ -41,7 +41,7 @@ public enum ParameterEncoding {
         case .form:
             return "application/x-www-form-urlencoded"
         default:
-            return nil
+            return "text/plain"
         }
     }
 }
@@ -125,20 +125,20 @@ public struct HTTPRequest {
         }
 
         guard let requestUrl = url.url else {
-            completionHandler(DataResponse(error: .invalidUrl("\(String(describing: url.url))")))
+            completionHandler(DataResponse(error: .invalidUrl(String(describing: url.url))))
             return
         }
 
         var request = URLRequest(url: requestUrl)
         request.httpMethod = method.rawValue
         var headerFields = headers ?? Headers()
-        headerFields["Content-Type"] = parameterEncoding.contentType
 
-        request.allHTTPHeaderFields = headerFields
-        if parameters != nil && bodyData != nil {
+        request.httpBody = bodyData ?? httpBody
+        if request.httpBody != nil && headerFields["Content-Type"] == nil {
             headerFields["Content-Type"] = parameterEncoding.contentType
         }
-        request.httpBody = bodyData ?? httpBody
+        request.allHTTPHeaderFields = headerFields
+
 
         adapter.performRequest(request: request, queue: queue, completionHandler: completionHandler)
     }
