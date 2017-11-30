@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Result
 
 /// HTTP method definitions.
 ///
@@ -85,7 +86,7 @@ public struct HTTPRequest {
         self.method = method
         self.url = url
         self.parameters = parameters
-        bodyData = data
+        self.bodyData = data
         self.headers = headers
         self.parameterEncoding = parameterEncoding ?? ParameterEncoding(method: method)
         self.adapter = adapter

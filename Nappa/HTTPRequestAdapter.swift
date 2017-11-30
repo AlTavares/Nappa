@@ -7,22 +7,32 @@
 //
 
 import Foundation
+import Result
 
 public protocol HTTPRequestAdapter {
     func performRequest(request: URLRequest, queue: DispatchQueue, completionHandler: @escaping (DataResponse) -> Void)
 }
 
-public struct DefaultRequestAdapter: HTTPRequestAdapter {
-    public var configuration: URLSessionConfiguration
+public extension HTTPRequestAdapter{
+    public var cookieStorage: HTTPCookieStorage {
+        return HTTPCookieStorage.shared
+    }
+}
 
-    public init() {
-        configuration = HTTPService.Configuration.urlSessionConfiguration
+struct DefaultRequestAdapter: HTTPRequestAdapter {
+    var urlSession: URLSession
+    
+    public var cookieStorage: HTTPCookieStorage {
+        return urlSession.configuration.httpCookieStorage ?? HTTPCookieStorage.shared
     }
 
-    public func performRequest(request: URLRequest, queue: DispatchQueue, completionHandler: @escaping (DataResponse) -> Void) {
-        let urlSession = URLSession(configuration: configuration)
+    public init(configuration: URLSessionConfiguration = HTTPService.Configuration.urlSessionConfiguration) {
+        self.urlSession = URLSession(configuration: configuration)
+    }
 
-        let dataTask = urlSession.dataTask(with: request) { data, response, error in
+    func performRequest(request: URLRequest, queue: DispatchQueue, completionHandler: @escaping (DataResponse) -> Void) {
+
+        let dataTask = urlSession.dataTask(with: request) { (data, response, error) in
             if let httpResponse = response as? HTTPURLResponse, error == nil {
                 queue.async {
                     completionHandler(DataResponse(request: request, response: httpResponse, data: data))
