@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
  s.name = 'Nappa'
- s.version = '0.0.1'
+ s.version = '1.1.2'
  s.license = { :type => "MIT", :file => "LICENSE" }
- s.summary = 'Adaptable HTTP client'
+ s.summary = 'Wrapper around URLSession that uses Dependency injection making it easy to test network requests.'
  s.homepage = 'https://github.com/AlTavares/Nappa'
  s.social_media_url = 'https://twitter.com/al_tavares'
  s.authors = { "Alexandre Mantovani tavares" => "alexandre@live.in" }
