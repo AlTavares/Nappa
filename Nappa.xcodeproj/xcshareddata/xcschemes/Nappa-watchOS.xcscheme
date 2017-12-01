@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0910"
+   LastUpgradeVersion = "0900"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "24A3A1471EF8395B000B04EA"
+               BlueprintIdentifier = "3549BB2D1DA389DB00C63030"
                BuildableName = "Nappa.framework"
-               BlueprintName = "Nappa"
+               BlueprintName = "Nappa-watchOS"
                ReferencedContainer = "container:Nappa.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,26 +29,7 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "24A3A1501EF8395B000B04EA"
-               BuildableName = "NappaTests.xctest"
-               BlueprintName = "NappaTests"
-               ReferencedContainer = "container:Nappa.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24A3A1471EF8395B000B04EA"
-            BuildableName = "Nappa.framework"
-            BlueprintName = "Nappa"
-            ReferencedContainer = "container:Nappa.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -66,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24A3A1471EF8395B000B04EA"
+            BlueprintIdentifier = "3549BB2D1DA389DB00C63030"
             BuildableName = "Nappa.framework"
-            BlueprintName = "Nappa"
+            BlueprintName = "Nappa-watchOS"
             ReferencedContainer = "container:Nappa.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -84,9 +65,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24A3A1471EF8395B000B04EA"
+            BlueprintIdentifier = "3549BB2D1DA389DB00C63030"
             BuildableName = "Nappa.framework"
-            BlueprintName = "Nappa"
+            BlueprintName = "Nappa-watchOS"
             ReferencedContainer = "container:Nappa.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
