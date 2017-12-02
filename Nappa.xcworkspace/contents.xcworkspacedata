@@ -5,9 +5,6 @@
       location = "group:Nappa.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Nappa.playground">
-   </FileRef>
-   <FileRef
       location = "group:scripts">
    </FileRef>
    <FileRef
