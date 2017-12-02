@@ -8,46 +8,46 @@ class NappaSpec: QuickSpec {
     override func spec() {
         describe("A network request") {
             it("calls an endpoint and returns valid data using GET") {
-                let urlString = "http://localhost:8000/get"
+                let urlString = "https://httpbin.org/get"
                 self.test(url: urlString, method: .get, withEncoding: .url, params: Stubs.params, expectedParams: Stubs.expectedParams)
             }
             it("calls an endpoint and returns valid data using GET and nested parameters") {
-                let urlString = "http://localhost:8000/get"
+                let urlString = "https://httpbin.org/get"
                 self.test(url: urlString, method: .get, withEncoding: .url, params: Stubs.nestedParams, expectedParams: Stubs.expectedNestedParams)
             }
             it("calls an endpoint and returns valid data using DELETE") {
-                let urlString = "http://localhost:8000/delete"
+                let urlString = "https://httpbin.org/delete"
                 self.test(url: urlString, method: .delete, withEncoding: .url, params: Stubs.params, expectedParams: Stubs.expectedParams)
             }
             it("calls an endpoint and returns valid data using DELETE and nested parameters") {
-                let urlString = "http://localhost:8000/delete"
+                let urlString = "https://httpbin.org/delete"
                 self.test(url: urlString, method: .delete, withEncoding: .url, params: Stubs.nestedParams, expectedParams: Stubs.expectedNestedParams)
             }
             context("when calling an endpoint using POST") {
                 it("returns valid data with JSON content type") {
-                    let urlString = "http://localhost:8000/post"
+                    let urlString = "https://httpbin.org/post"
                     self.test(url: urlString, method: .post, withEncoding: .json, params: Stubs.nestedParams, expectedParams: Stubs.nestedParams)
                 }
                 it("returns valid data with Form Data encoding") {
-                    let urlString = "http://localhost:8000/post"
+                    let urlString = "https://httpbin.org/post"
                     self.test(url: urlString, method: .post, withEncoding: .form, params: Stubs.params, expectedParams: Stubs.expectedParams)
                 }
                 it("returns valid data with Form Data encoding and nested params") {
-                    let urlString = "http://localhost:8000/post"
+                    let urlString = "https://httpbin.org/post"
                     self.test(url: urlString, method: .post, withEncoding: .form, params: Stubs.nestedParams, expectedParams: Stubs.expectedNestedParams)
                 }
             }
             context("when calling an endpoint using PUT") {
                 it("returns valid data with JSON content type") {
-                    let urlString = "http://localhost:8000/put"
+                    let urlString = "https://httpbin.org/put"
                     self.test(url: urlString, method: .put, withEncoding: .json, params: Stubs.nestedParams, expectedParams: Stubs.nestedParams)
                 }
                 it("returns valid data with Form Data encoding") {
-                    let urlString = "http://localhost:8000/put"
+                    let urlString = "https://httpbin.org/put"
                     self.test(url: urlString, method: .put, withEncoding: .form, params: Stubs.params, expectedParams: Stubs.expectedParams)
                 }
                 it("returns valid data with Form Data encoding and nested params") {
-                    let urlString = "http://localhost:8000/put"
+                    let urlString = "https://httpbin.org/put"
                     self.test(url: urlString, method: .put, withEncoding: .form, params: Stubs.nestedParams, expectedParams: Stubs.expectedNestedParams)
                 }
             }
