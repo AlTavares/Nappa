@@ -14,9 +14,8 @@
 		3549BB661DA38ADB00C63030 /* Nappa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB211DA389CD00C63030 /* Nappa.framework */; };
 		3549BB751DA38AEF00C63030 /* Nappa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB481DA389F300C63030 /* Nappa.framework */; };
 		3549BB841DA38B0000C63030 /* Nappa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB3B1DA389E800C63030 /* Nappa.framework */; };
-		3549BB8B1DA38C0A00C63030 /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549BB8A1DA38C0A00C63030 /* NappaSpec.swift */; };
-		3549BB8C1DA38C0A00C63030 /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549BB8A1DA38C0A00C63030 /* NappaSpec.swift */; };
-		3549BB8D1DA38C0A00C63030 /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549BB8A1DA38C0A00C63030 /* NappaSpec.swift */; };
+		DA0E98EF1FD33CE500DC3E8C /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99BB1FD31DCD0014678C /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DA0E98F01FD33CEC00DC3E8C /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99C31FD31E0A0014678C /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DA272D3E1FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */; };
 		DA272D3F1FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */; };
 		DA272D401FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */; };
@@ -41,6 +40,9 @@
 		DA272D531FD318DE0043B1F4 /* ResultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3D1FD318DE0043B1F4 /* ResultExtension.swift */; };
 		DA272D541FD318DE0043B1F4 /* ResultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3D1FD318DE0043B1F4 /* ResultExtension.swift */; };
 		DA272D551FD318DE0043B1F4 /* ResultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3D1FD318DE0043B1F4 /* ResultExtension.swift */; };
+		DA6688FA1FD3341C0026C35B /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6688F91FD3341C0026C35B /* NappaSpec.swift */; };
+		DA6688FB1FD3341C0026C35B /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6688F91FD3341C0026C35B /* NappaSpec.swift */; };
+		DA6688FC1FD3341C0026C35B /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6688F91FD3341C0026C35B /* NappaSpec.swift */; };
 		DA6D99B71FD31DA00014678C /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99B61FD31D9C0014678C /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DA6D99B81FD31DA00014678C /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99B51FD31D7B0014678C /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DA6D99B91FD31DA00014678C /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99B41FD31D7B0014678C /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -100,6 +102,7 @@
 			files = (
 				DA6D99BF1FD31DDB0014678C /* Nimble.framework in Embed Frameworks */,
 				DA6D99C01FD31DDB0014678C /* Quick.framework in Embed Frameworks */,
+				DA0E98EF1FD33CE500DC3E8C /* Result.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +115,7 @@
 			files = (
 				DA6D99C51FD31E180014678C /* Nimble.framework in Embed Frameworks */,
 				DA6D99C61FD31E180014678C /* Quick.framework in Embed Frameworks */,
+				DA0E98F01FD33CEC00DC3E8C /* Result.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,13 +135,13 @@
 		3549BB611DA38ADB00C63030 /* NappaTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NappaTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3549BB701DA38AEF00C63030 /* NappaTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NappaTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3549BB7F1DA38B0000C63030 /* NappaTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NappaTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3549BB8A1DA38C0A00C63030 /* NappaSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NappaSpec.swift; sourceTree = "<group>"; };
 		DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPServiceErrors.swift; sourceTree = "<group>"; };
 		DA272D391FD318DE0043B1F4 /* HTTPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
 		DA272D3A1FD318DE0043B1F4 /* HTTPRequestAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestAdapter.swift; sourceTree = "<group>"; };
 		DA272D3B1FD318DE0043B1F4 /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
 		DA272D3C1FD318DE0043B1F4 /* HTTPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
 		DA272D3D1FD318DE0043B1F4 /* ResultExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultExtension.swift; sourceTree = "<group>"; };
+		DA6688F91FD3341C0026C35B /* NappaSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NappaSpec.swift; sourceTree = "<group>"; };
 		DA6D99B41FD31D7B0014678C /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		DA6D99B51FD31D7B0014678C /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DA6D99B61FD31D9C0014678C /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
@@ -246,7 +250,7 @@
 		3549BB191DA3890B00C63030 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				3549BB8A1DA38C0A00C63030 /* NappaSpec.swift */,
+				DA6688F91FD3341C0026C35B /* NappaSpec.swift */,
 				3549BB5B1DA38A8C00C63030 /* Supporting Files */,
 			);
 			path = Tests;
@@ -679,7 +683,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3549BB8B1DA38C0A00C63030 /* NappaSpec.swift in Sources */,
+				DA6688FA1FD3341C0026C35B /* NappaSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,7 +691,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3549BB8D1DA38C0A00C63030 /* NappaSpec.swift in Sources */,
+				DA6688FC1FD3341C0026C35B /* NappaSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,7 +699,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3549BB8C1DA38C0A00C63030 /* NappaSpec.swift in Sources */,
+				DA6688FB1FD3341C0026C35B /* NappaSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
