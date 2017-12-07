@@ -54,8 +54,8 @@ public typealias Headers = [String: String]
 public struct HTTPService {
 
     public struct Configuration {
-        static var urlSessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default
-        static var adapter: HTTPRequestAdapter = DefaultRequestAdapter()
+        public static var urlSessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default
+        public static var adapter: HTTPRequestAdapter = DefaultRequestAdapter()
     }
 
     private var adapter: HTTPRequestAdapter
