@@ -1,19 +1,20 @@
 Pod::Spec.new do |s|
-  s.name         = "Nappa"
-  s.version      = "1.1.1"
-  s.summary      = "Swift Networking Framework."
-  s.description  = <<-DESC
-    Wrapper around URLSession that uses Dependency injection making it easy to test network requests.
-  DESC
-  s.homepage     = "https://github.com/AlTavares/Nappa"
-  s.license      = { :type => "MIT", :file => "LICENSE" }
-  s.author             = { "Alexandre Mantovani Tavares" => "alexandre@live.in" }
-  s.ios.deployment_target = "8.0"
-  s.osx.deployment_target = "10.10"
-  s.watchos.deployment_target = "2.0"
-  s.tvos.deployment_target = "9.0"
-  s.source       = { :git => "https://github.com/AlTavares/Nappa.git", :tag => s.version.to_s }
-  s.source_files  = "Nappa/*.{h,m,swift}"
-  s.frameworks  = "Foundation"
-  s.dependency 'Result', '~> 3.2'
+ s.name = 'Nappa'
+ s.version = '1.1.2'
+ s.license = { :type => "MIT", :file => "LICENSE" }
+ s.summary = 'Wrapper around URLSession that uses Dependency injection making it easy to test network requests.'
+ s.homepage = 'https://github.com/AlTavares/Nappa'
+ s.social_media_url = 'https://twitter.com/al_tavares'
+ s.authors = { "Alexandre Mantovani tavares" => "alexandre@live.in" }
+ s.source = { :git => "https://github.com/Nappa/Nappa.git", :tag => "v"+s.version.to_s }
+ s.platforms = { :ios => "8.0", :osx => "10.10", :tvos => "9.0", :watchos => "2.0" }
+ s.requires_arc = true
+
+ s.default_subspec = "Core"
+ s.subspec "Core" do |ss|
+     ss.source_files  = "Sources/**/*.swift"
+     ss.framework  = "Foundation"
+     ss.dependency 'Result', '~> 3.0.0'
+ end
+
 end

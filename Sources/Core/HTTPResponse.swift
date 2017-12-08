@@ -127,34 +127,28 @@ public struct StringResponse: Response {
     public var result: Result<String, HTTPResponseError> {
         return serializeResponseString()
     }
-
-    ///Serialize string using passed encoding, if none is passed it tries to get the encoding from the server, falling back to the http default
-    public func serializeResponseString(encoding: String.Encoding? = nil) -> Result<String, HTTPResponseError> {
+    
+    public func serializeResponseString(encoding: String.Encoding = String.Encoding.utf8) -> Result<String, HTTPResponseError>
+    {
         guard let response = response else {
             return .failure(.responseNil)
         }
-
+        
         if emptyDataStatusCodes.contains(response.statusCode) { return .success("") }
-
+        
         guard let validData = data else {
             return .failure(.emptyData)
         }
-
-        var convertedEncoding = encoding
-        if let encodingName = response.textEncodingName as CFString?, convertedEncoding == nil {
-            convertedEncoding = String.Encoding(rawValue: CFStringConvertEncodingToNSStringEncoding(
-                CFStringConvertIANACharSetNameToEncoding(encodingName))
-            )
-        }
-
-        let actualEncoding = convertedEncoding ?? String.Encoding.isoLatin1
-        if let string = String(data: validData, encoding: actualEncoding) {
+        
+        if let string = String(data: validData, encoding: encoding) {
             return .success(string)
         } else {
             return .failure(.unableToEncodeString)
         }
     }
+
 }
 
 /// A set of HTTP response status code that do not contain response data.
 private let emptyDataStatusCodes: Set<Int> = [204, 205]
+

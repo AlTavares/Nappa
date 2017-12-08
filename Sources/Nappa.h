@@ -2,8 +2,8 @@
 //  Nappa.h
 //  Nappa
 //
-//  Created by Alexandre Tavares on 19/06/17.
-//  Copyright © 2017 Alexandre Tavares. All rights reserved.
+//  Created by Alexandre Mantovani tavares on 04/10/16.
+//  Copyright © 2017 Nappa. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -15,5 +15,3 @@ FOUNDATION_EXPORT double NappaVersionNumber;
 FOUNDATION_EXPORT const unsigned char NappaVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Nappa/PublicHeader.h>
-
-

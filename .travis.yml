@@ -1,0 +1,71 @@
+language: objective-c
+osx_image: xcode9.1
+before_install:
+  - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
+  - brew update
+  - brew outdated carthage || brew upgrade carthage
+
+env:
+  global:
+  - LC_CTYPE=en_US.UTF-8
+  - LANG=en_US.UTF-8
+  - WORKSPACE=Nappa.xcworkspace
+  - IOS_FRAMEWORK_SCHEME="Nappa-iOS"
+  - OSX_FRAMEWORK_SCHEME="Nappa-macOS"
+  - TVOS_FRAMEWORK_SCHEME="Nappa-tvOS"
+  - WATCHOS_FRAMEWORK_SCHEME="Nappa-watchOS"
+  matrix:
+    - DESTINATION="OS=11.1,name=iPhone X"                   SCHEME="$IOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" PLATFORM="iOS"
+    - DESTINATION="OS=10.3.1,name=iPhone 7 Plus"            SCHEME="$IOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" PLATFORM="iOS"
+    - DESTINATION="OS=9.0,name=iPhone 6"                    SCHEME="$IOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" PLATFORM="iOS"
+    - DESTINATION="OS=8.1,name=iPhone 4s"                   SCHEME="$IOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" PLATFORM="iOS"
+    - DESTINATION="arch=x86_64"                             SCHEME="$OSX_FRAMEWORK_SCHEME"     RUN_TESTS="YES" PLATFORM="macOS"
+    - DESTINATION="OS=11.0,name=Apple TV 1080p"             SCHEME="$TVOS_FRAMEWORK_SCHEME"    RUN_TESTS="YES" PLATFORM="tvOS"
+    - DESTINATION="OS=10.2,name=Apple TV 1080p"             SCHEME="$TVOS_FRAMEWORK_SCHEME"    RUN_TESTS="YES" PLATFORM="tvOS"
+    - DESTINATION="OS=9.0,name=Apple TV 1080p"              SCHEME="$TVOS_FRAMEWORK_SCHEME"    RUN_TESTS="YES" PLATFORM="tvOS"
+    - DESTINATION="OS=4.0,name=Apple Watch Series 2 - 42mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO"  PLATFORM="watchOS"
+    - DESTINATION="OS=3.1,name=Apple Watch Series 2 - 42mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO"  PLATFORM="watchOS"
+    - DESTINATION="OS=2.0,name=Apple Watch - 38mm"          SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO"  PLATFORM="watchOS"
+
+before_script:
+  - sh scripts/bootstrap
+
+script:
+  - set -o pipefail
+  - xcodebuild -version
+  - xcodebuild -showsdks
+
+  # Build Framework in Debug and Run Tests if specified
+  - if [ $RUN_TESTS == "YES" ]; then
+      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c;
+    else
+      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty -c;
+    fi
+
+  # Build Framework in Release and Run Tests if specified
+  - if [ $RUN_TESTS == "YES" ]; then
+      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c;
+    else
+      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty -c;
+    fi
+
+jobs:
+  include:
+    - script: pod lib lint --verbose --allow-warnings
+    - stage: deploy
+      before_deploy: carthage build --no-skip-current --cache-builds && carthage archive Nappa
+      deploy:
+        - provider: releases
+          api_key:
+            secure: heGx1p/kdqW1r3rtlqwm/qFMAy+2j7NoodPtfhCgaAHUtg8rOYffZi8Hw1QSNll15PSLyQBzGbSiG8AQP9Rw02qeQd1tX7Rrob8EqqYF/mPaXP32bb81fROeOgq53xLSWSu4M0nKxL6VwUs4S2ztYR0X++zMhNrNorTaSWzwqU2dyozEpsa6zz65ukfZMwCJ1+25tQpnbt590AbbhH7y9L1AhPgJyKqaCImp9Nc4PgvhcYIm33fGEOOL3enDxe9Uoas1mKVczseT68Jc7UYWwe+2P7lhCTElHqIV7ae6+49XlnpSiPVhI3+aKHvIltWhWpLDCIzMj1SW3WRYvBFGIhYbC6kEw7pStanUiT2R7PTYOjGDqU36Gt27ZypdypbhlSRshZd3Oh3U13saH3SmPPhn+/+j12vxrUGviMg6Hxc3I76+7wozUGoN6JQ8fb0p4sNk4Qijtbp825nH9ISKSUEDRDKN2gk4pTkoiJvHzoZGF6XUpDnLAh9Psxjcg9j9oouuhBENvZPpYV/viHenjCh8xJBcJNTLFanXMSqUh2aL17rK2TsiU+TvizF/IBh12UZ2iK20xvddF20jljmmLzS2Kp53okDN/dpmqTMb/55zMXoURrJeET+2db9r4WacAZIQrg3JC96GSIytNZS7y3Qgd4KgPoouX1zVukwCeb4=
+          file:
+            - Nappa.framework.zip
+          skip_cleanup: true
+          overwrite: true
+          on:
+            repo: Nappa/Nappa
+            tags: true
+        - provider: script
+          script: pod trunk push
+          on:
+            tags: true
