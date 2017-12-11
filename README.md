@@ -1,13 +1,13 @@
 ## Nappa
 
 [![Platforms](https://img.shields.io/cocoapods/p/Nappa.svg)](https://cocoapods.org/pods/Nappa)
-[![License](https://img.shields.io/cocoapods/l/Nappa.svg)](https://raw.githubusercontent.com/Nappa/Nappa/master/LICENSE)
+[![License](https://img.shields.io/cocoapods/l/Nappa.svg)](https://raw.githubusercontent.com/AlTavares/Nappa/master/LICENSE)
 
 [![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/Nappa.svg)](https://cocoapods.org/pods/Nappa)
 
-[![Travis](https://img.shields.io/travis/Nappa/Nappa/master.svg)](https://travis-ci.org/Nappa/Nappa/branches)
+[![Travis](https://img.shields.io/travis/AlTavares/Nappa/master.svg)](https://travis-ci.org/AlTavares/Nappa/branches)
 [![JetpackSwift](https://img.shields.io/badge/JetpackSwift-framework-red.svg)](http://github.com/JetpackSwift/Framework)
 
 Adaptable HTTP client
@@ -39,7 +39,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Nappa', '~> 0.0.1'
+pod 'Nappa', '~> 1.2.0'
 ```
 
 Then, run the following command:
@@ -62,7 +62,7 @@ $ brew install carthage
 To integrate Nappa into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "Nappa/Nappa" ~> 0.0.1
+github "AlTavares/Nappa" ~> 1.2.0
 ```
 ### Swift Package Manager
 
@@ -74,7 +74,7 @@ import PackageDescription
 let package = Package(
     name: "HelloNappa",
     dependencies: [
-        .Package(url: "https://github.com/Nappa/Nappa.git", "0.0.1")
+        .Package(url: "https://github.com/AlTavares/Nappa.git", "1.2.0")
     ]
 )
 ```
@@ -94,7 +94,7 @@ $ git init
 - Add Nappa as a git [submodule](http://git-scm.com/docs/git-submodule) by running the following command:
 
 ```bash
-$ git submodule add https://github.com/Nappa/Nappa.git
+$ git submodule add https://github.com/AlTavares/Nappa.git
 $ git submodule update --init --recursive
 ```
 
@@ -118,7 +118,7 @@ $ git submodule update --init --recursive
 
 #### Embeded Binaries
 
-- Download the latest release from https://github.com/Nappa/Nappa/releases
+- Download the latest release from https://github.com/AlTavares/Nappa/releases
 - Next, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the "Targets" heading in the sidebar.
 - In the tab bar at the top of that window, open the "General" panel.
 - Click on the `+` button under the "Embedded Binaries" section.
@@ -129,4 +129,4 @@ $ git submodule update --init --recursive
 
 ## License
 
-Nappa is released under the MIT license. See [LICENSE](https://github.com/Nappa/Nappa/blob/master/LICENSE) for details.
+Nappa is released under the MIT license. See [LICENSE](https://github.com/AlTavares/Nappa/blob/master/LICENSE) for details.
