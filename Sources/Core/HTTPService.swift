@@ -151,8 +151,8 @@ public struct HTTPRequest {
             return .failure(.invalidUrl(url))
         }
 
-        if parameterEncoding == .url {
-            addQuery(to: &urlComponents, fromParameters: parameters)
+        if parameterEncoding == .url, let params = parameters {
+            urlComponents.queryItems = appendQueryItems(to: urlComponents, usingParameters: params)
         }
 
         guard let requestUrl = urlComponents.url else {
@@ -163,14 +163,10 @@ public struct HTTPRequest {
     }
 
     // MARK: Encoding
-    private func addQuery(to url: inout URLComponents, fromParameters parameters: Parameters?) {
-        guard let parameters = parameters else { return }
-        let queryItems = urlQueryItems(fromDictionary: parameters)
-        if url.queryItems != nil {
-            url.queryItems!.append(contentsOf: queryItems)
-            return
-        }
-        url.queryItems = queryItems
+    private func appendQueryItems(to url: URLComponents, usingParameters parameters: Parameters) -> [URLQueryItem] {
+        var queryItems = url.queryItems ?? [URLQueryItem]()
+        queryItems.append(contentsOf: urlQueryItems(fromDictionary: parameters))
+        return queryItems
     }
 
     private func encodeFormData(parameters: Parameters) -> Data? {
