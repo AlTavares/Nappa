@@ -19,14 +19,14 @@ public extension HTTPRequestAdapter{
     }
 }
 
-public struct DefaultRequestAdapter: HTTPRequestAdapter {
+public struct SimpleRequestAdapter: HTTPRequestAdapter {
     var urlSession: URLSession
-    
+
     public var cookieStorage: HTTPCookieStorage {
         return urlSession.configuration.httpCookieStorage ?? HTTPCookieStorage.shared
     }
 
-    public init(configuration: URLSessionConfiguration = HTTPService.Configuration.urlSessionConfiguration) {
+    public init(configuration: URLSessionConfiguration) {
         self.urlSession = URLSession(configuration: configuration)
     }
 
@@ -45,4 +45,12 @@ public struct DefaultRequestAdapter: HTTPRequestAdapter {
         }
         dataTask.resume()
     }
+}
+
+public var DefaultRequestAdapter: HTTPRequestAdapter {
+    return SimpleRequestAdapter(configuration: .default)
+}
+
+public var EphemeralRequestAdapter: HTTPRequestAdapter {
+    return SimpleRequestAdapter(configuration: .ephemeral)
 }

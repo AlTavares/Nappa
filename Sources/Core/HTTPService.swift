@@ -52,15 +52,9 @@ public typealias Parameters = [String: Any]
 public typealias Headers = [String: String]
 
 public struct HTTPService {
-
-    public struct Configuration {
-        public static var urlSessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default
-        public static var adapter: HTTPRequestAdapter = DefaultRequestAdapter()
-    }
-
     public let adapter: HTTPRequestAdapter
 
-    public init(adapter: HTTPRequestAdapter = Configuration.adapter) {
+    public init(adapter: HTTPRequestAdapter = DefaultRequestAdapter) {
         self.adapter = adapter
     }
 
