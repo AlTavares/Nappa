@@ -58,7 +58,7 @@ public struct HTTPService {
         public static var adapter: HTTPRequestAdapter = DefaultRequestAdapter()
     }
 
-    private var adapter: HTTPRequestAdapter
+    public let adapter: HTTPRequestAdapter
 
     public init(adapter: HTTPRequestAdapter = Configuration.adapter) {
         self.adapter = adapter
@@ -77,7 +77,24 @@ public struct HTTPRequest {
     public let method: HTTPMethod
     public let url: String
     public let parameters: Parameters?
-    public let bodyData: Data?
+    private let _body: Data?
+    public var body: Data? {
+        if _body != nil {
+            return _body
+        }
+        if let params = parameters {
+            switch parameterEncoding {
+            case .form:
+                return encodeFormData(parameters: params)
+            case .json:
+                return try? JSONSerialization.data(withJSONObject: params)
+            default:
+                return nil
+            }
+        }
+        return nil
+    }
+
     public let headers: Headers?
     public let parameterEncoding: ParameterEncoding
     let adapter: HTTPRequestAdapter
@@ -86,7 +103,7 @@ public struct HTTPRequest {
         self.method = method
         self.url = url
         self.parameters = parameters
-        self.bodyData = data
+        _body = data
         self.headers = headers
         self.parameterEncoding = parameterEncoding ?? ParameterEncoding(method: method)
         self.adapter = adapter
@@ -101,40 +118,18 @@ public struct HTTPRequest {
 
     public func response(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (DataResponse) -> Void) {
 
-        guard var url = URLComponents(string: self.url) else {
-            completionHandler(DataResponse(error: .invalidUrl(self.url)))
-            return
+        var request: URLRequest
+        switch buildRequest(forUrl: url) {
+        case .success(let urlRequest):
+            request = urlRequest
+        case .failure(let error):
+            return completionHandler(DataResponse(error: error))
         }
 
-        var httpBody: Data?
-        if let params = parameters {
-            switch parameterEncoding {
-            case .form:
-                httpBody = encodeFormData(parameters: params)
-            case .json:
-                do {
-                    httpBody = try JSONSerialization.data(withJSONObject: params)
-                } catch {
-                    completionHandler(DataResponse(error: .other(error)))
-                    return
-                }
-            case .url:
-                addQuery(to: &url, fromParameters: parameters)
-            default:
-                break
-            }
-        }
-
-        guard let requestUrl = url.url else {
-            completionHandler(DataResponse(error: .invalidUrl(String(describing: url.url))))
-            return
-        }
-
-        var request = URLRequest(url: requestUrl)
         request.httpMethod = method.rawValue
         var headerFields = headers ?? Headers()
 
-        request.httpBody = bodyData ?? httpBody
+        request.httpBody = body
         if request.httpBody != nil && headerFields["Content-Type"] == nil {
             headerFields["Content-Type"] = parameterEncoding.contentType
         }
@@ -153,6 +148,24 @@ public struct HTTPRequest {
         response(queue: queue) { dataResponse in
             completionHandler(StringResponse(response: dataResponse))
         }
+    }
+
+    // MARK: Request
+
+    private func buildRequest(forUrl: String) -> Result<URLRequest, HTTPServiceError> {
+        guard var urlComponents = URLComponents(string: url) else {
+            return .failure(.invalidUrl(url))
+        }
+
+        if parameterEncoding == .url {
+            addQuery(to: &urlComponents, fromParameters: parameters)
+        }
+
+        guard let requestUrl = urlComponents.url else {
+            return .failure(.invalidUrl(String(describing: urlComponents.url)))
+        }
+
+        return .success(URLRequest(url: requestUrl))
     }
 
     // MARK: Encoding
