@@ -19,7 +19,7 @@ public extension HTTPRequestAdapter{
     }
 }
 
-struct DefaultRequestAdapter: HTTPRequestAdapter {
+public struct DefaultRequestAdapter: HTTPRequestAdapter {
     var urlSession: URLSession
     
     public var cookieStorage: HTTPCookieStorage {
@@ -30,7 +30,7 @@ struct DefaultRequestAdapter: HTTPRequestAdapter {
         self.urlSession = URLSession(configuration: configuration)
     }
 
-    func performRequest(request: URLRequest, queue: DispatchQueue, completionHandler: @escaping (DataResponse) -> Void) {
+    public func performRequest(request: URLRequest, queue: DispatchQueue, completionHandler: @escaping (DataResponse) -> Void) {
 
         let dataTask = urlSession.dataTask(with: request) { (data, response, error) in
             if let httpResponse = response as? HTTPURLResponse, error == nil {
