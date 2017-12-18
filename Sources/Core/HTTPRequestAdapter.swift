@@ -10,10 +10,10 @@ import Foundation
 import Result
 
 public protocol HTTPRequestAdapter {
-    func performRequest(request: URLRequest, queue: DispatchQueue, completionHandler: @escaping (DataResponse) -> Void)
+    func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void)
 }
 
-public extension HTTPRequestAdapter{
+public extension HTTPRequestAdapter {
     public var cookieStorage: HTTPCookieStorage {
         return HTTPCookieStorage.shared
     }
@@ -23,25 +23,22 @@ public struct SimpleRequestAdapter: HTTPRequestAdapter {
     var urlSession: URLSession
 
     public var cookieStorage: HTTPCookieStorage {
-        return urlSession.configuration.httpCookieStorage ?? HTTPCookieStorage.shared
+        return self.urlSession.configuration.httpCookieStorage ?? HTTPCookieStorage.shared
     }
 
     public init(configuration: URLSessionConfiguration) {
         self.urlSession = URLSession(configuration: configuration)
     }
 
-    public func performRequest(request: URLRequest, queue: DispatchQueue, completionHandler: @escaping (DataResponse) -> Void) {
+    public func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void) {
 
-        let dataTask = urlSession.dataTask(with: request) { (data, response, error) in
-            if let httpResponse = response as? HTTPURLResponse, error == nil {
-                queue.async {
-                    completionHandler(DataResponse(request: request, response: httpResponse, data: data))
-                }
-                return
+        let dataTask = urlSession.dataTask(with: request) { data, response, error in
+            if let error = error {
+                return completionHandler(DataResponse(error: .other(error)))
             }
-            queue.async {
-                completionHandler(DataResponse(error: .other(error!)))
-            }
+            let httpResponse = response as? HTTPURLResponse
+            return completionHandler(DataResponse(request: request, response: httpResponse, data: data))
+
         }
         dataTask.resume()
     }

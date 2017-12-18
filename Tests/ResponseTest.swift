@@ -20,7 +20,7 @@ class ResponseTest: QuickSpec {
         describe("a response object") {
             it("should decode the data into a valid data") {
                 waitUntil { done in
-                    request.response { dataResponse in
+                    request.responseData { dataResponse in
                         expect(dataResponse.result.isSuccess) == true
                         expect(dataResponse.result.value) == TestData.jsonData
                         done()
@@ -59,7 +59,7 @@ class ResponseTest: QuickSpec {
 
 }
 
-fileprivate struct TestObject: Codable, Equatable {
+struct TestObject: Codable, Equatable {
     var propertyOne: String
     var propertyTwo: String
 
@@ -79,7 +79,7 @@ fileprivate struct FakeRequestAdapter: HTTPRequestAdapter {
 
     var data: Data
 
-    func performRequest(request: URLRequest, queue: DispatchQueue, completionHandler: @escaping (DataResponse) -> Void) {
+    func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void) {
 
         let response = HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)!
         let dataResponse = DataResponse(request: request, response: response, data: data, error: nil)
@@ -88,7 +88,7 @@ fileprivate struct FakeRequestAdapter: HTTPRequestAdapter {
     }
 }
 
-fileprivate struct TestData {
+struct TestData {
     static let jsonString = """
     {
         "property_one" : "value one",

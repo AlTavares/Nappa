@@ -25,6 +25,16 @@ class NappaSpec: QuickSpec {
                 self.test(url: urlString, method: .delete, withEncoding: .url, params: Stubs.nestedParams, expectedParams: Stubs.expectedNestedParams)
             }
             context("when calling an endpoint using POST") {
+                it("returns valid data with encoded params") {
+                    let urlString = testHost + "/post"
+                    let service = HTTPService()
+                    waitUntil(timeout: 5) { done in
+                        service.request(method: .post, url: urlString, parameters: TestData.expectedObject).responseObject(keyPath: "json") { (response: ObjectResponse<TestObject>) in
+                            expect(response.result.value) == TestData.expectedObject
+                            done()
+                        }
+                    }
+                }
                 it("returns valid data with JSON content type") {
                     let urlString = testHost + "/post"
                     self.test(url: urlString, method: .post, withEncoding: .json, params: Stubs.nestedParams, expectedParams: Stubs.nestedParams)
