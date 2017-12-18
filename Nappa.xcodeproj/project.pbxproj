@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24C480651FE46F080074F0F3 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C480641FE46F080074F0F3 /* ResponseTest.swift */; };
+		24C480661FE46F080074F0F3 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C480641FE46F080074F0F3 /* ResponseTest.swift */; };
+		24C480671FE46F080074F0F3 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C480641FE46F080074F0F3 /* ResponseTest.swift */; };
 		3549BB501DA38A2000C63030 /* Nappa.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* Nappa.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3549BB511DA38A2000C63030 /* Nappa.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* Nappa.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3549BB521DA38A2100C63030 /* Nappa.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* Nappa.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -123,6 +126,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		24C480641FE46F080074F0F3 /* ResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTest.swift; sourceTree = "<group>"; };
 		3549BB171DA3890B00C63030 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3549BB181DA3890B00C63030 /* Nappa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nappa.h; sourceTree = "<group>"; };
 		3549BB211DA389CD00C63030 /* Nappa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nappa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				DA6688F91FD3341C0026C35B /* NappaSpec.swift */,
+				24C480641FE46F080074F0F3 /* ResponseTest.swift */,
 				3549BB5B1DA38A8C00C63030 /* Supporting Files */,
 			);
 			path = Tests;
@@ -684,6 +689,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA6688FA1FD3341C0026C35B /* NappaSpec.swift in Sources */,
+				24C480651FE46F080074F0F3 /* ResponseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,6 +698,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA6688FC1FD3341C0026C35B /* NappaSpec.swift in Sources */,
+				24C480671FE46F080074F0F3 /* ResponseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +707,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA6688FB1FD3341C0026C35B /* NappaSpec.swift in Sources */,
+				24C480661FE46F080074F0F3 /* ResponseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,9 +4,9 @@ import Nimble
 import Result
 @testable import Nappa
 
+let testHost = "https://httpbin.org"
 class NappaSpec: QuickSpec {
     override func spec() {
-        let testHost = "https://httpbin.org"
         describe("A network request") {
             it("calls an endpoint and returns valid data using GET") {
                 let urlString = testHost + "/get"

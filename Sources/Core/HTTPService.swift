@@ -110,6 +110,8 @@ public struct HTTPRequest {
         }
     }
 
+    // MARK: Response
+
     public func response(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (DataResponse) -> Void) {
 
         var request: URLRequest
@@ -141,6 +143,12 @@ public struct HTTPRequest {
     public func responseString(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (StringResponse) -> Void) {
         response(queue: queue) { dataResponse in
             completionHandler(StringResponse(response: dataResponse))
+        }
+    }
+
+    public func responseObject<Value>(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (ObjectResponse<Value>) -> Void) {
+        response(queue: queue) { dataResponse in
+            completionHandler(ObjectResponse(response: dataResponse))
         }
     }
 

@@ -27,6 +27,9 @@ public protocol Response: CustomStringConvertible, CustomDebugStringConvertible 
     var error: HTTPServiceError? { get set }
 
     init()
+
+    // Method to decode the result
+    func decodeResult() -> Result<Value, HTTPResponseError>
 }
 
 public extension Response {
@@ -58,24 +61,18 @@ public extension Response {
         self.error = error
     }
 
-    public init<SomeResponse:Response>(response: SomeResponse) {
+    public init<SomeResponse: Response>(response: SomeResponse) {
         self.init(request: response.request, response: response.response, data: response.data, error: response.error)
     }
-}
 
-public struct DataResponse: Response {
-    public var request: URLRequest?
-    public var response: HTTPURLResponse?
-    public var data: Data?
-    public var error: HTTPServiceError?
-
-    public init(){}
-
-    public var result: Result<Data, HTTPResponseError> {
-        return serializeResponseData()
+    public var result: Result<Value, HTTPResponseError> {
+        if let error = error {
+            return .failure(.serviceError(error))
+        }
+        return decodeResult()
     }
 
-    public func serializeResponseData() -> Result<Data, HTTPResponseError> {
+    fileprivate func decodeData() -> Result<Data, HTTPResponseError> {
         guard let response = response else {
             return .failure(.responseNil)
         }
@@ -90,28 +87,46 @@ public struct DataResponse: Response {
     }
 }
 
+public struct DataResponse: Response {
+    public var request: URLRequest?
+    public var response: HTTPURLResponse?
+    public var data: Data?
+    public var error: HTTPServiceError?
+
+    public init() {}
+
+    public func decodeResult() -> Result<Data, HTTPResponseError> {
+        return decodeData()
+    }
+}
+
 public struct JSONResponse: Response {
     public var request: URLRequest?
     public var response: HTTPURLResponse?
     public var data: Data?
     public var error: HTTPServiceError?
 
-    public init(){}
+    public init() {}
 
-    public var result: Result<Any, HTTPResponseError> {
-        return serializeResponseJSON()
+    public func decodeResult() -> Result<Any, HTTPResponseError> {
+        return decodeResult(options: .allowFragments)
     }
 
-    public func serializeResponseJSON(options: JSONSerialization.ReadingOptions = .allowFragments) -> Result<Any, HTTPResponseError> {
+    public func decodeResult(options: JSONSerialization.ReadingOptions) -> Result<Any, HTTPResponseError> {
 
-        guard let validData = data, validData.count > 0 else {
-            return .failure(.emptyData)
+        let validData: Data
+        switch decodeData() {
+        case .success(let data):
+            validData = data
+        case .failure(let error):
+            return .failure(error)
         }
+
         do {
             let json = try JSONSerialization.jsonObject(with: validData, options: options)
             return .success(json)
         } catch {
-            return .failure(.jsonSerialization(error))
+            return .failure(.unableToDecodeJSON(error))
         }
     }
 }
@@ -122,33 +137,58 @@ public struct StringResponse: Response {
     public var data: Data?
     public var error: HTTPServiceError?
 
-    public init(){}
+    public init() {}
 
-    public var result: Result<String, HTTPResponseError> {
-        return serializeResponseString()
+    public func decodeResult() -> Result<String, HTTPResponseError> {
+        return decodeResult(encoding: String.Encoding.utf8)
     }
-    
-    public func serializeResponseString(encoding: String.Encoding = String.Encoding.utf8) -> Result<String, HTTPResponseError>
-    {
-        guard let response = response else {
-            return .failure(.responseNil)
+
+    public func decodeResult(encoding: String.Encoding) -> Result<String, HTTPResponseError> {
+        let validData: Data
+        switch decodeData() {
+        case .success(let data):
+            validData = data
+        case .failure(let error):
+            return .failure(error)
         }
-        
-        if emptyDataStatusCodes.contains(response.statusCode) { return .success("") }
-        
-        guard let validData = data else {
-            return .failure(.emptyData)
-        }
-        
+
         if let string = String(data: validData, encoding: encoding) {
             return .success(string)
         } else {
-            return .failure(.unableToEncodeString)
+            return .failure(.unableToDecodeString)
         }
     }
 
 }
 
+public struct ObjectResponse<Value: Decodable>: Response {
+    public var request: URLRequest?
+    public var response: HTTPURLResponse?
+    public var data: Data?
+    public var error: HTTPServiceError?
+
+    public init() {}
+
+    public func decodeResult() -> Result<Value, HTTPResponseError> {
+        return decodeResult(decoder: JSONDecoder())
+    }
+
+    public func decodeResult(decoder: JSONDecoder) -> Result<Value, HTTPResponseError> {
+        let validData: Data
+        switch decodeData() {
+        case .success(let data):
+            validData = data
+        case .failure(let error):
+            return .failure(error)
+        }
+        do {
+            let result = try decoder.decode(Value.self, from: validData)
+            return .success(result)
+        } catch {
+            return .failure(.unableToDecodeJSON(error))
+        }
+    }
+}
+
 /// A set of HTTP response status code that do not contain response data.
 private let emptyDataStatusCodes: Set<Int> = [204, 205]
-

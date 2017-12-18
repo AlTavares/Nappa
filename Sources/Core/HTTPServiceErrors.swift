@@ -16,6 +16,7 @@ public enum HTTPServiceError: Error {
 public enum HTTPResponseError: Error {
     case emptyData
     case responseNil
-    case jsonSerialization(Error)
-    case unableToEncodeString
+    case unableToDecodeJSON(Error)
+    case unableToDecodeString
+    case serviceError(HTTPServiceError)
 }
