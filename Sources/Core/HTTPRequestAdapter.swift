@@ -10,6 +10,7 @@ import Foundation
 import Result
 
 public protocol HTTPRequestAdapter {
+    var cookieStorage: HTTPCookieStorage { get }
     func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void)
 }
 
