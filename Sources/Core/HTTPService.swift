@@ -115,7 +115,7 @@ public struct HTTPRequest {
 
     /// Only performs the request and doesn' call back
     public func perform(queue: DispatchQueue = DispatchQueue.main) {
-        responseData(queue: queue) { response in
+        response { response in
             print(response)
         }
     }
