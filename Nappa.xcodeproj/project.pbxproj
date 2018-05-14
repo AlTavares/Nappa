@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24AA0EE320AA0D5D00152D9F /* ErrorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0EE220AA0D5D00152D9F /* ErrorsTest.swift */; };
+		24AA0EE420AA0D5D00152D9F /* ErrorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0EE220AA0D5D00152D9F /* ErrorsTest.swift */; };
+		24AA0EE520AA0D5D00152D9F /* ErrorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0EE220AA0D5D00152D9F /* ErrorsTest.swift */; };
 		24C480651FE46F080074F0F3 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C480641FE46F080074F0F3 /* ResponseTest.swift */; };
 		24C480661FE46F080074F0F3 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C480641FE46F080074F0F3 /* ResponseTest.swift */; };
 		24C480671FE46F080074F0F3 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C480641FE46F080074F0F3 /* ResponseTest.swift */; };
@@ -126,6 +129,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		24AA0EE220AA0D5D00152D9F /* ErrorsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsTest.swift; sourceTree = "<group>"; };
 		24C480641FE46F080074F0F3 /* ResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTest.swift; sourceTree = "<group>"; };
 		3549BB171DA3890B00C63030 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3549BB181DA3890B00C63030 /* Nappa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nappa.h; sourceTree = "<group>"; };
@@ -256,6 +260,7 @@
 			children = (
 				DA6688F91FD3341C0026C35B /* NappaSpec.swift */,
 				24C480641FE46F080074F0F3 /* ResponseTest.swift */,
+				24AA0EE220AA0D5D00152D9F /* ErrorsTest.swift */,
 				3549BB5B1DA38A8C00C63030 /* Supporting Files */,
 			);
 			path = Tests;
@@ -690,6 +695,7 @@
 			files = (
 				DA6688FA1FD3341C0026C35B /* NappaSpec.swift in Sources */,
 				24C480651FE46F080074F0F3 /* ResponseTest.swift in Sources */,
+				24AA0EE320AA0D5D00152D9F /* ErrorsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,6 +705,7 @@
 			files = (
 				DA6688FC1FD3341C0026C35B /* NappaSpec.swift in Sources */,
 				24C480671FE46F080074F0F3 /* ResponseTest.swift in Sources */,
+				24AA0EE520AA0D5D00152D9F /* ErrorsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +715,7 @@
 			files = (
 				DA6688FB1FD3341C0026C35B /* NappaSpec.swift in Sources */,
 				24C480661FE46F080074F0F3 /* ResponseTest.swift in Sources */,
+				24AA0EE420AA0D5D00152D9F /* ErrorsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@ import Foundation
 
 public enum HTTPServiceError: Error, CustomStringConvertible {
     case invalidUrl(String)
+    case networkError(CFNetworkErrors)
     case other(Error)
 
     public var localizedDescription: String {
@@ -17,26 +18,29 @@ public enum HTTPServiceError: Error, CustomStringConvertible {
     }
 
     public var description: String {
-        switch self{
+        switch self {
         case .invalidUrl(let url):
             return "Invalid URL: \(url)"
+        case .networkError(let error):
+            return "Network error: \(error.rawValue)"
         case .other(let error):
             return "Unexpected error, caused by: \(error.localizedDescription)"
         }
     }
+
 }
 
 public enum HTTPResponseError: Error, CustomStringConvertible {
     case emptyData
     case responseNil
-    case unableToDecodeJSON(Error)
     case unableToDecodeString
+    case unableToDecodeJSON(Error)
     case serviceError(HTTPServiceError)
 
     public var localizedDescription: String {
         return description
     }
-    
+
     public var description: String {
         switch self {
         case .emptyData:
