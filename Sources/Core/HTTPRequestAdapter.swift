@@ -10,39 +10,45 @@ import Foundation
 import Result
 
 public protocol HTTPRequestAdapter {
-    func performRequest(request: URLRequest, queue: DispatchQueue, completionHandler: @escaping (DataResponse) -> Void)
+    var cookieStorage: HTTPCookieStorage { get }
+    func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void)
 }
 
-public extension HTTPRequestAdapter{
+public extension HTTPRequestAdapter {
     public var cookieStorage: HTTPCookieStorage {
         return HTTPCookieStorage.shared
     }
 }
 
-struct DefaultRequestAdapter: HTTPRequestAdapter {
+public struct SimpleRequestAdapter: HTTPRequestAdapter {
     var urlSession: URLSession
-    
+
     public var cookieStorage: HTTPCookieStorage {
-        return urlSession.configuration.httpCookieStorage ?? HTTPCookieStorage.shared
+        return self.urlSession.configuration.httpCookieStorage ?? HTTPCookieStorage.shared
     }
 
-    public init(configuration: URLSessionConfiguration = HTTPService.Configuration.urlSessionConfiguration) {
+    public init(configuration: URLSessionConfiguration) {
         self.urlSession = URLSession(configuration: configuration)
     }
 
-    func performRequest(request: URLRequest, queue: DispatchQueue, completionHandler: @escaping (DataResponse) -> Void) {
+    public func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void) {
 
-        let dataTask = urlSession.dataTask(with: request) { (data, response, error) in
-            if let httpResponse = response as? HTTPURLResponse, error == nil {
-                queue.async {
-                    completionHandler(DataResponse(request: request, response: httpResponse, data: data))
-                }
-                return
+        let dataTask = urlSession.dataTask(with: request) { data, response, error in
+            if let error = error {
+                return completionHandler(DataResponse(error: .other(error)))
             }
-            queue.async {
-                completionHandler(DataResponse(error: .other(error!)))
-            }
+            let httpResponse = response as? HTTPURLResponse
+            return completionHandler(DataResponse(request: request, response: httpResponse, data: data))
+
         }
         dataTask.resume()
     }
+}
+
+public var DefaultRequestAdapter: HTTPRequestAdapter {
+    return SimpleRequestAdapter(configuration: .default)
+}
+
+public var EphemeralRequestAdapter: HTTPRequestAdapter {
+    return SimpleRequestAdapter(configuration: .ephemeral)
 }
