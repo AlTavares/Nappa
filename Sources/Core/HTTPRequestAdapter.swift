@@ -35,15 +35,7 @@ public struct SimpleRequestAdapter: HTTPRequestAdapter {
 
         let dataTask = urlSession.dataTask(with: request) { data, response, error in
             if let error = error {
-                let errorCode = (error as NSError).code
-                var response = DataResponse()
-                if let networkError = CFNetworkErrors(rawValue: Int32(errorCode)) {
-                    response.error = .networkError(networkError)
-                } else {
-                    response.error = .other(error)
-                }
-
-                return completionHandler(response)
+                return completionHandler(DataResponse(error: .other(error)))
             }
             let httpResponse = response as? HTTPURLResponse
             return completionHandler(DataResponse(request: request, response: httpResponse, data: data))

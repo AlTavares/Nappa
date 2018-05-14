@@ -10,7 +10,6 @@ import Foundation
 
 public enum HTTPServiceError: Error, CustomStringConvertible {
     case invalidUrl(String)
-    case networkError(CFNetworkErrors)
     case other(Error)
 
     public var localizedDescription: String {
@@ -21,8 +20,6 @@ public enum HTTPServiceError: Error, CustomStringConvertible {
         switch self {
         case .invalidUrl(let url):
             return "Invalid URL: \(url)"
-        case .networkError(let error):
-            return "Network error: \(error.rawValue)"
         case .other(let error):
             return "Unexpected error, caused by: \(error.localizedDescription)"
         }

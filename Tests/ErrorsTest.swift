@@ -14,7 +14,7 @@ import Nimble
 class ErrorsTest: QuickSpec {
 
     override func spec() {
-        let service = HTTPService(adapter: adapter)
+        let service = HTTPService()
         describe("a request with errors") {
             it("should return error for invalid url") {
                 waitUntil { done in
@@ -32,30 +32,7 @@ class ErrorsTest: QuickSpec {
                         })
                 }
             }
-            it("should return error for timeout") {
-                waitUntil { done in
-                    let url = "http://google.com:81/"
-                    service.request(method: .get, url: url)
-                        .responseData(completionHandler: { response in
-                            expect(response.error).toNot(beNil())
-                            switch response.error! {
-                            case .networkError(let cfNetworkError):
-                                expect(cfNetworkError) == CFNetworkErrors.cfurlErrorTimedOut
-                            default:
-                                fail("Error different than expected. Got \(response.error!), expected \(HTTPServiceError.networkError(CFNetworkErrors.cfurlErrorTimedOut))")
-                            }
-                            done()
-                        })
-                }
-            }
         }
-    }
-
-    var adapter: HTTPRequestAdapter {
-        let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 0.1
-        configuration.timeoutIntervalForResource = 0.1
-        return SimpleRequestAdapter(configuration: configuration)
     }
 
 }
