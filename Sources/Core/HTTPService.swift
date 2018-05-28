@@ -183,11 +183,11 @@ public struct HTTPRequest {
 
     private func jsonData(json: Any, fromKeyPath keypathString: String) -> Data? {
         let keypath = keypathString.components(separatedBy: ".")
-        guard var json = json as? [String: Any] else { return nil }
-
+        var json = json
         for key in keypath {
-            guard let subjson = json[key] as? [String : Any] else { break }
-            json = subjson
+            if let subjson = json as? [String: Any] {
+                json = subjson[key]
+            }
         }
         return try? JSONSerialization.data(withJSONObject: json)
     }
