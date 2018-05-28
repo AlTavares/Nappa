@@ -22,6 +22,7 @@
 		3549BB841DA38B0000C63030 /* Nappa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB3B1DA389E800C63030 /* Nappa.framework */; };
 		DA0E98EF1FD33CE500DC3E8C /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99BB1FD31DCD0014678C /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DA0E98F01FD33CEC00DC3E8C /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99C31FD31E0A0014678C /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DA2674AF20BC637400E5A94D /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2674AE20BC637400E5A94D /* URLRequestExtension.swift */; };
 		DA272D3E1FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */; };
 		DA272D3F1FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */; };
 		DA272D401FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */; };
@@ -143,6 +144,7 @@
 		3549BB611DA38ADB00C63030 /* NappaTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NappaTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3549BB701DA38AEF00C63030 /* NappaTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NappaTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3549BB7F1DA38B0000C63030 /* NappaTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NappaTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA2674AE20BC637400E5A94D /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
 		DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPServiceErrors.swift; sourceTree = "<group>"; };
 		DA272D391FD318DE0043B1F4 /* HTTPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
 		DA272D3A1FD318DE0043B1F4 /* HTTPRequestAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestAdapter.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				DA272D391FD318DE0043B1F4 /* HTTPService.swift */,
 				DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */,
 				DA272D3D1FD318DE0043B1F4 /* ResultExtension.swift */,
+				DA2674AE20BC637400E5A94D /* URLRequestExtension.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				DA272D461FD318DE0043B1F4 /* HTTPRequestAdapter.swift in Sources */,
 				DA272D4A1FD318DE0043B1F4 /* DispatchQueueExtension.swift in Sources */,
 				DA272D4E1FD318DE0043B1F4 /* HTTPResponse.swift in Sources */,
+				DA2674AF20BC637400E5A94D /* URLRequestExtension.swift in Sources */,
 				DA272D3E1FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */,
 				DA272D421FD318DE0043B1F4 /* HTTPService.swift in Sources */,
 			);
