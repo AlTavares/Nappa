@@ -58,20 +58,20 @@ public struct HTTPService {
         self.adapter = adapter
     }
 
-    public func request(method: HTTPMethod, url: String, parameters: Parameters, headers: [String: String]? = nil, parameterEncoding: ParameterEncoding? = nil) -> HTTPRequest {
+    public func request(method: HTTPMethod, url: String, parameters: Parameters, headers: Headers? = nil, parameterEncoding: ParameterEncoding? = nil) -> HTTPRequest {
         return HTTPRequest(method: method, url: url, parameters: parameters, headers: headers, parameterEncoding: parameterEncoding, adapter: adapter)
     }
 
-    public func request<T: Encodable>(method: HTTPMethod, url: String, parameters object: T, headers: [String: String]? = nil, parameterEncoding: ParameterEncoding? = nil, encoder: JSONEncoder = JSONEncoder()) -> HTTPRequest {
+    public func request<T: Encodable>(method: HTTPMethod, url: String, object: T, headers: Headers? = nil, parameterEncoding: ParameterEncoding? = nil, encoder: JSONEncoder = JSONEncoder()) -> HTTPRequest {
         let data = try? encoder.encode(object)
         return HTTPRequest(method: method, url: url, data: data, headers: headers, parameterEncoding: parameterEncoding, adapter: adapter)
     }
 
-    public func request(method: HTTPMethod, url: String, parameters data: Data, headers: [String: String]? = nil, parameterEncoding: ParameterEncoding? = nil) -> HTTPRequest {
+    public func request(method: HTTPMethod, url: String, data: Data, headers: Headers? = nil, parameterEncoding: ParameterEncoding? = nil) -> HTTPRequest {
         return HTTPRequest(method: method, url: url, data: data, headers: headers, parameterEncoding: parameterEncoding, adapter: adapter)
     }
 
-    public func request(method: HTTPMethod, url: String, headers: [String: String]? = nil, parameterEncoding: ParameterEncoding? = nil) -> HTTPRequest {
+    public func request(method: HTTPMethod, url: String, headers: Headers? = nil, parameterEncoding: ParameterEncoding? = nil) -> HTTPRequest {
         return HTTPRequest(method: method, url: url, headers: headers, parameterEncoding: parameterEncoding, adapter: adapter)
     }
 
@@ -103,7 +103,7 @@ public struct HTTPRequest {
     public let parameterEncoding: ParameterEncoding
     let adapter: HTTPRequestAdapter
 
-    fileprivate init(method: HTTPMethod, url: String, parameters: Parameters? = nil, data: Data? = nil, headers: [String: String]? = nil, parameterEncoding: ParameterEncoding? = nil, adapter: HTTPRequestAdapter) {
+    fileprivate init(method: HTTPMethod, url: String, parameters: Parameters? = nil, data: Data? = nil, headers: Headers? = nil, parameterEncoding: ParameterEncoding? = nil, adapter: HTTPRequestAdapter) {
         self.method = method
         self.url = url
         self.parameters = parameters

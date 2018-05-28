@@ -29,9 +29,10 @@ class NappaSpec: QuickSpec {
                     let urlString = testHost + "/post"
                     let service = HTTPService()
                     waitUntil(timeout: 5) { done in
-                        service.request(method: .post, url: urlString, parameters: TestData.expectedObject).responseObject(keyPath: "json") { (response: ObjectResponse<TestObject>) in
-                            expect(response.result.value) == TestData.expectedObject
-                            done()
+                        service.request(method: .post, url: urlString, object: TestData.expectedObject)
+                            .responseObject(keyPath: "json") { (response: ObjectResponse<TestObject>) in
+                                expect(response.result.value) == TestData.expectedObject
+                                done()
                         }
                     }
                 }
