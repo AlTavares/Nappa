@@ -1,6 +1,6 @@
 //credits to https://gist.github.com/shaps80/ba6a1e2d477af0383e8f19b87f53661d
 
-extension URLRequest {
+public extension URLRequest {
     
     /**
      Returns a cURL command representation of this URL request.
