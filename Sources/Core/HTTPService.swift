@@ -186,7 +186,7 @@ public struct HTTPRequest {
         var json = json
         for key in keypath {
             if let subjson = json as? [String: Any] {
-                json = subjson[key]
+                json = subjson[key] as Any
             }
         }
         return try? JSONSerialization.data(withJSONObject: json)
