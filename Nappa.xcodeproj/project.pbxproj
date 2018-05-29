@@ -61,6 +61,13 @@
 		DA6D99C51FD31E180014678C /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99C11FD31E0A0014678C /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DA6D99C61FD31E180014678C /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99C21FD31E0A0014678C /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DA6D99C81FD31E270014678C /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99C71FD31E220014678C /* Result.framework */; };
+		DAB872BF20BCB86F00133869 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2674AE20BC637400E5A94D /* URLRequestExtension.swift */; };
+		DAB872C020BCB87000133869 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2674AE20BC637400E5A94D /* URLRequestExtension.swift */; };
+		DAB872C120BCB87000133869 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2674AE20BC637400E5A94D /* URLRequestExtension.swift */; };
+		DAB872C320BCC9F400133869 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB872C220BCC9F400133869 /* AnyEncodable.swift */; };
+		DAB872C420BCC9F400133869 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB872C220BCC9F400133869 /* AnyEncodable.swift */; };
+		DAB872C520BCC9F400133869 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB872C220BCC9F400133869 /* AnyEncodable.swift */; };
+		DAB872C620BCC9F400133869 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB872C220BCC9F400133869 /* AnyEncodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +169,7 @@
 		DA6D99C21FD31E0A0014678C /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/tvOS/Quick.framework; sourceTree = "<group>"; };
 		DA6D99C31FD31E0A0014678C /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/tvOS/Result.framework; sourceTree = "<group>"; };
 		DA6D99C71FD31E220014678C /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/watchOS/Result.framework; sourceTree = "<group>"; };
+		DAB872C220BCC9F400133869 /* AnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +316,7 @@
 				DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */,
 				DA272D3D1FD318DE0043B1F4 /* ResultExtension.swift */,
 				DA2674AE20BC637400E5A94D /* URLRequestExtension.swift */,
+				DAB872C220BCC9F400133869 /* AnyEncodable.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -648,6 +657,7 @@
 				DA272D461FD318DE0043B1F4 /* HTTPRequestAdapter.swift in Sources */,
 				DA272D4A1FD318DE0043B1F4 /* DispatchQueueExtension.swift in Sources */,
 				DA272D4E1FD318DE0043B1F4 /* HTTPResponse.swift in Sources */,
+				DAB872C320BCC9F400133869 /* AnyEncodable.swift in Sources */,
 				DA2674AF20BC637400E5A94D /* URLRequestExtension.swift in Sources */,
 				DA272D3E1FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */,
 				DA272D421FD318DE0043B1F4 /* HTTPService.swift in Sources */,
@@ -662,6 +672,8 @@
 				DA272D491FD318DE0043B1F4 /* HTTPRequestAdapter.swift in Sources */,
 				DA272D4D1FD318DE0043B1F4 /* DispatchQueueExtension.swift in Sources */,
 				DA272D511FD318DE0043B1F4 /* HTTPResponse.swift in Sources */,
+				DAB872C620BCC9F400133869 /* AnyEncodable.swift in Sources */,
+				DAB872C120BCB87000133869 /* URLRequestExtension.swift in Sources */,
 				DA272D411FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */,
 				DA272D451FD318DE0043B1F4 /* HTTPService.swift in Sources */,
 			);
@@ -675,6 +687,8 @@
 				DA272D471FD318DE0043B1F4 /* HTTPRequestAdapter.swift in Sources */,
 				DA272D4B1FD318DE0043B1F4 /* DispatchQueueExtension.swift in Sources */,
 				DA272D4F1FD318DE0043B1F4 /* HTTPResponse.swift in Sources */,
+				DAB872C420BCC9F400133869 /* AnyEncodable.swift in Sources */,
+				DAB872BF20BCB86F00133869 /* URLRequestExtension.swift in Sources */,
 				DA272D3F1FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */,
 				DA272D431FD318DE0043B1F4 /* HTTPService.swift in Sources */,
 			);
@@ -688,6 +702,8 @@
 				DA272D481FD318DE0043B1F4 /* HTTPRequestAdapter.swift in Sources */,
 				DA272D4C1FD318DE0043B1F4 /* DispatchQueueExtension.swift in Sources */,
 				DA272D501FD318DE0043B1F4 /* HTTPResponse.swift in Sources */,
+				DAB872C520BCC9F400133869 /* AnyEncodable.swift in Sources */,
+				DAB872C020BCB87000133869 /* URLRequestExtension.swift in Sources */,
 				DA272D401FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */,
 				DA272D441FD318DE0043B1F4 /* HTTPService.swift in Sources */,
 			);
