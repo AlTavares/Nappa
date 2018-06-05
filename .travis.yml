@@ -5,7 +5,8 @@ cache:
   - $HOME/Library/Caches/org.carthage.CarthageKit/dependencies
   - Carthage
 before_install:
-- mage updateTools
+  - sh install.sh
+  - mage updateTools
 
 env:
   global:
