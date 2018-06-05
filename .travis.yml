@@ -5,8 +5,7 @@ cache:
   - $HOME/Library/Caches/org.carthage.CarthageKit/dependencies
   - Carthage
 before_install:
-  - sh install.sh
-  - mage updateTools
+  - ./swiftmage updateTools
 
 env:
   global:
@@ -23,18 +22,18 @@ env:
     - CMD="buildWatchOSRelease"
 
 script:
-  - mage $CMD
+  - ./swiftmage $CMD
 
 jobs:
   include:
     - stage: Pod lib lint
-      script: mage podLint
+      script: ./swiftmage podLint
 
     - stage: Deploy Github
       script: skip
       before_deploy:
-        - mage buildFramework
-        - mage archiveFramework
+        - ./swiftmage buildFramework
+        - ./swiftmage archiveFramework
       deploy:
         - provider: releases
           api_key:
@@ -51,7 +50,7 @@ jobs:
       script: skip
       deploy:
         - provider: script
-          script: mage podPush
+          script: ./swiftmage podPush
           skip_cleanup: true
           on:
             tags: true

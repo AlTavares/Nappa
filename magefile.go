@@ -157,3 +157,7 @@ func Release() {
 	Run("git push")
 	Run("git push origin", tag)
 }
+
+func Compile() {
+	Run("mage -compile swiftmage")
+}
