@@ -23,7 +23,7 @@ func testIOS(configuration string) {
 	destinations := []Destination{
 		DestinationForSimulator("11.3", "iPhone X"),
 		DestinationForSimulator("10.3.1", "iPhone 7 Plus"),
-		DestinationForSimulator("9.0", "iPhone X"),
+		DestinationForSimulator("9.0", "iPhone 5s"),
 	}
 	test(SchemeIOS, destinations, configuration)
 }
