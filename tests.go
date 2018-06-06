@@ -2,12 +2,14 @@
 
 package main
 
-import . "./mage"
+import (
+	"github.com/AlTavares/go/xcode"
+)
 
 // Default test, uses latest iOS environment
 func Test() {
-	test := NewXCodeBuildWithWorkspace(Workspace, SchemeIOS)
-	test.Destination(DestinationForSimulator("11.3", "iPhone X")).
+	test := xcode.NewXCodeBuildWithWorkspace(Workspace, SchemeIOS)
+	test.Destination(xcode.DestinationForSimulator("11.3", "iPhone X")).
 		Test("Debug")
 }
 
@@ -20,10 +22,10 @@ func TestIOSRelease() {
 }
 
 func testIOS(configuration string) {
-	destinations := []Destination{
-		DestinationForSimulator("11.3", "iPhone X"),
-		DestinationForSimulator("10.3.1", "iPhone 7 Plus"),
-		DestinationForSimulator("9.0", "iPhone 5s"),
+	destinations := []xcode.Destination{
+		xcode.DestinationForSimulator("11.3", "iPhone X"),
+		xcode.DestinationForSimulator("10.3.1", "iPhone 7 Plus"),
+		xcode.DestinationForSimulator("9.0", "iPhone 5s"),
 	}
 	test(SchemeIOS, destinations, configuration)
 }
@@ -37,7 +39,7 @@ func TestMacOSRelease() {
 }
 
 func testMacOS(configuration string) {
-	destinations := []Destination{DestinationForMac()}
+	destinations := []xcode.Destination{xcode.DestinationForMac()}
 	test(SchemeMacOS, destinations, configuration)
 }
 
@@ -50,10 +52,10 @@ func TestTVOSRelease() {
 }
 
 func testTVOS(configuration string) {
-	destinations := []Destination{
-		DestinationForSimulator("11.3", "Apple TV 4K"),
-		DestinationForSimulator("10.2", "Apple TV 1080p"),
-		DestinationForSimulator("9.0", "Apple TV 1080p"),
+	destinations := []xcode.Destination{
+		xcode.DestinationForSimulator("11.3", "Apple TV 4K"),
+		xcode.DestinationForSimulator("10.2", "Apple TV 1080p"),
+		xcode.DestinationForSimulator("9.0", "Apple TV 1080p"),
 	}
 	test(SchemeTVOS, destinations, configuration)
 }
@@ -67,21 +69,20 @@ func BuildWatchOSRelease() {
 }
 
 func buildWatchOS(configuration string) {
-	destinations := []Destination{
-		DestinationForSimulator("4.3", "Apple Watch Series 3 - 42mm"),
-		DestinationForSimulator("3.2", "Apple Watch Series 2 - 42mm"),
-		DestinationForSimulator("2.0", "Apple Watch - 38mm"),
+	destinations := []xcode.Destination{
+		xcode.DestinationForSimulator("4.3", "Apple Watch Series 3 - 42mm"),
+		xcode.DestinationForSimulator("3.2", "Apple Watch Series 2 - 42mm"),
+		xcode.DestinationForSimulator("2.0", "Apple Watch - 38mm"),
 	}
-	xcw := NewXCodeBuildWithWorkspace(Workspace, SchemeWatchOS)
+	xcw := xcode.NewXCodeBuildWithWorkspace(Workspace, SchemeWatchOS)
 	for _, destination := range destinations {
 		xcw.Destination(destination)
 	}
 	xcw.Build(configuration)
 }
 
-func test(scheme string, destinations []Destination, configuration string) {
-	Clean()
-	xcw := NewXCodeBuildWithWorkspace(Workspace, scheme)
+func test(scheme string, destinations []xcode.Destination, configuration string) {
+	xcw := xcode.NewXCodeBuildWithWorkspace(Workspace, scheme)
 	for _, destination := range destinations {
 		xcw.Destination(destination)
 	}

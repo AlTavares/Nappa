@@ -7,11 +7,15 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/AlTavares/go/xcodeproject"
+
+	"github.com/AlTavares/go/logger"
+	"github.com/AlTavares/go/sh"
+	"github.com/AlTavares/go/xcode"
+
 	"github.com/magefile/mage/target"
 
 	"github.com/magefile/mage/mg"
-
-	. "./mage"
 )
 
 // Default target to run when none is specified
@@ -19,54 +23,62 @@ import (
 // var Default = Build
 
 var (
-	xCodeBuild          = NewXCodeBuild()
-	xCodeBuildWorkspace = NewXCodeBuildWithWorkspace(Workspace, Scheme)
+	xCodeBuild          = xcode.NewXCodeBuild()
+	xCodeBuildWorkspace = xcode.NewXCodeBuildWithWorkspace(Workspace, Scheme)
 )
 
 // Install all the dependencies
 func Bootstrap() {
-	mg.Deps(InitEnvironment)
-	Log("Bootstraping...")
-	if IsCarthage() {
-		Run("carthage bootstrap --no-use-binaries  --configuration Debug --cache-builds --platform", PlatformSelected)
+	mg.Deps(initEnvironment)
+	logger.Log("Bootstraping...")
+	if xcodeproject.IsCarthage() {
+		sh.Run("carthage bootstrap --no-use-binaries  --configuration Debug --cache-builds --platform", PlatformSelected)
 	}
-	if IsCocoapods() {
-		Run("pod repo update")
-		Run("pod install")
+	if xcodeproject.IsCocoapods() {
+		sh.Run("pod repo update")
+		sh.Run("pod install")
 	}
 }
 
 //Update all the dependencies
 func Update() {
-	mg.Deps(InitEnvironment)
-	Log("Updating...")
-	if IsCarthage() {
-		Run("carthage update --no-use-binaries  --configuration Debug --cache-builds --platform", PlatformSelected)
+	mg.Deps(initEnvironment)
+	logger.Log("Updating...")
+	if xcodeproject.IsCarthage() {
+		sh.Run("carthage update --no-use-binaries  --configuration Debug --cache-builds --platform", PlatformSelected)
 	}
-	if IsCocoapods() {
-		Run("pod update")
+	if xcodeproject.IsCocoapods() {
+		sh.Run("pod update")
 	}
 }
 
 //Install all the needed tools
 func UpdateTools() {
-	Log("Updating tools...")
+	logger.Log("Updating tools...")
 
-	Run("brew update")
-	Run("brew outdated carthage || brew upgrade carthage")
+	sh.Run("brew update")
+	sh.Run("brew outdated carthage || brew upgrade carthage")
 
-	Run("gem install cocoapods")
+	sh.Run("gem install cocoapods")
 
+}
+
+func initEnvironment() {
+	logger.Log("Initializing environment...")
+	platform := os.Getenv("platform")
+	if platform != "" {
+		PlatformSelected = platform
+	}
 }
 
 //Build an archive with xcodebuild archive
 func Archive() {
 	modified, err := target.Dir(PathArchive, PathSources)
 	if !modified && err == nil {
-		Log("Archive skipped")
+		logger.Log("Archive skipped")
 		return
 	}
-	Log("Archiving...")
+	logger.Log("Archiving...")
 	xcw := xCodeBuildWorkspace
 	xcw.Archive("iphoneos", PathArchive)
 }
@@ -76,10 +88,10 @@ func ExportArchive() {
 	Archive()
 	modified, err := target.Dir(PathIpa, PathArchive)
 	if !modified && err == nil {
-		Log("Export skipped")
+		logger.Log("Export skipped")
 		return
 	}
-	Log("Exporting IPA...")
+	logger.Log("Exporting IPA...")
 	xcb := xCodeBuild
 	xcb.ExportArchive(PathArchive, PathExport, PathExportOptions)
 }
@@ -87,38 +99,38 @@ func ExportArchive() {
 //Upload IPA to TestFlight
 func Testflight() {
 	ExportArchive()
-	Log("Uploading IPA to TestFlight...")
+	logger.Log("Uploading IPA to TestFlight...")
 	applicationLoader := "/Applications/Xcode.app/Contents/Applications/Application\\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool"
-	user, password := SetupItunes()
-	Run(applicationLoader, "--upload-app -f", PathIpa, "-u", user, "-p", password)
+	user, password := setupItunes()
+	sh.Run(applicationLoader, "--upload-app -f", PathIpa, "-u", user, "-p", password)
 }
 
 // Clean XCode build folder
 func Clean() {
-	Log("Cleaning...")
+	logger.Log("Cleaning...")
 	xcb := xCodeBuild
 	xcb.Clean()
 }
 
 // Remove Xcode derived data folder
 func RemoveDerivedData() {
-	Run("rm -rf ~/Library/Developer/Xcode/DerivedData ~/Library/Caches/com.apple.dt.Xcode")
+	sh.Run("rm -rf ~/Library/Developer/Xcode/DerivedData ~/Library/Caches/com.apple.dt.Xcode")
 }
 
 //#region CARTHAGE ONLY
 
 // Build all dependencies --Carthage Only--
 func BuildFramework() {
-	mg.Deps(InitEnvironment)
+	mg.Deps(initEnvironment)
 	Clean()
 	Bootstrap()
-	Log("Building...")
-	Run("carthage build --no-skip-current --cache-builds --platform %s", PlatformSelected)
+	logger.Log("Building...")
+	sh.Run("carthage build --no-skip-current --cache-builds --platform %s", PlatformSelected)
 }
 
 // Archive framework --Carthage Only--
 func ArchiveFramework() {
-	Run("carthage archive", Name)
+	sh.Run("carthage archive", Name)
 }
 
 //#endregion
@@ -128,37 +140,57 @@ func ArchiveFramework() {
 // Lint podspec --Cocoapods Only--
 func PodLint() {
 	Clean()
-	Run("pod repo update")
-	Run("pod lib lint --verbose --allow-warnings")
+	sh.Run("pod lib lint --verbose --allow-warnings")
 }
 
 // Push pod to cocoapods trunk --Cocoapods Only--
 func PodPush() {
-	Run("pod trunk push")
+	sh.Run("pod trunk push")
 }
 
 //#endregion
 
 func Release() {
-	Log("Releasing...")
+	logger.Log("Releasing...")
 	tag := os.Getenv("tag")
 	if tag == "" {
-		Error(errors.New("Tag not defined"))
+		logger.Error(errors.New("Tag not defined"))
 		return
 	}
-	if !IsGitTreeClean() {
-		Error(errors.New("Please commit all your changes before running a release"))
+	if !xcodeproject.IsGitTreeClean() {
+		logger.Error(errors.New("Please commit all your changes before running a release"))
 		return
 	}
-	SetVersion(tag)
-	UpdatePodspecVersion(tag)
-	Run("git add .")
-	Run(fmt.Sprintf("git commit -m 'Update project to version %s'", tag))
-	Run("git tag", tag)
-	Run("git push")
-	Run("git push origin", tag)
+	xcodeproject.SetVersion(tag)
+	xcodeproject.UpdatePodspecVersion(Name+".podspec", tag)
+	sh.Run(fmt.Sprintf("git commit -a -m 'Update project to version %s'", tag))
+	sh.Run("git tag", tag)
+	sh.Run("git push")
+	sh.Run("git push origin", tag)
 }
 
 func Compile() {
-	Run("mage -compile swiftmage")
+	sh.Run("mage -compile swiftmage")
+}
+
+func setupItunes() (user string, password string) {
+	user = os.Getenv("itunesUser")
+	if user == "" {
+		user = ITunesUser
+		if user == "" {
+			fmt.Println()
+			fmt.Print("Type your iTunes username: ")
+			fmt.Scanln(&user)
+		}
+	}
+	password = os.Getenv("itunesPassword")
+	if password == "" {
+		password = ITunesPassword
+		if password == "" {
+			fmt.Println()
+			fmt.Print("Password for " + user + ": ")
+			fmt.Scanln(&password)
+		}
+	}
+	return
 }

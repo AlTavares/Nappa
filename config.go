@@ -1,4 +1,6 @@
-package mage
+// +build mage
+
+package main
 
 var (
 	Name      = "Nappa"
