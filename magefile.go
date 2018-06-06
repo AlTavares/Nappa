@@ -30,7 +30,10 @@ func Bootstrap() {
 	if IsCarthage() {
 		Run("carthage bootstrap --no-use-binaries  --configuration Debug --cache-builds --platform", PlatformSelected)
 	}
-	PodInstall()
+	if IsCocoapods() {
+		Run("pod repo update")
+		Run("pod install")
+	}
 }
 
 //Update all the dependencies
@@ -122,17 +125,10 @@ func ArchiveFramework() {
 
 //#region COCOAPODS ONLY
 
-func PodInstall() {
-	if IsCocoapods() {
-		Run("pod repo update")
-		Run("pod install")
-	}
-}
-
 // Lint podspec --Cocoapods Only--
 func PodLint() {
 	Clean()
-	PodInstall()
+	Run("pod repo update")
 	Run("pod lib lint --verbose --allow-warnings")
 }
 
