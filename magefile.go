@@ -157,10 +157,10 @@ func Release() {
 		logger.Error(errors.New("Tag not defined"))
 		return
 	}
-	if !xcodeproject.IsGitTreeClean() {
-		logger.Error(errors.New("Please commit all your changes before running a release"))
-		return
-	}
+	// if !xcodeproject.IsGitTreeClean() {
+	// 	logger.Error(errors.New("Please commit all your changes before running a release"))
+	// 	return
+	// }
 	xcodeproject.SetVersion(tag)
 	xcodeproject.UpdatePodspecVersion(Name+".podspec", tag)
 	sh.Run(fmt.Sprintf("git commit -a -m 'Update project to version %s'", tag))
