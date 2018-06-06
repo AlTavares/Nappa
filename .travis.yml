@@ -6,6 +6,7 @@ cache:
   - Carthage
 before_install:
   - ./swiftmage updateTools
+install:
   - ./swiftmage bootstrap
 
 
