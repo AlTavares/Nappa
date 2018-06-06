@@ -139,7 +139,7 @@ func ArchiveFramework() {
 
 // Lint podspec --Cocoapods Only--
 func PodLint() {
-	Clean()
+	sh.Run("pod repo update")
 	sh.Run("pod lib lint --verbose --allow-warnings")
 }
 
@@ -170,6 +170,7 @@ func Release() {
 }
 
 func Compile() {
+	sh.Run("mage --clean")
 	sh.Run("mage -compile swiftmage")
 }
 
