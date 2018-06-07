@@ -125,7 +125,7 @@ func BuildFramework() {
 	Clean()
 	Bootstrap()
 	logger.Log("Building...")
-	sh.Run("carthage build --no-skip-current --cache-builds --platform %s", PlatformSelected)
+	sh.Run("carthage build --no-skip-current --cache-builds --platform", PlatformSelected)
 }
 
 // Archive framework --Carthage Only--
@@ -157,10 +157,10 @@ func Release() {
 		logger.Error(errors.New("Tag not defined"))
 		return
 	}
-	// if !xcodeproject.IsGitTreeClean() {
-	// 	logger.Error(errors.New("Please commit all your changes before running a release"))
-	// 	return
-	// }
+	if !xcodeproject.IsGitTreeClean() {
+		logger.Error(errors.New("Please commit all your changes before running a release"))
+		return
+	}
 	xcodeproject.SetVersion(tag)
 	xcodeproject.UpdatePodspecVersion(Name+".podspec", tag)
 	sh.Run(fmt.Sprintf("git commit -a -m 'Update project to version %s'", tag))
