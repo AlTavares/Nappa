@@ -27,6 +27,10 @@ var (
 	xCodeBuildWorkspace = xcode.NewXCodeBuildWithWorkspace(Workspace, Scheme)
 )
 
+func init() {
+	Compile()
+}
+
 // Install all the dependencies
 func Bootstrap() {
 	mg.Deps(initEnvironment)
@@ -170,6 +174,11 @@ func Release() {
 }
 
 func Compile() {
+	modified, err := target.Path("swiftmage", "magefile.go", "tests.go")
+	if !modified && err == nil {
+		return
+	}
+	logger.Log("Updating binary...")
 	sh.Run("mage --clean")
 	sh.Run("mage -compile swiftmage")
 }
