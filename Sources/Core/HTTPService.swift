@@ -62,12 +62,12 @@ public struct HTTPService {
         return HTTPRequest(method: method, url: url, payload: AnyEncodable(payload), headers: headers, parameterEncoding: parameterEncoding, adapter: adapter)
     }
 
-    public func request(method: HTTPMethod, url: String, data: Data, headers: Headers? = nil, parameterEncoding: ParameterEncoding? = nil) -> HTTPRequest {
-        return HTTPRequest(method: method, url: url, data: data, headers: headers, parameterEncoding: parameterEncoding, adapter: adapter)
+    public func request(method: HTTPMethod, url: String, data: Data, headers: Headers? = nil) -> HTTPRequest {
+        return HTTPRequest(method: method, url: url, data: data, headers: headers, adapter: adapter)
     }
 
-    public func request(method: HTTPMethod, url: String, headers: Headers? = nil, parameterEncoding: ParameterEncoding? = nil) -> HTTPRequest {
-        return HTTPRequest(method: method, url: url, headers: headers, parameterEncoding: parameterEncoding, adapter: adapter)
+    public func request(method: HTTPMethod, url: String, headers: Headers? = nil) -> HTTPRequest {
+        return HTTPRequest(method: method, url: url, headers: headers, adapter: adapter)
     }
 
 }
