@@ -161,10 +161,6 @@ func Release() {
 		logger.Error(errors.New("Tag not defined"))
 		return
 	}
-	if !xcodeproject.IsGitTreeClean() {
-		logger.Error(errors.New("Please commit all your changes before running a release"))
-		return
-	}
 	logger.Log("Setting version to", tag)
 	xcodeproject.SetVersion(tag)
 	logger.Log("Updating podspec")
