@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
  s.name = 'Nappa'
- s.version = '1.4.2'
+ s.version = '2.0.1'
  s.license = { :type => "MIT", :file => "LICENSE" }
  s.summary = 'Wrapper around URLSession that uses Dependency injection making it easy to test network requests.'
  s.homepage = 'https://github.com/AlTavares/Nappa'

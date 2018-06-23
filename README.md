@@ -39,7 +39,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Nappa', '~> 1.2.0'
+pod 'Nappa', '~> 2.0'
 ```
 
 Then, run the following command:
@@ -62,7 +62,7 @@ $ brew install carthage
 To integrate Nappa into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "AlTavares/Nappa" ~> 1.2.0
+github "AlTavares/Nappa" ~> 2.0
 ```
 ### Swift Package Manager
 
@@ -74,7 +74,7 @@ import PackageDescription
 let package = Package(
     name: "HelloNappa",
     dependencies: [
-        .Package(url: "https://github.com/AlTavares/Nappa.git", "1.2.0")
+        .Package(url: "https://github.com/AlTavares/Nappa.git", "2.0.0")
     ]
 )
 ```
@@ -126,6 +126,43 @@ $ git submodule update --init --recursive
 - And that's it!
 
 ## Usage
+
+### Basic usage
+````swift
+        let service = HTTPService()
+        service.request(method: .get, url: "https://httpbin.org/get")
+            .responseJSON { (jsonResponse) in
+                switch jsonResponse.result {
+                case .success(let response):
+                    // do something with the result
+                    print(response)
+                case .failure(let error):
+                    // do something in case of error
+                    print(error)
+                }
+        }
+`````
+
+You can make requests passing those parameters
+
+````swift
+        request(method: HTTPMethod, url: String, payload: Encodable, headers: Headers? = nil, parameterEncoding: ParameterEncoding? = nil)
+
+        request(method: HTTPMethod, url: String, data: Data, headers: Headers? = nil, parameterEncoding: ParameterEncoding? = nil)
+
+        request(method: HTTPMethod, url: String, headers: Headers? = nil)
+````
+
+The `ParameterEncoding` changes how your payload will be encoded, the options are:
+
+    .json -> JSON Encoding
+    .form -> Form Data Encoding
+    .url  -> URL Encoding, a query string is added to the URL
+    .none -> no data
+
+If there's data present and there's no set `ParameterEncoding`, it will be automatically set based on the `HTTPMethod`
+
+If not set on the Headers, the content type is automatically set using the current `ParameterEncoding`
 
 ## License
 

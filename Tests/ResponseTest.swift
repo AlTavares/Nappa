@@ -54,6 +54,17 @@ class ResponseTest: QuickSpec {
                     }
                 }
             }
+            it("should decode the json into an object with keypath") {
+                let service = HTTPService(adapter: FakeRequestAdapter(data: TestData.keypathData))
+                let request = service.request(method: .get, url: url)
+                waitUntil { done in
+                    request.responseObject(keyPath: "key") { (objectResponse: ObjectResponse<TestObject>) in
+                        expect(objectResponse.result.isSuccess) == true
+                        expect(objectResponse.result.value) == TestData.expectedObject
+                        done()
+                    }
+                }
+            }
         }
     }
 
@@ -102,4 +113,8 @@ struct TestData {
         "property_two": "value two",
     ]
     static let expectedObject = TestObject(propertyOne: "value one", propertyTwo: "value two")
+    
+    static let keypathData = "{\"key\": \(TestData.jsonString)}".data(using: .utf8)!
 }
+
+

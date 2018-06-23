@@ -5,61 +5,37 @@ cache:
   - $HOME/Library/Caches/org.carthage.CarthageKit/dependencies
   - Carthage
 before_install:
-- gem install cocoapods --no-rdoc --no-ri --no-document --quiet
-- brew update
-- brew outdated carthage || brew upgrade carthage
-- carthage bootstrap --verbose --no-use-binaries --cache-builds --platform $PLATFORM
+  - ./swiftmage updateTools
+install:
+  - ./swiftmage bootstrap
 
 env:
   global:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
-  - WORKSPACE=Nappa.xcworkspace
-  - IOS_FRAMEWORK_SCHEME="Nappa-iOS"
-  - OSX_FRAMEWORK_SCHEME="Nappa-macOS"
-  - TVOS_FRAMEWORK_SCHEME="Nappa-tvOS"
-  - WATCHOS_FRAMEWORK_SCHEME="Nappa-watchOS"
   matrix:
-    - DESTINATION="OS=11.3,name=iPhone X"                   SCHEME="$IOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" PLATFORM="iOS"
-    - DESTINATION="OS=10.3.1,name=iPhone 7 Plus"            SCHEME="$IOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" PLATFORM="iOS"
-    - DESTINATION="OS=9.0,name=iPhone 6"                    SCHEME="$IOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" PLATFORM="iOS"
-    # - DESTINATION="OS=8.1,name=iPhone 5s"                   SCHEME="$IOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" PLATFORM="iOS"
-    - DESTINATION="arch=x86_64"                             SCHEME="$OSX_FRAMEWORK_SCHEME"     RUN_TESTS="YES" PLATFORM="macOS"
-    - DESTINATION="OS=11.3,name=Apple TV 4K"             SCHEME="$TVOS_FRAMEWORK_SCHEME"    RUN_TESTS="YES" PLATFORM="tvOS"
-    - DESTINATION="OS=10.2,name=Apple TV 1080p"             SCHEME="$TVOS_FRAMEWORK_SCHEME"    RUN_TESTS="YES" PLATFORM="tvOS"
-    - DESTINATION="OS=9.0,name=Apple TV 1080p"              SCHEME="$TVOS_FRAMEWORK_SCHEME"    RUN_TESTS="YES" PLATFORM="tvOS"
-    - DESTINATION="OS=4.3,name=Apple Watch Series 2 - 42mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO"  PLATFORM="watchOS"
-    - DESTINATION="OS=3.2,name=Apple Watch Series 2 - 42mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO"  PLATFORM="watchOS"
-    - DESTINATION="OS=2.0,name=Apple Watch - 38mm"          SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO"  PLATFORM="watchOS"
+    - CMD="testIOSDebug"          platform="iOS"
+    - CMD="testIOSRelease"        platform="iOS"
+    - CMD="testMacOSDebug"        platform="macOS"
+    - CMD="testMacOSRelease"      platform="macOS"
+    - CMD="testTVOSDebug"         platform="tvOS"
+    - CMD="testTVOSRelease"       platform="tvOS"
+    - CMD="buildWatchOSDebug"     platform="watchOS"
+    - CMD="buildWatchOSRelease"   platform="watchOS"
 
 script:
-  - set -o pipefail
-  - xcodebuild -version
-  - xcodebuild -showsdks
-
-  # Build Framework in Debug and Run Tests if specified
-  - if [ $RUN_TESTS == "YES" ]; then
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c;
-    else
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty -c;
-    fi
-
-  # Build Framework in Release and Run Tests if specified
-  - if [ $RUN_TESTS == "YES" ]; then
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c;
-    else
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty -c;
-    fi
+  - ./swiftmage $CMD
 
 jobs:
   include:
     - stage: Pod lib lint
-      script: pod lib lint --verbose --allow-warnings
+      script: ./swiftmage podLint
+
     - stage: Deploy Github
       script: skip
       before_deploy:
-        - carthage build --no-skip-current --cache-builds
-        - carthage archive Nappa
+        - ./swiftmage buildFramework
+        - ./swiftmage archiveFramework
       deploy:
         - provider: releases
           api_key:
@@ -71,11 +47,12 @@ jobs:
           on:
             repo: AlTavares/Nappa
             tags: true
+
     - stage: Deploy Cocoapods
       script: skip
       deploy:
         - provider: script
-          script: pod trunk push
+          script: ./swiftmage podPush
           skip_cleanup: true
           on:
             tags: true
