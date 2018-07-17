@@ -1,4 +1,5 @@
 //credits to https://gist.github.com/shaps80/ba6a1e2d477af0383e8f19b87f53661d
+import Foundation
 
 public extension URLRequest {
     
