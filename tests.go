@@ -8,7 +8,8 @@ import (
 
 // Default test, uses latest iOS environment
 func Test() {
-	test := xcode.NewXCodeBuildWithWorkspace(Workspace, SchemeIOS)
+	test := xcode.NewXCodeBuild()
+	test.Scheme(SchemeIOS)
 	test.Destination(xcode.DestinationForSimulator("11.3", "iPhone X")).
 		Test("Debug")
 }
@@ -74,7 +75,8 @@ func buildWatchOS(configuration string) {
 		xcode.DestinationForSimulator("3.2", "Apple Watch Series 2 - 42mm"),
 		xcode.DestinationForSimulator("2.0", "Apple Watch - 38mm"),
 	}
-	xcw := xcode.NewXCodeBuildWithWorkspace(Workspace, SchemeWatchOS)
+	xcw := xcode.NewXCodeBuild()
+	xcw.Scheme(SchemeWatchOS)
 	for _, destination := range destinations {
 		xcw.Destination(destination)
 	}
@@ -82,7 +84,8 @@ func buildWatchOS(configuration string) {
 }
 
 func test(scheme string, destinations []xcode.Destination, configuration string) {
-	xcw := xcode.NewXCodeBuildWithWorkspace(Workspace, scheme)
+	xcw := xcode.NewXCodeBuild()
+	xcw.Scheme(scheme)
 	for _, destination := range destinations {
 		xcw.Destination(destination)
 	}
