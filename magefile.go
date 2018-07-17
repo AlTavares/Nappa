@@ -35,6 +35,7 @@ func init() {
 func Bootstrap() {
 	mg.Deps(initEnvironment)
 	logger.Log("Bootstraping...")
+	sh.Run("xcodegen")
 	if xcodeproject.IsCarthage() {
 		sh.Run("carthage bootstrap --no-use-binaries  --configuration Debug --cache-builds --platform", PlatformSelected)
 	}
@@ -62,6 +63,7 @@ func UpdateTools() {
 
 	sh.Run("brew update")
 	sh.Run("brew outdated carthage || brew upgrade carthage")
+	sh.Run("brew install xcodegen")
 
 	sh.Run("gem install cocoapods")
 
