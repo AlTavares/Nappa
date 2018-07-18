@@ -7,765 +7,887 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24AA0EE320AA0D5D00152D9F /* ErrorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0EE220AA0D5D00152D9F /* ErrorsTest.swift */; };
-		24AA0EE420AA0D5D00152D9F /* ErrorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0EE220AA0D5D00152D9F /* ErrorsTest.swift */; };
-		24AA0EE520AA0D5D00152D9F /* ErrorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0EE220AA0D5D00152D9F /* ErrorsTest.swift */; };
-		24C480651FE46F080074F0F3 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C480641FE46F080074F0F3 /* ResponseTest.swift */; };
-		24C480661FE46F080074F0F3 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C480641FE46F080074F0F3 /* ResponseTest.swift */; };
-		24C480671FE46F080074F0F3 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C480641FE46F080074F0F3 /* ResponseTest.swift */; };
-		3549BB501DA38A2000C63030 /* Nappa.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* Nappa.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3549BB511DA38A2000C63030 /* Nappa.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* Nappa.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3549BB521DA38A2100C63030 /* Nappa.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* Nappa.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3549BB531DA38A2200C63030 /* Nappa.h in Headers */ = {isa = PBXBuildFile; fileRef = 3549BB181DA3890B00C63030 /* Nappa.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3549BB661DA38ADB00C63030 /* Nappa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB211DA389CD00C63030 /* Nappa.framework */; };
-		3549BB751DA38AEF00C63030 /* Nappa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB481DA389F300C63030 /* Nappa.framework */; };
-		3549BB841DA38B0000C63030 /* Nappa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB3B1DA389E800C63030 /* Nappa.framework */; };
-		DA0E98EF1FD33CE500DC3E8C /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99BB1FD31DCD0014678C /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA0E98F01FD33CEC00DC3E8C /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99C31FD31E0A0014678C /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA2674AF20BC637400E5A94D /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2674AE20BC637400E5A94D /* URLRequestExtension.swift */; };
-		DA272D3E1FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */; };
-		DA272D3F1FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */; };
-		DA272D401FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */; };
-		DA272D411FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */; };
-		DA272D421FD318DE0043B1F4 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D391FD318DE0043B1F4 /* HTTPService.swift */; };
-		DA272D431FD318DE0043B1F4 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D391FD318DE0043B1F4 /* HTTPService.swift */; };
-		DA272D441FD318DE0043B1F4 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D391FD318DE0043B1F4 /* HTTPService.swift */; };
-		DA272D451FD318DE0043B1F4 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D391FD318DE0043B1F4 /* HTTPService.swift */; };
-		DA272D461FD318DE0043B1F4 /* HTTPRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3A1FD318DE0043B1F4 /* HTTPRequestAdapter.swift */; };
-		DA272D471FD318DE0043B1F4 /* HTTPRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3A1FD318DE0043B1F4 /* HTTPRequestAdapter.swift */; };
-		DA272D481FD318DE0043B1F4 /* HTTPRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3A1FD318DE0043B1F4 /* HTTPRequestAdapter.swift */; };
-		DA272D491FD318DE0043B1F4 /* HTTPRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3A1FD318DE0043B1F4 /* HTTPRequestAdapter.swift */; };
-		DA272D4A1FD318DE0043B1F4 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3B1FD318DE0043B1F4 /* DispatchQueueExtension.swift */; };
-		DA272D4B1FD318DE0043B1F4 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3B1FD318DE0043B1F4 /* DispatchQueueExtension.swift */; };
-		DA272D4C1FD318DE0043B1F4 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3B1FD318DE0043B1F4 /* DispatchQueueExtension.swift */; };
-		DA272D4D1FD318DE0043B1F4 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3B1FD318DE0043B1F4 /* DispatchQueueExtension.swift */; };
-		DA272D4E1FD318DE0043B1F4 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3C1FD318DE0043B1F4 /* HTTPResponse.swift */; };
-		DA272D4F1FD318DE0043B1F4 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3C1FD318DE0043B1F4 /* HTTPResponse.swift */; };
-		DA272D501FD318DE0043B1F4 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3C1FD318DE0043B1F4 /* HTTPResponse.swift */; };
-		DA272D511FD318DE0043B1F4 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3C1FD318DE0043B1F4 /* HTTPResponse.swift */; };
-		DA272D521FD318DE0043B1F4 /* ResultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3D1FD318DE0043B1F4 /* ResultExtension.swift */; };
-		DA272D531FD318DE0043B1F4 /* ResultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3D1FD318DE0043B1F4 /* ResultExtension.swift */; };
-		DA272D541FD318DE0043B1F4 /* ResultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3D1FD318DE0043B1F4 /* ResultExtension.swift */; };
-		DA272D551FD318DE0043B1F4 /* ResultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA272D3D1FD318DE0043B1F4 /* ResultExtension.swift */; };
-		DA6688FA1FD3341C0026C35B /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6688F91FD3341C0026C35B /* NappaSpec.swift */; };
-		DA6688FB1FD3341C0026C35B /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6688F91FD3341C0026C35B /* NappaSpec.swift */; };
-		DA6688FC1FD3341C0026C35B /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6688F91FD3341C0026C35B /* NappaSpec.swift */; };
-		DA6D99B71FD31DA00014678C /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99B61FD31D9C0014678C /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA6D99B81FD31DA00014678C /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99B51FD31D7B0014678C /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA6D99B91FD31DA00014678C /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99B41FD31D7B0014678C /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA6D99BA1FD31DA90014678C /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99B41FD31D7B0014678C /* Result.framework */; };
-		DA6D99BE1FD31DD00014678C /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99BB1FD31DCD0014678C /* Result.framework */; };
-		DA6D99BF1FD31DDB0014678C /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99BC1FD31DCD0014678C /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA6D99C01FD31DDB0014678C /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99BD1FD31DCD0014678C /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA6D99C41FD31E110014678C /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99C31FD31E0A0014678C /* Result.framework */; };
-		DA6D99C51FD31E180014678C /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99C11FD31E0A0014678C /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA6D99C61FD31E180014678C /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99C21FD31E0A0014678C /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DA6D99C81FD31E270014678C /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6D99C71FD31E220014678C /* Result.framework */; };
-		DAB872BF20BCB86F00133869 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2674AE20BC637400E5A94D /* URLRequestExtension.swift */; };
-		DAB872C020BCB87000133869 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2674AE20BC637400E5A94D /* URLRequestExtension.swift */; };
-		DAB872C120BCB87000133869 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2674AE20BC637400E5A94D /* URLRequestExtension.swift */; };
-		DAB872C320BCC9F400133869 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB872C220BCC9F400133869 /* AnyEncodable.swift */; };
-		DAB872C420BCC9F400133869 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB872C220BCC9F400133869 /* AnyEncodable.swift */; };
-		DAB872C520BCC9F400133869 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB872C220BCC9F400133869 /* AnyEncodable.swift */; };
-		DAB872C620BCC9F400133869 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB872C220BCC9F400133869 /* AnyEncodable.swift */; };
+		BF_112453870838 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_568441684154 /* DispatchQueueExtension.swift */; };
+		BF_124089818653 /* ResultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_713473588937 /* ResultExtension.swift */; };
+		BF_127568623990 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_644549055969 /* HTTPServiceErrors.swift */; };
+		BF_129193848891 /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_673192695383 /* NappaSpec.swift */; };
+		BF_129824919156 /* Nappa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_508315009310 /* Nappa.framework */; };
+		BF_152441867091 /* ErrorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_307256165747 /* ErrorsTest.swift */; };
+		BF_179643365688 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_584425140013 /* Result.framework */; };
+		BF_195627607899 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_203595670254 /* ResponseTest.swift */; };
+		BF_196119562912 /* ResultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_713473588937 /* ResultExtension.swift */; };
+		BF_217618955728 /* Nappa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_318150429601 /* Nappa.framework */; };
+		BF_228175100724 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_315762119677 /* Quick.framework */; };
+		BF_234875074030 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_763057275314 /* Result.framework */; };
+		BF_246050824850 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_492059228306 /* AnyEncodable.swift */; };
+		BF_311672213558 = {isa = PBXBuildFile; fileRef = FR_877555305779 /* Nappa.framework */; };
+		BF_342934104512 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_644549055969 /* HTTPServiceErrors.swift */; };
+		BF_353714691576 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_835885405711 /* HTTPService.swift */; };
+		BF_373235102669 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_432383830816 /* URLRequestExtension.swift */; };
+		BF_376433861149 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_131384036341 /* Result.framework */; };
+		"BF_376433861149-1" /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FR_131384036341 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BF_388705230428 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_495890338802 /* Quick.framework */; };
+		"BF_388705230428-1" /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FR_495890338802 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BF_391389762823 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_568441684154 /* DispatchQueueExtension.swift */; };
+		BF_398401975192 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_131384036341 /* Result.framework */; };
+		BF_400693561677 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_203595670254 /* ResponseTest.swift */; };
+		BF_426683533185 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_150108128822 /* Nimble.framework */; };
+		BF_432365061296 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_568441684154 /* DispatchQueueExtension.swift */; };
+		BF_434251377062 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_148949275824 /* Nimble.framework */; };
+		BF_446583788378 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_584425140013 /* Result.framework */; };
+		BF_462790411008 /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_673192695383 /* NappaSpec.swift */; };
+		BF_462902522685 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_825944699583 /* Nimble.framework */; };
+		BF_478322213095 = {isa = PBXBuildFile; fileRef = FR_510950885990 /* NappaTests.xctest */; };
+		BF_502577611526 = {isa = PBXBuildFile; fileRef = FR_318150429601 /* Nappa.framework */; };
+		BF_519577118194 = {isa = PBXBuildFile; fileRef = FR_508315009310 /* Nappa.framework */; };
+		BF_520744938635 /* HTTPRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_702887073909 /* HTTPRequestAdapter.swift */; };
+		BF_525559136240 /* ResultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_713473588937 /* ResultExtension.swift */; };
+		BF_526727671778 /* HTTPRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_702887073909 /* HTTPRequestAdapter.swift */; };
+		BF_527864617656 /* HTTPRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_702887073909 /* HTTPRequestAdapter.swift */; };
+		BF_532841901956 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_274131923941 /* HTTPResponse.swift */; };
+		BF_534337343039 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_432383830816 /* URLRequestExtension.swift */; };
+		BF_577944556873 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_568441684154 /* DispatchQueueExtension.swift */; };
+		BF_594126590610 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_722777711962 /* Quick.framework */; };
+		BF_611596642474 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_696113366793 /* Quick.framework */; };
+		BF_628323050336 = {isa = PBXBuildFile; fileRef = FR_184755449606 /* NappaTests.xctest */; };
+		BF_658302166944 = {isa = PBXBuildFile; fileRef = FR_796667246637 /* Nappa.framework */; };
+		BF_662809878661 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_492059228306 /* AnyEncodable.swift */; };
+		BF_671014224597 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_274131923941 /* HTTPResponse.swift */; };
+		BF_678552871373 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_274131923941 /* HTTPResponse.swift */; };
+		BF_723549180611 /* Nappa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_877555305779 /* Nappa.framework */; };
+		BF_731107180777 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_492059228306 /* AnyEncodable.swift */; };
+		BF_732039026396 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_104525379859 /* Nimble.framework */; };
+		"BF_732039026396-1" /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FR_104525379859 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BF_747470672177 /* HTTPRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_702887073909 /* HTTPRequestAdapter.swift */; };
+		BF_748014768725 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_492059228306 /* AnyEncodable.swift */; };
+		BF_752003952214 = {isa = PBXBuildFile; fileRef = FR_389832135061 /* NappaTests_macOS.xctest */; };
+		BF_765690708500 /* ResultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_713473588937 /* ResultExtension.swift */; };
+		BF_774364858211 /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_673192695383 /* NappaSpec.swift */; };
+		BF_780341673931 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_274131923941 /* HTTPResponse.swift */; };
+		BF_786967599695 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_669811003841 /* Result.framework */; };
+		BF_789757520643 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_835885405711 /* HTTPService.swift */; };
+		BF_797325951602 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_432383830816 /* URLRequestExtension.swift */; };
+		BF_798891344032 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_669811003841 /* Result.framework */; };
+		BF_802633904695 /* ErrorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_307256165747 /* ErrorsTest.swift */; };
+		BF_809525163812 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_835885405711 /* HTTPService.swift */; };
+		BF_833973924379 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_432383830816 /* URLRequestExtension.swift */; };
+		BF_838192685355 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_644549055969 /* HTTPServiceErrors.swift */; };
+		BF_839505631735 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_763057275314 /* Result.framework */; };
+		BF_845875460604 /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_673192695383 /* NappaSpec.swift */; };
+		BF_845879405524 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_835885405711 /* HTTPService.swift */; };
+		BF_846627864897 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_644549055969 /* HTTPServiceErrors.swift */; };
+		BF_859595569248 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_203595670254 /* ResponseTest.swift */; };
+		BF_879885867152 = {isa = PBXBuildFile; fileRef = FR_725903001290 /* NappaTests.xctest */; };
+		BF_888695016293 /* ErrorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_307256165747 /* ErrorsTest.swift */; };
+		BF_893703324140 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_203595670254 /* ResponseTest.swift */; };
+		BF_915403077550 /* ErrorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_307256165747 /* ErrorsTest.swift */; };
+		BF_961346271672 /* Nappa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_796667246637 /* Nappa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3549BB671DA38ADB00C63030 /* PBXContainerItemProxy */ = {
+		CIP_18475544960 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3549BAFC1DA387DB00C63030 /* Project object */;
+			containerPortal = P_4799463617120 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3549BB201DA389CD00C63030;
-			remoteInfo = "Nappa-iOS";
+			remoteGlobalIDString = NT_318150429601;
+			remoteInfo = Nappa_tvOS;
 		};
-		3549BB761DA38AEF00C63030 /* PBXContainerItemProxy */ = {
+		CIP_38983213506 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3549BAFC1DA387DB00C63030 /* Project object */;
+			containerPortal = P_4799463617120 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3549BB471DA389F300C63030;
-			remoteInfo = "Nappa-tvOS";
+			remoteGlobalIDString = NT_796667246637;
+			remoteInfo = Nappa_macOS;
 		};
-		3549BB851DA38B0000C63030 /* PBXContainerItemProxy */ = {
+		CIP_51095088599 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3549BAFC1DA387DB00C63030 /* Project object */;
+			containerPortal = P_4799463617120 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3549BB3A1DA389E800C63030;
-			remoteInfo = "Nappa-macOS";
+			remoteGlobalIDString = NT_508315009310;
+			remoteInfo = Nappa_iOS;
+		};
+		CIP_72590300129 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = P_4799463617120 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = NT_877555305779;
+			remoteInfo = Nappa_watchOS;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		35B7422C1F82A2C700829B21 /* Embed Frameworks */ = {
+		CFBP_4102339083 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DA6D99B71FD31DA00014678C /* Quick.framework in Embed Frameworks */,
-				DA6D99B81FD31DA00014678C /* Nimble.framework in Embed Frameworks */,
-				DA6D99B91FD31DA00014678C /* Result.framework in Embed Frameworks */,
+				"BF_376433861149-1" /* Result.framework in CopyFiles */,
+				"BF_388705230428-1" /* Quick.framework in CopyFiles */,
+				"BF_732039026396-1" /* Nimble.framework in CopyFiles */,
 			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		35B742331F82A60600829B21 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				DA6D99BF1FD31DDB0014678C /* Nimble.framework in Embed Frameworks */,
-				DA6D99C01FD31DDB0014678C /* Quick.framework in Embed Frameworks */,
-				DA0E98EF1FD33CE500DC3E8C /* Result.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		35B7423A1F82A63600829B21 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				DA6D99C51FD31E180014678C /* Nimble.framework in Embed Frameworks */,
-				DA6D99C61FD31E180014678C /* Quick.framework in Embed Frameworks */,
-				DA0E98F01FD33CEC00DC3E8C /* Result.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		24AA0EE220AA0D5D00152D9F /* ErrorsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsTest.swift; sourceTree = "<group>"; };
-		24C480641FE46F080074F0F3 /* ResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTest.swift; sourceTree = "<group>"; };
-		3549BB171DA3890B00C63030 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3549BB181DA3890B00C63030 /* Nappa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nappa.h; sourceTree = "<group>"; };
-		3549BB211DA389CD00C63030 /* Nappa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nappa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3549BB2E1DA389DB00C63030 /* Nappa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nappa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3549BB3B1DA389E800C63030 /* Nappa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nappa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3549BB481DA389F300C63030 /* Nappa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nappa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3549BB551DA38A5E00C63030 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
-		3549BB571DA38A8800C63030 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
-		3549BB581DA38A8800C63030 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3549BB611DA38ADB00C63030 /* NappaTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NappaTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3549BB701DA38AEF00C63030 /* NappaTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NappaTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3549BB7F1DA38B0000C63030 /* NappaTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NappaTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA2674AE20BC637400E5A94D /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
-		DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPServiceErrors.swift; sourceTree = "<group>"; };
-		DA272D391FD318DE0043B1F4 /* HTTPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
-		DA272D3A1FD318DE0043B1F4 /* HTTPRequestAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestAdapter.swift; sourceTree = "<group>"; };
-		DA272D3B1FD318DE0043B1F4 /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
-		DA272D3C1FD318DE0043B1F4 /* HTTPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
-		DA272D3D1FD318DE0043B1F4 /* ResultExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultExtension.swift; sourceTree = "<group>"; };
-		DA6688F91FD3341C0026C35B /* NappaSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NappaSpec.swift; sourceTree = "<group>"; };
-		DA6D99B41FD31D7B0014678C /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
-		DA6D99B51FD31D7B0014678C /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		DA6D99B61FD31D9C0014678C /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
-		DA6D99BB1FD31DCD0014678C /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
-		DA6D99BC1FD31DCD0014678C /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
-		DA6D99BD1FD31DCD0014678C /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
-		DA6D99C11FD31E0A0014678C /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/tvOS/Nimble.framework; sourceTree = "<group>"; };
-		DA6D99C21FD31E0A0014678C /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/tvOS/Quick.framework; sourceTree = "<group>"; };
-		DA6D99C31FD31E0A0014678C /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/tvOS/Result.framework; sourceTree = "<group>"; };
-		DA6D99C71FD31E220014678C /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/watchOS/Result.framework; sourceTree = "<group>"; };
-		DAB872C220BCC9F400133869 /* AnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
+		FR_104525379859 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = "<group>"; };
+		FR_131384036341 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
+		FR_148949275824 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = "<group>"; };
+		FR_150108128822 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = "<group>"; };
+		FR_184755449606 /* NappaTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = NappaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FR_203595670254 /* ResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTest.swift; sourceTree = "<group>"; };
+		FR_274131923941 /* HTTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
+		FR_307256165747 /* ErrorsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsTest.swift; sourceTree = "<group>"; };
+		FR_315762119677 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = "<group>"; };
+		FR_318150429601 /* Nappa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nappa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FR_389832135061 /* NappaTests_macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NappaTests_macOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FR_432383830816 /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
+		FR_492059228306 /* AnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
+		FR_495890338802 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = "<group>"; };
+		FR_508315009310 /* Nappa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nappa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FR_510950885990 /* NappaTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = NappaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FR_568441684154 /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
+		FR_584425140013 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
+		FR_612316748210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FR_644549055969 /* HTTPServiceErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPServiceErrors.swift; sourceTree = "<group>"; };
+		FR_669811003841 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
+		FR_673192695383 /* NappaSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NappaSpec.swift; sourceTree = "<group>"; };
+		FR_696113366793 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = "<group>"; };
+		FR_702887073909 /* HTTPRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestAdapter.swift; sourceTree = "<group>"; };
+		FR_713473588937 /* ResultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultExtension.swift; sourceTree = "<group>"; };
+		FR_722777711962 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = "<group>"; };
+		FR_725903001290 /* NappaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NappaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FR_763057275314 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
+		FR_796667246637 /* Nappa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nappa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FR_825944699583 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = "<group>"; };
+		FR_835885405711 /* HTTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
+		FR_877555305779 /* Nappa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nappa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3549BB1D1DA389CD00C63030 /* Frameworks */ = {
+		FBP_18475544960 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA6D99BA1FD31DA90014678C /* Result.framework in Frameworks */,
+				BF_217618955728 /* Nappa.framework in Frameworks */,
+				BF_798891344032 /* Result.framework in Frameworks */,
+				BF_594126590610 /* Quick.framework in Frameworks */,
+				BF_434251377062 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3549BB2A1DA389DB00C63030 /* Frameworks */ = {
+		FBP_31815042960 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA6D99C81FD31E270014678C /* Result.framework in Frameworks */,
+				BF_786967599695 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3549BB371DA389E800C63030 /* Frameworks */ = {
+		FBP_38983213506 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA6D99BE1FD31DD00014678C /* Result.framework in Frameworks */,
+				BF_961346271672 /* Nappa.framework in Frameworks */,
+				BF_376433861149 /* Result.framework in Frameworks */,
+				BF_388705230428 /* Quick.framework in Frameworks */,
+				BF_732039026396 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3549BB441DA389F300C63030 /* Frameworks */ = {
+		FBP_50831500931 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA6D99C41FD31E110014678C /* Result.framework in Frameworks */,
+				BF_234875074030 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3549BB5E1DA38ADB00C63030 /* Frameworks */ = {
+		FBP_51095088599 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3549BB661DA38ADB00C63030 /* Nappa.framework in Frameworks */,
+				BF_129824919156 /* Nappa.framework in Frameworks */,
+				BF_839505631735 /* Result.framework in Frameworks */,
+				BF_611596642474 /* Quick.framework in Frameworks */,
+				BF_462902522685 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3549BB6D1DA38AEF00C63030 /* Frameworks */ = {
+		FBP_72590300129 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3549BB751DA38AEF00C63030 /* Nappa.framework in Frameworks */,
+				BF_723549180611 /* Nappa.framework in Frameworks */,
+				BF_446583788378 /* Result.framework in Frameworks */,
+				BF_228175100724 /* Quick.framework in Frameworks */,
+				BF_426683533185 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3549BB7C1DA38B0000C63030 /* Frameworks */ = {
+		FBP_79666724663 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3549BB841DA38B0000C63030 /* Nappa.framework in Frameworks */,
+				BF_398401975192 /* Result.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBP_87755530577 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF_179643365688 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3549BAFB1DA387DB00C63030 = {
+		G_1952740716080 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3549BB161DA3890B00C63030 /* Sources */,
-				3549BB191DA3890B00C63030 /* Tests */,
-				3549BB061DA387DB00C63030 /* Products */,
-				357D954B1DA3F2B400AEC55F /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		3549BB061DA387DB00C63030 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3549BB211DA389CD00C63030 /* Nappa.framework */,
-				3549BB2E1DA389DB00C63030 /* Nappa.framework */,
-				3549BB3B1DA389E800C63030 /* Nappa.framework */,
-				3549BB481DA389F300C63030 /* Nappa.framework */,
-				3549BB611DA38ADB00C63030 /* NappaTests-iOS.xctest */,
-				3549BB701DA38AEF00C63030 /* NappaTests-tvOS.xctest */,
-				3549BB7F1DA38B0000C63030 /* NappaTests-macOS.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3549BB161DA3890B00C63030 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				359649011FB18CBF00FC7ADC /* Core */,
-				3549BB541DA38A4000C63030 /* Supporting Files */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		3549BB191DA3890B00C63030 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				DA6688F91FD3341C0026C35B /* NappaSpec.swift */,
-				24C480641FE46F080074F0F3 /* ResponseTest.swift */,
-				24AA0EE220AA0D5D00152D9F /* ErrorsTest.swift */,
-				3549BB5B1DA38A8C00C63030 /* Supporting Files */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		3549BB541DA38A4000C63030 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3549BB181DA3890B00C63030 /* Nappa.h */,
-				3549BB171DA3890B00C63030 /* Info.plist */,
-				3549BB551DA38A5E00C63030 /* Info-tvOS.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3549BB5B1DA38A8C00C63030 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3549BB581DA38A8800C63030 /* Info.plist */,
-				3549BB571DA38A8800C63030 /* Info-tvOS.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		357D954B1DA3F2B400AEC55F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DA6D99B01FD31D400014678C /* iOS */,
-				DA6D99B11FD31D460014678C /* macOS */,
-				DA6D99B21FD31D4F0014678C /* tvOS */,
-				DA6D99B31FD31D540014678C /* watchOS */,
+				G_2883690153011 /* Carthage */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		359649011FB18CBF00FC7ADC /* Core */ = {
+		G_2262017438925 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				DA272D3B1FD318DE0043B1F4 /* DispatchQueueExtension.swift */,
-				DA272D3A1FD318DE0043B1F4 /* HTTPRequestAdapter.swift */,
-				DA272D3C1FD318DE0043B1F4 /* HTTPResponse.swift */,
-				DA272D391FD318DE0043B1F4 /* HTTPService.swift */,
-				DA272D381FD318DE0043B1F4 /* HTTPServiceErrors.swift */,
-				DA272D3D1FD318DE0043B1F4 /* ResultExtension.swift */,
-				DA2674AE20BC637400E5A94D /* URLRequestExtension.swift */,
-				DAB872C220BCC9F400133869 /* AnyEncodable.swift */,
+				FR_825944699583 /* Nimble.framework */,
+				FR_696113366793 /* Quick.framework */,
+				FR_763057275314 /* Result.framework */,
 			);
-			path = Core;
+			path = iOS;
 			sourceTree = "<group>";
 		};
-		DA6D99B01FD31D400014678C /* iOS */ = {
+		G_2262017442691 /* Mac */ = {
 			isa = PBXGroup;
 			children = (
-				DA6D99B61FD31D9C0014678C /* Quick.framework */,
-				DA6D99B51FD31D7B0014678C /* Nimble.framework */,
-				DA6D99B41FD31D7B0014678C /* Result.framework */,
+				FR_104525379859 /* Nimble.framework */,
+				FR_495890338802 /* Quick.framework */,
+				FR_131384036341 /* Result.framework */,
 			);
-			name = iOS;
+			path = Mac;
 			sourceTree = "<group>";
 		};
-		DA6D99B11FD31D460014678C /* macOS */ = {
+		G_2509496280965 /* NappaTests */ = {
 			isa = PBXGroup;
 			children = (
-				DA6D99BC1FD31DCD0014678C /* Nimble.framework */,
-				DA6D99BD1FD31DCD0014678C /* Quick.framework */,
-				DA6D99BB1FD31DCD0014678C /* Result.framework */,
+				FR_307256165747 /* ErrorsTest.swift */,
+				FR_673192695383 /* NappaSpec.swift */,
+				FR_203595670254 /* ResponseTest.swift */,
 			);
-			name = macOS;
+			name = NappaTests;
+			path = Tests/NappaTests;
 			sourceTree = "<group>";
 		};
-		DA6D99B21FD31D4F0014678C /* tvOS */ = {
+		G_2883690153011 /* Carthage */ = {
 			isa = PBXGroup;
 			children = (
-				DA6D99C11FD31E0A0014678C /* Nimble.framework */,
-				DA6D99C21FD31E0A0014678C /* Quick.framework */,
-				DA6D99C31FD31E0A0014678C /* Result.framework */,
+				G_2262017442691 /* Mac */,
+				G_2262017438925 /* iOS */,
+				G_8628897169668 /* tvOS */,
+				G_8244488572839 /* watchOS */,
 			);
-			name = tvOS;
+			name = Carthage;
+			path = Carthage/Build;
 			sourceTree = "<group>";
 		};
-		DA6D99B31FD31D540014678C /* watchOS */ = {
+		G_3400240743801 /* Nappa */ = {
 			isa = PBXGroup;
 			children = (
-				DA6D99C71FD31E220014678C /* Result.framework */,
+				G_6894641817322 /* Extensions */,
+				FR_492059228306 /* AnyEncodable.swift */,
+				FR_568441684154 /* DispatchQueueExtension.swift */,
+				FR_702887073909 /* HTTPRequestAdapter.swift */,
+				FR_274131923941 /* HTTPResponse.swift */,
+				FR_835885405711 /* HTTPService.swift */,
+				FR_644549055969 /* HTTPServiceErrors.swift */,
+				FR_612316748210 /* Info.plist */,
 			);
-			name = watchOS;
+			name = Nappa;
+			path = Sources/Nappa;
+			sourceTree = "<group>";
+		};
+		G_6894641817322 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FR_713473588937 /* ResultExtension.swift */,
+				FR_432383830816 /* URLRequestExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		G_8244488572839 /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				FR_150108128822 /* Nimble.framework */,
+				FR_315762119677 /* Quick.framework */,
+				FR_584425140013 /* Result.framework */,
+			);
+			path = watchOS;
+			sourceTree = "<group>";
+		};
+		G_8448771205358 = {
+			isa = PBXGroup;
+			children = (
+				G_1952740716080 /* Frameworks */,
+				G_3400240743801 /* Nappa */,
+				G_2509496280965 /* NappaTests */,
+				G_8620238527590 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		G_8620238527590 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FR_877555305779 /* Nappa.framework */,
+				FR_796667246637 /* Nappa.framework */,
+				FR_318150429601 /* Nappa.framework */,
+				FR_508315009310 /* Nappa.framework */,
+				FR_184755449606 /* NappaTests.xctest */,
+				FR_510950885990 /* NappaTests.xctest */,
+				FR_725903001290 /* NappaTests.xctest */,
+				FR_389832135061 /* NappaTests_macOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		G_8628897169668 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				FR_148949275824 /* Nimble.framework */,
+				FR_722777711962 /* Quick.framework */,
+				FR_669811003841 /* Result.framework */,
+			);
+			path = tvOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		3549BB1E1DA389CD00C63030 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3549BB501DA38A2000C63030 /* Nappa.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3549BB2B1DA389DB00C63030 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3549BB521DA38A2100C63030 /* Nappa.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3549BB381DA389E800C63030 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3549BB531DA38A2200C63030 /* Nappa.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3549BB451DA389F300C63030 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3549BB511DA38A2000C63030 /* Nappa.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		3549BB201DA389CD00C63030 /* Nappa-iOS */ = {
+		NT_184755449606 /* NappaTests_tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3549BB261DA389CD00C63030 /* Build configuration list for PBXNativeTarget "Nappa-iOS" */;
+			buildConfigurationList = CL_184755449606 /* Build configuration list for PBXNativeTarget "NappaTests_tvOS" */;
 			buildPhases = (
-				3549BB1C1DA389CD00C63030 /* Sources */,
-				3549BB1D1DA389CD00C63030 /* Frameworks */,
-				3549BB1E1DA389CD00C63030 /* Headers */,
-				3549BB1F1DA389CD00C63030 /* Resources */,
+				SBP_18475544960 /* Sources */,
+				FBP_18475544960 /* Frameworks */,
+				SSBP_1606752751 /* Carthage */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				TD_779397602658 /* PBXTargetDependency */,
 			);
-			name = "Nappa-iOS";
-			productName = "Nappa-iOS";
-			productReference = 3549BB211DA389CD00C63030 /* Nappa.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		3549BB2D1DA389DB00C63030 /* Nappa-watchOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3549BB331DA389DB00C63030 /* Build configuration list for PBXNativeTarget "Nappa-watchOS" */;
-			buildPhases = (
-				3549BB291DA389DB00C63030 /* Sources */,
-				3549BB2A1DA389DB00C63030 /* Frameworks */,
-				3549BB2B1DA389DB00C63030 /* Headers */,
-				3549BB2C1DA389DB00C63030 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Nappa-watchOS";
-			productName = "Nappa-watchOS";
-			productReference = 3549BB2E1DA389DB00C63030 /* Nappa.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		3549BB3A1DA389E800C63030 /* Nappa-macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3549BB401DA389E800C63030 /* Build configuration list for PBXNativeTarget "Nappa-macOS" */;
-			buildPhases = (
-				3549BB361DA389E800C63030 /* Sources */,
-				3549BB371DA389E800C63030 /* Frameworks */,
-				3549BB381DA389E800C63030 /* Headers */,
-				3549BB391DA389E800C63030 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Nappa-macOS";
-			productName = "Nappa-macOS";
-			productReference = 3549BB3B1DA389E800C63030 /* Nappa.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		3549BB471DA389F300C63030 /* Nappa-tvOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3549BB4D1DA389F300C63030 /* Build configuration list for PBXNativeTarget "Nappa-tvOS" */;
-			buildPhases = (
-				3549BB431DA389F300C63030 /* Sources */,
-				3549BB441DA389F300C63030 /* Frameworks */,
-				3549BB451DA389F300C63030 /* Headers */,
-				3549BB461DA389F300C63030 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Nappa-tvOS";
-			productName = "Nappa-tvOS";
-			productReference = 3549BB481DA389F300C63030 /* Nappa.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		3549BB601DA38ADB00C63030 /* NappaTests-iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3549BB691DA38ADB00C63030 /* Build configuration list for PBXNativeTarget "NappaTests-iOS" */;
-			buildPhases = (
-				3549BB5D1DA38ADB00C63030 /* Sources */,
-				3549BB5E1DA38ADB00C63030 /* Frameworks */,
-				3549BB5F1DA38ADB00C63030 /* Resources */,
-				35B7422C1F82A2C700829B21 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3549BB681DA38ADB00C63030 /* PBXTargetDependency */,
-			);
-			name = "NappaTests-iOS";
-			productName = "NappaTests-iOS";
-			productReference = 3549BB611DA38ADB00C63030 /* NappaTests-iOS.xctest */;
+			name = NappaTests_tvOS;
+			productName = NappaTests_tvOS;
+			productReference = FR_184755449606 /* NappaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3549BB6F1DA38AEF00C63030 /* NappaTests-tvOS */ = {
+		NT_318150429601 /* Nappa_tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3549BB781DA38AEF00C63030 /* Build configuration list for PBXNativeTarget "NappaTests-tvOS" */;
+			buildConfigurationList = CL_318150429601 /* Build configuration list for PBXNativeTarget "Nappa_tvOS" */;
 			buildPhases = (
-				3549BB6C1DA38AEF00C63030 /* Sources */,
-				3549BB6D1DA38AEF00C63030 /* Frameworks */,
-				3549BB6E1DA38AEF00C63030 /* Resources */,
-				35B7423A1F82A63600829B21 /* Embed Frameworks */,
+				SBP_31815042960 /* Sources */,
+				FBP_31815042960 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3549BB771DA38AEF00C63030 /* PBXTargetDependency */,
 			);
-			name = "NappaTests-tvOS";
-			productName = "NappaTests-tvOS";
-			productReference = 3549BB701DA38AEF00C63030 /* NappaTests-tvOS.xctest */;
+			name = Nappa_tvOS;
+			productName = Nappa_tvOS;
+			productReference = FR_318150429601 /* Nappa.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		NT_389832135061 /* NappaTests_macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CL_389832135061 /* Build configuration list for PBXNativeTarget "NappaTests_macOS" */;
+			buildPhases = (
+				SBP_38983213506 /* Sources */,
+				FBP_38983213506 /* Frameworks */,
+				CFBP_4102339083 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				TD_175760225391 /* PBXTargetDependency */,
+			);
+			name = NappaTests_macOS;
+			productName = NappaTests_macOS;
+			productReference = FR_389832135061 /* NappaTests_macOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3549BB7E1DA38B0000C63030 /* NappaTests-macOS */ = {
+		NT_508315009310 /* Nappa_iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3549BB871DA38B0000C63030 /* Build configuration list for PBXNativeTarget "NappaTests-macOS" */;
+			buildConfigurationList = CL_508315009310 /* Build configuration list for PBXNativeTarget "Nappa_iOS" */;
 			buildPhases = (
-				3549BB7B1DA38B0000C63030 /* Sources */,
-				3549BB7C1DA38B0000C63030 /* Frameworks */,
-				3549BB7D1DA38B0000C63030 /* Resources */,
-				35B742331F82A60600829B21 /* Embed Frameworks */,
+				SBP_50831500931 /* Sources */,
+				FBP_50831500931 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3549BB861DA38B0000C63030 /* PBXTargetDependency */,
 			);
-			name = "NappaTests-macOS";
-			productName = "NappaTests-macOS";
-			productReference = 3549BB7F1DA38B0000C63030 /* NappaTests-macOS.xctest */;
+			name = Nappa_iOS;
+			productName = Nappa_iOS;
+			productReference = FR_508315009310 /* Nappa.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		NT_510950885990 /* NappaTests_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CL_510950885990 /* Build configuration list for PBXNativeTarget "NappaTests_iOS" */;
+			buildPhases = (
+				SBP_51095088599 /* Sources */,
+				FBP_51095088599 /* Frameworks */,
+				SSBP_2866217384 /* Carthage */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				TD_416829491967 /* PBXTargetDependency */,
+			);
+			name = NappaTests_iOS;
+			productName = NappaTests_iOS;
+			productReference = FR_510950885990 /* NappaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		NT_725903001290 /* NappaTests_watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CL_725903001290 /* Build configuration list for PBXNativeTarget "NappaTests_watchOS" */;
+			buildPhases = (
+				SBP_72590300129 /* Sources */,
+				FBP_72590300129 /* Frameworks */,
+				SSBP_5439772566 /* Carthage */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				TD_400182061485 /* PBXTargetDependency */,
+			);
+			name = NappaTests_watchOS;
+			productName = NappaTests_watchOS;
+			productReference = FR_725903001290 /* NappaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		NT_796667246637 /* Nappa_macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CL_796667246637 /* Build configuration list for PBXNativeTarget "Nappa_macOS" */;
+			buildPhases = (
+				SBP_79666724663 /* Sources */,
+				FBP_79666724663 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nappa_macOS;
+			productName = Nappa_macOS;
+			productReference = FR_796667246637 /* Nappa.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		NT_877555305779 /* Nappa_watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CL_877555305779 /* Build configuration list for PBXNativeTarget "Nappa_watchOS" */;
+			buildPhases = (
+				SBP_87755530577 /* Sources */,
+				FBP_87755530577 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nappa_watchOS;
+			productName = Nappa_watchOS;
+			productReference = FR_877555305779 /* Nappa.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3549BAFC1DA387DB00C63030 /* Project object */ = {
+		P_4799463617120 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0930;
-				ORGANIZATIONNAME = Nappa;
-				TargetAttributes = {
-					3549BB201DA389CD00C63030 = {
-						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0910;
-						ProvisioningStyle = Automatic;
-					};
-					3549BB2D1DA389DB00C63030 = {
-						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0910;
-						ProvisioningStyle = Automatic;
-					};
-					3549BB3A1DA389E800C63030 = {
-						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0910;
-						ProvisioningStyle = Automatic;
-					};
-					3549BB471DA389F300C63030 = {
-						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0910;
-						ProvisioningStyle = Automatic;
-					};
-					3549BB601DA38ADB00C63030 = {
-						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-					};
-					3549BB6F1DA38AEF00C63030 = {
-						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-					};
-					3549BB7E1DA38B0000C63030 = {
-						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-					};
-				};
 			};
-			buildConfigurationList = 3549BAFF1DA387DB00C63030 /* Build configuration list for PBXProject "Nappa" */;
+			buildConfigurationList = CL_479946361712 /* Build configuration list for PBXProject "Nappa" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = 3549BAFB1DA387DB00C63030;
-			productRefGroup = 3549BB061DA387DB00C63030 /* Products */;
+			mainGroup = G_8448771205358;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3549BB201DA389CD00C63030 /* Nappa-iOS */,
-				3549BB601DA38ADB00C63030 /* NappaTests-iOS */,
-				3549BB3A1DA389E800C63030 /* Nappa-macOS */,
-				3549BB7E1DA38B0000C63030 /* NappaTests-macOS */,
-				3549BB471DA389F300C63030 /* Nappa-tvOS */,
-				3549BB6F1DA38AEF00C63030 /* NappaTests-tvOS */,
-				3549BB2D1DA389DB00C63030 /* Nappa-watchOS */,
+				NT_510950885990 /* NappaTests_iOS */,
+				NT_389832135061 /* NappaTests_macOS */,
+				NT_184755449606 /* NappaTests_tvOS */,
+				NT_725903001290 /* NappaTests_watchOS */,
+				NT_508315009310 /* Nappa_iOS */,
+				NT_796667246637 /* Nappa_macOS */,
+				NT_318150429601 /* Nappa_tvOS */,
+				NT_877555305779 /* Nappa_watchOS */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		3549BB1F1DA389CD00C63030 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* Begin PBXShellScriptBuildPhase section */
+		SSBP_1606752751 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/tvOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/Result.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Nimble.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Quick.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Result.framework",
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks\n";
 		};
-		3549BB2C1DA389DB00C63030 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+		SSBP_2866217384 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Nimble.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Quick.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Result.framework",
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks\n";
 		};
-		3549BB391DA389E800C63030 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+		SSBP_5439772566 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3549BB461DA389F300C63030 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/watchOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/watchOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/watchOS/Result.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Nimble.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Quick.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Result.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks\n";
 		};
-		3549BB5F1DA38ADB00C63030 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3549BB6E1DA38AEF00C63030 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3549BB7D1DA38B0000C63030 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3549BB1C1DA389CD00C63030 /* Sources */ = {
+		SBP_18475544960 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA272D521FD318DE0043B1F4 /* ResultExtension.swift in Sources */,
-				DA272D461FD318DE0043B1F4 /* HTTPRequestAdapter.swift in Sources */,
-				DA272D4A1FD318DE0043B1F4 /* DispatchQueueExtension.swift in Sources */,
-				DA272D4E1FD318DE0043B1F4 /* HTTPResponse.swift in Sources */,
-				DAB872C320BCC9F400133869 /* AnyEncodable.swift in Sources */,
-				DA2674AF20BC637400E5A94D /* URLRequestExtension.swift in Sources */,
-				DA272D3E1FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */,
-				DA272D421FD318DE0043B1F4 /* HTTPService.swift in Sources */,
+				BF_152441867091 /* ErrorsTest.swift in Sources */,
+				BF_845875460604 /* NappaSpec.swift in Sources */,
+				BF_859595569248 /* ResponseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3549BB291DA389DB00C63030 /* Sources */ = {
+		SBP_31815042960 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA272D551FD318DE0043B1F4 /* ResultExtension.swift in Sources */,
-				DA272D491FD318DE0043B1F4 /* HTTPRequestAdapter.swift in Sources */,
-				DA272D4D1FD318DE0043B1F4 /* DispatchQueueExtension.swift in Sources */,
-				DA272D511FD318DE0043B1F4 /* HTTPResponse.swift in Sources */,
-				DAB872C620BCC9F400133869 /* AnyEncodable.swift in Sources */,
-				DAB872C120BCB87000133869 /* URLRequestExtension.swift in Sources */,
-				DA272D411FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */,
-				DA272D451FD318DE0043B1F4 /* HTTPService.swift in Sources */,
+				BF_748014768725 /* AnyEncodable.swift in Sources */,
+				BF_112453870838 /* DispatchQueueExtension.swift in Sources */,
+				BF_526727671778 /* HTTPRequestAdapter.swift in Sources */,
+				BF_671014224597 /* HTTPResponse.swift in Sources */,
+				BF_845879405524 /* HTTPService.swift in Sources */,
+				BF_846627864897 /* HTTPServiceErrors.swift in Sources */,
+				BF_124089818653 /* ResultExtension.swift in Sources */,
+				BF_373235102669 /* URLRequestExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3549BB361DA389E800C63030 /* Sources */ = {
+		SBP_38983213506 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA272D531FD318DE0043B1F4 /* ResultExtension.swift in Sources */,
-				DA272D471FD318DE0043B1F4 /* HTTPRequestAdapter.swift in Sources */,
-				DA272D4B1FD318DE0043B1F4 /* DispatchQueueExtension.swift in Sources */,
-				DA272D4F1FD318DE0043B1F4 /* HTTPResponse.swift in Sources */,
-				DAB872C420BCC9F400133869 /* AnyEncodable.swift in Sources */,
-				DAB872BF20BCB86F00133869 /* URLRequestExtension.swift in Sources */,
-				DA272D3F1FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */,
-				DA272D431FD318DE0043B1F4 /* HTTPService.swift in Sources */,
+				BF_802633904695 /* ErrorsTest.swift in Sources */,
+				BF_462790411008 /* NappaSpec.swift in Sources */,
+				BF_195627607899 /* ResponseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3549BB431DA389F300C63030 /* Sources */ = {
+		SBP_50831500931 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA272D541FD318DE0043B1F4 /* ResultExtension.swift in Sources */,
-				DA272D481FD318DE0043B1F4 /* HTTPRequestAdapter.swift in Sources */,
-				DA272D4C1FD318DE0043B1F4 /* DispatchQueueExtension.swift in Sources */,
-				DA272D501FD318DE0043B1F4 /* HTTPResponse.swift in Sources */,
-				DAB872C520BCC9F400133869 /* AnyEncodable.swift in Sources */,
-				DAB872C020BCB87000133869 /* URLRequestExtension.swift in Sources */,
-				DA272D401FD318DE0043B1F4 /* HTTPServiceErrors.swift in Sources */,
-				DA272D441FD318DE0043B1F4 /* HTTPService.swift in Sources */,
+				BF_731107180777 /* AnyEncodable.swift in Sources */,
+				BF_391389762823 /* DispatchQueueExtension.swift in Sources */,
+				BF_527864617656 /* HTTPRequestAdapter.swift in Sources */,
+				BF_780341673931 /* HTTPResponse.swift in Sources */,
+				BF_353714691576 /* HTTPService.swift in Sources */,
+				BF_838192685355 /* HTTPServiceErrors.swift in Sources */,
+				BF_765690708500 /* ResultExtension.swift in Sources */,
+				BF_797325951602 /* URLRequestExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3549BB5D1DA38ADB00C63030 /* Sources */ = {
+		SBP_51095088599 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA6688FA1FD3341C0026C35B /* NappaSpec.swift in Sources */,
-				24C480651FE46F080074F0F3 /* ResponseTest.swift in Sources */,
-				24AA0EE320AA0D5D00152D9F /* ErrorsTest.swift in Sources */,
+				BF_888695016293 /* ErrorsTest.swift in Sources */,
+				BF_774364858211 /* NappaSpec.swift in Sources */,
+				BF_893703324140 /* ResponseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3549BB6C1DA38AEF00C63030 /* Sources */ = {
+		SBP_72590300129 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA6688FC1FD3341C0026C35B /* NappaSpec.swift in Sources */,
-				24C480671FE46F080074F0F3 /* ResponseTest.swift in Sources */,
-				24AA0EE520AA0D5D00152D9F /* ErrorsTest.swift in Sources */,
+				BF_915403077550 /* ErrorsTest.swift in Sources */,
+				BF_129193848891 /* NappaSpec.swift in Sources */,
+				BF_400693561677 /* ResponseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3549BB7B1DA38B0000C63030 /* Sources */ = {
+		SBP_79666724663 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA6688FB1FD3341C0026C35B /* NappaSpec.swift in Sources */,
-				24C480661FE46F080074F0F3 /* ResponseTest.swift in Sources */,
-				24AA0EE420AA0D5D00152D9F /* ErrorsTest.swift in Sources */,
+				BF_662809878661 /* AnyEncodable.swift in Sources */,
+				BF_432365061296 /* DispatchQueueExtension.swift in Sources */,
+				BF_520744938635 /* HTTPRequestAdapter.swift in Sources */,
+				BF_532841901956 /* HTTPResponse.swift in Sources */,
+				BF_789757520643 /* HTTPService.swift in Sources */,
+				BF_342934104512 /* HTTPServiceErrors.swift in Sources */,
+				BF_525559136240 /* ResultExtension.swift in Sources */,
+				BF_534337343039 /* URLRequestExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		SBP_87755530577 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF_246050824850 /* AnyEncodable.swift in Sources */,
+				BF_577944556873 /* DispatchQueueExtension.swift in Sources */,
+				BF_747470672177 /* HTTPRequestAdapter.swift in Sources */,
+				BF_678552871373 /* HTTPResponse.swift in Sources */,
+				BF_809525163812 /* HTTPService.swift in Sources */,
+				BF_127568623990 /* HTTPServiceErrors.swift in Sources */,
+				BF_196119562912 /* ResultExtension.swift in Sources */,
+				BF_833973924379 /* URLRequestExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3549BB681DA38ADB00C63030 /* PBXTargetDependency */ = {
+		TD_175760225391 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3549BB201DA389CD00C63030 /* Nappa-iOS */;
-			targetProxy = 3549BB671DA38ADB00C63030 /* PBXContainerItemProxy */;
+			target = NT_796667246637 /* Nappa_macOS */;
+			targetProxy = CIP_38983213506 /* PBXContainerItemProxy */;
 		};
-		3549BB771DA38AEF00C63030 /* PBXTargetDependency */ = {
+		TD_400182061485 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3549BB471DA389F300C63030 /* Nappa-tvOS */;
-			targetProxy = 3549BB761DA38AEF00C63030 /* PBXContainerItemProxy */;
+			target = NT_877555305779 /* Nappa_watchOS */;
+			targetProxy = CIP_72590300129 /* PBXContainerItemProxy */;
 		};
-		3549BB861DA38B0000C63030 /* PBXTargetDependency */ = {
+		TD_416829491967 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3549BB3A1DA389E800C63030 /* Nappa-macOS */;
-			targetProxy = 3549BB851DA38B0000C63030 /* PBXContainerItemProxy */;
+			target = NT_508315009310 /* Nappa_iOS */;
+			targetProxy = CIP_51095088599 /* PBXContainerItemProxy */;
+		};
+		TD_779397602658 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = NT_318150429601 /* Nappa_tvOS */;
+			targetProxy = CIP_18475544960 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		3549BB0B1DA387DB00C63030 /* Debug */ = {
+		BC_112532912036 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Sources/Nappa/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = Nappa;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		BC_134303709397 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = NappaTests;
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		BC_184043588875 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = Sources/Nappa/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = Nappa;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		BC_374334485847 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = NappaTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BC_380601763568 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = Sources/Nappa/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = Nappa;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		BC_393241940728 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks @loader_path/../Frameworks";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BC_427194987300 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = Sources/Nappa/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = Nappa;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		BC_479945831424 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -787,21 +909,20 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
 					"$(inherited)",
+					"DEBUG=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -809,27 +930,210 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		3549BB0C1DA387DB00C63030 /* Release */ = {
+		BC_494057593532 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks @loader_path/../Frameworks";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BC_592507242221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = Sources/Nappa/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = Nappa;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		BC_632368169991 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Sources/Nappa/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = Nappa;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		BC_698800891961 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = NappaTests;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		BC_708507956436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
+				INFOPLIST_FILE = Sources/Nappa/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = Nappa;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		BC_788967965032 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = NappaTests;
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
+		BC_807896347110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = NappaTests;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		BC_863027903848 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = NappaTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BC_872400952044 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
+				INFOPLIST_FILE = Sources/Nappa/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = Nappa;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		BC_881114754245 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -851,15 +1155,14 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -867,417 +1170,98 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		3549BB271DA389CD00C63030 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tavares.Nappa;
-				PRODUCT_NAME = Nappa;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		3549BB281DA389CD00C63030 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tavares.Nappa;
-				PRODUCT_NAME = Nappa;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		3549BB341DA389DB00C63030 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
-				);
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tavares.Nappa;
-				PRODUCT_NAME = Nappa;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		3549BB351DA389DB00C63030 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
-				);
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tavares.Nappa;
-				PRODUCT_NAME = Nappa;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Release;
-		};
-		3549BB411DA389E800C63030 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tavares.Nappa;
-				PRODUCT_NAME = Nappa;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		3549BB421DA389E800C63030 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tavares.Nappa;
-				PRODUCT_NAME = Nappa;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		3549BB4E1DA389F300C63030 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = "Sources/Info-tvOS.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tavares.Nappa;
-				PRODUCT_NAME = Nappa;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Debug;
-		};
-		3549BB4F1DA389F300C63030 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = "Sources/Info-tvOS.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tavares.Nappa;
-				PRODUCT_NAME = Nappa;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Release;
-		};
-		3549BB6A1DA38ADB00C63030 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tavares.NappaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-			};
-			name = Debug;
-		};
-		3549BB6B1DA38ADB00C63030 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tavares.NappaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-			};
-			name = Release;
-		};
-		3549BB791DA38AEF00C63030 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tavares.NappaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Debug;
-		};
-		3549BB7A1DA38AEF00C63030 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = "Tests/Info-tvOS.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tavares.NappaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Release;
-		};
-		3549BB881DA38B0000C63030 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tavares.NappaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-			};
-			name = Debug;
-		};
-		3549BB891DA38B0000C63030 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tavares.NappaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3549BAFF1DA387DB00C63030 /* Build configuration list for PBXProject "Nappa" */ = {
+		CL_184755449606 /* Build configuration list for PBXNativeTarget "NappaTests_tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3549BB0B1DA387DB00C63030 /* Debug */,
-				3549BB0C1DA387DB00C63030 /* Release */,
+				BC_134303709397 /* Debug */,
+				BC_788967965032 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "";
 		};
-		3549BB261DA389CD00C63030 /* Build configuration list for PBXNativeTarget "Nappa-iOS" */ = {
+		CL_318150429601 /* Build configuration list for PBXNativeTarget "Nappa_tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3549BB271DA389CD00C63030 /* Debug */,
-				3549BB281DA389CD00C63030 /* Release */,
+				BC_592507242221 /* Debug */,
+				BC_427194987300 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "";
 		};
-		3549BB331DA389DB00C63030 /* Build configuration list for PBXNativeTarget "Nappa-watchOS" */ = {
+		CL_389832135061 /* Build configuration list for PBXNativeTarget "NappaTests_macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3549BB341DA389DB00C63030 /* Debug */,
-				3549BB351DA389DB00C63030 /* Release */,
+				BC_393241940728 /* Debug */,
+				BC_494057593532 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "";
 		};
-		3549BB401DA389E800C63030 /* Build configuration list for PBXNativeTarget "Nappa-macOS" */ = {
+		CL_479946361712 /* Build configuration list for PBXProject "Nappa" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3549BB411DA389E800C63030 /* Debug */,
-				3549BB421DA389E800C63030 /* Release */,
+				BC_479945831424 /* Debug */,
+				BC_881114754245 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		3549BB4D1DA389F300C63030 /* Build configuration list for PBXNativeTarget "Nappa-tvOS" */ = {
+		CL_508315009310 /* Build configuration list for PBXNativeTarget "Nappa_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3549BB4E1DA389F300C63030 /* Debug */,
-				3549BB4F1DA389F300C63030 /* Release */,
+				BC_112532912036 /* Debug */,
+				BC_632368169991 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "";
 		};
-		3549BB691DA38ADB00C63030 /* Build configuration list for PBXNativeTarget "NappaTests-iOS" */ = {
+		CL_510950885990 /* Build configuration list for PBXNativeTarget "NappaTests_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3549BB6A1DA38ADB00C63030 /* Debug */,
-				3549BB6B1DA38ADB00C63030 /* Release */,
+				BC_374334485847 /* Debug */,
+				BC_863027903848 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "";
 		};
-		3549BB781DA38AEF00C63030 /* Build configuration list for PBXNativeTarget "NappaTests-tvOS" */ = {
+		CL_725903001290 /* Build configuration list for PBXNativeTarget "NappaTests_watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3549BB791DA38AEF00C63030 /* Debug */,
-				3549BB7A1DA38AEF00C63030 /* Release */,
+				BC_698800891961 /* Debug */,
+				BC_807896347110 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "";
 		};
-		3549BB871DA38B0000C63030 /* Build configuration list for PBXNativeTarget "NappaTests-macOS" */ = {
+		CL_796667246637 /* Build configuration list for PBXNativeTarget "Nappa_macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3549BB881DA38B0000C63030 /* Debug */,
-				3549BB891DA38B0000C63030 /* Release */,
+				BC_184043588875 /* Debug */,
+				BC_380601763568 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "";
+		};
+		CL_877555305779 /* Build configuration list for PBXNativeTarget "Nappa_watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC_708507956436 /* Debug */,
+				BC_872400952044 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "";
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 3549BAFC1DA387DB00C63030 /* Project object */;
+	rootObject = P_4799463617120 /* Project object */;
 }

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3549BB2D1DA389DB00C63030"
+               BlueprintIdentifier = "NT_877555305779"
                BuildableName = "Nappa.framework"
-               BlueprintName = "Nappa-watchOS"
+               BlueprintName = "Nappa_watchOS"
                ReferencedContainer = "container:Nappa.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,7 +28,28 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "NT_725903001290"
+               BuildableName = "NappaTests.xctest"
+               BlueprintName = "NappaTests_watchOS"
+               ReferencedContainer = "container:Nappa.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "NT_877555305779"
+            BuildableName = "Nappa.framework"
+            BlueprintName = "Nappa_watchOS"
+            ReferencedContainer = "container:Nappa.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <CommandLineArguments>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +63,18 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3549BB2D1DA389DB00C63030"
+            BlueprintIdentifier = "NT_877555305779"
             BuildableName = "Nappa.framework"
-            BlueprintName = "Nappa-watchOS"
+            BlueprintName = "Nappa_watchOS"
             ReferencedContainer = "container:Nappa.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
+      <CommandLineArguments>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,15 +84,18 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3549BB2D1DA389DB00C63030"
+            BlueprintIdentifier = "NT_877555305779"
             BuildableName = "Nappa.framework"
-            BlueprintName = "Nappa-watchOS"
+            BlueprintName = "Nappa_watchOS"
             ReferencedContainer = "container:Nappa.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
+      <CommandLineArguments>
+      </CommandLineArguments>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -90,12 +90,12 @@ fileprivate struct FakeRequestAdapter: HTTPRequestAdapter {
 
     var data: Data
 
-    func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void) {
+    func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void) -> RequestTask? {
 
         let response = HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)!
         let dataResponse = DataResponse(request: request, response: response, data: data, error: nil)
-
         completionHandler(dataResponse)
+        return nil
     }
 }
 

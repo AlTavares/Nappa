@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3549BB471DA389F300C63030"
+               BlueprintIdentifier = "NT_796667246637"
                BuildableName = "Nappa.framework"
-               BlueprintName = "Nappa-tvOS"
+               BlueprintName = "Nappa_macOS"
                ReferencedContainer = "container:Nappa.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3549BB6F1DA38AEF00C63030"
-               BuildableName = "NappaTests-tvOS.xctest"
-               BlueprintName = "NappaTests-tvOS"
+               BlueprintIdentifier = "NT_389832135061"
+               BuildableName = "NappaTests_macOS.xctest"
+               BlueprintName = "NappaTests_macOS"
                ReferencedContainer = "container:Nappa.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,12 +42,14 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3549BB471DA389F300C63030"
+            BlueprintIdentifier = "NT_796667246637"
             BuildableName = "Nappa.framework"
-            BlueprintName = "Nappa-tvOS"
+            BlueprintName = "Nappa_macOS"
             ReferencedContainer = "container:Nappa.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <CommandLineArguments>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -61,15 +63,18 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3549BB471DA389F300C63030"
+            BlueprintIdentifier = "NT_796667246637"
             BuildableName = "Nappa.framework"
-            BlueprintName = "Nappa-tvOS"
+            BlueprintName = "Nappa_macOS"
             ReferencedContainer = "container:Nappa.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
+      <CommandLineArguments>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -79,15 +84,18 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3549BB471DA389F300C63030"
+            BlueprintIdentifier = "NT_796667246637"
             BuildableName = "Nappa.framework"
-            BlueprintName = "Nappa-tvOS"
+            BlueprintName = "Nappa_macOS"
             ReferencedContainer = "container:Nappa.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
+      <CommandLineArguments>
+      </CommandLineArguments>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

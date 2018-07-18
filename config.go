@@ -7,10 +7,10 @@ var (
 	Workspace = Name + ".xcworkspace"
 	Scheme    = Name
 
-	SchemeIOS     = Name + "-iOS"
-	SchemeMacOS   = Name + "-macOS"
-	SchemeTVOS    = Name + "-tvOS"
-	SchemeWatchOS = Name + "-watchOS"
+	SchemeIOS     = Name + "_iOS"
+	SchemeMacOS   = Name + "_macOS"
+	SchemeTVOS    = Name + "_tvOS"
+	SchemeWatchOS = Name + "_watchOS"
 
 	PlatformSelected = "all"
 

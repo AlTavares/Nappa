@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3549BB201DA389CD00C63030"
+               BlueprintIdentifier = "NT_508315009310"
                BuildableName = "Nappa.framework"
-               BlueprintName = "Nappa-iOS"
+               BlueprintName = "Nappa_iOS"
                ReferencedContainer = "container:Nappa.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3549BB601DA38ADB00C63030"
-               BuildableName = "NappaTests-iOS.xctest"
-               BlueprintName = "NappaTests-iOS"
+               BlueprintIdentifier = "NT_510950885990"
+               BuildableName = "NappaTests.xctest"
+               BlueprintName = "NappaTests_iOS"
                ReferencedContainer = "container:Nappa.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3549BB201DA389CD00C63030"
+            BlueprintIdentifier = "NT_508315009310"
             BuildableName = "Nappa.framework"
-            BlueprintName = "Nappa-iOS"
+            BlueprintName = "Nappa_iOS"
             ReferencedContainer = "container:Nappa.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,15 +61,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3549BB201DA389CD00C63030"
+            BlueprintIdentifier = "NT_508315009310"
             BuildableName = "Nappa.framework"
-            BlueprintName = "Nappa-iOS"
+            BlueprintName = "Nappa_iOS"
             ReferencedContainer = "container:Nappa.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -79,15 +80,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3549BB201DA389CD00C63030"
+            BlueprintIdentifier = "NT_508315009310"
             BuildableName = "Nappa.framework"
-            BlueprintName = "Nappa-iOS"
+            BlueprintName = "Nappa_iOS"
             ReferencedContainer = "container:Nappa.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
