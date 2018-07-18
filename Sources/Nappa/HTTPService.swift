@@ -108,21 +108,20 @@ public struct HTTPRequest {
     }
 
     /// Only performs the request and doesn' call back
-    public func perform(queue: DispatchQueue = DispatchQueue.main) {
-        response { response in
-            print(response)
-        }
+    public func perform(queue: DispatchQueue = DispatchQueue.main) -> RequestTask? {
+        return response { _ in }
     }
 
     // MARK: Response
 
-    private func response(completionHandler: @escaping (DataResponse) -> Void) {
+    private func response(completionHandler: @escaping (DataResponse) -> Void) -> RequestTask? {
         var request: URLRequest
         switch buildRequest(forUrl: url) {
         case .success(let urlRequest):
             request = urlRequest
         case .failure(let error):
-            return completionHandler(DataResponse(error: error))
+            completionHandler(DataResponse(error: error))
+            return nil
         }
 
         request.httpMethod = method.rawValue
@@ -134,31 +133,35 @@ public struct HTTPRequest {
         }
         request.allHTTPHeaderFields = headerFields
 
-        adapter.performRequest(request: request, completionHandler: completionHandler)
+        return adapter.performRequest(request: request, completionHandler: completionHandler)
     }
 
-    public func responseData(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (DataResponse) -> Void) {
-        response { dataResponse in
+    @discardableResult
+    public func responseData(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (DataResponse) -> Void) -> RequestTask? {
+        return response { dataResponse in
             queue.async {
                 completionHandler(dataResponse)
             }
         }
     }
 
-    public func responseJSON(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (JSONResponse) -> Void) {
-        responseData(queue: queue) { dataResponse in
+    @discardableResult
+    public func responseJSON(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (JSONResponse) -> Void) -> RequestTask? {
+        return responseData(queue: queue) { dataResponse in
             completionHandler(JSONResponse(response: dataResponse))
         }
     }
 
-    public func responseString(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (StringResponse) -> Void) {
-        responseData(queue: queue) { dataResponse in
+    @discardableResult
+    public func responseString(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (StringResponse) -> Void) -> RequestTask? {
+        return responseData(queue: queue) { dataResponse in
             completionHandler(StringResponse(response: dataResponse))
         }
     }
 
-    public func responseObject<Value>(keyPath: String? = nil, queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (ObjectResponse<Value>) -> Void) {
-        response { dataResponse in
+    @discardableResult
+    public func responseObject<Value>(keyPath: String? = nil, queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (ObjectResponse<Value>) -> Void) -> RequestTask? {
+        return response { dataResponse in
             var objectResponse = ObjectResponse<Value>(response: dataResponse)
             defer {
                 queue.async {
