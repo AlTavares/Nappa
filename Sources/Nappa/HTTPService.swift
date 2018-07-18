@@ -69,7 +69,6 @@ public struct HTTPService {
     public func request(method: HTTPMethod, url: String, headers: Headers? = nil) -> HTTPRequest {
         return HTTPRequest(method: method, url: url, headers: headers, adapter: adapter)
     }
-
 }
 
 public struct HTTPRequest {
@@ -94,8 +93,6 @@ public struct HTTPRequest {
             return nil
         }
     }
-    
-    
 
     fileprivate init(method: HTTPMethod, url: String, payload: AnyEncodable? = nil, data: Data? = nil, headers: Headers? = nil, parameterEncoding: ParameterEncoding? = nil, adapter: HTTPRequestAdapter) {
         self.method = method
@@ -146,13 +143,6 @@ public struct HTTPRequest {
     }
 
     @discardableResult
-    public func responseJSON(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (JSONResponse) -> Void) -> RequestTask? {
-        return responseData(queue: queue) { dataResponse in
-            completionHandler(JSONResponse(response: dataResponse))
-        }
-    }
-
-    @discardableResult
     public func responseString(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (StringResponse) -> Void) -> RequestTask? {
         return responseData(queue: queue) { dataResponse in
             completionHandler(StringResponse(response: dataResponse))
@@ -160,27 +150,34 @@ public struct HTTPRequest {
     }
 
     @discardableResult
-    public func responseObject<Value>(keyPath: String? = nil, queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (ObjectResponse<Value>) -> Void) -> RequestTask? {
+    public func responseJSON(keyPath: String? = nil, queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (JSONResponse) -> Void) -> RequestTask? {
         return response { dataResponse in
-            var objectResponse = ObjectResponse<Value>(response: dataResponse)
-            defer {
-                queue.async {
-                    completionHandler(objectResponse)
-                }
+            var jsonResponse = JSONResponse(response: dataResponse)
+            if let keyPath = keyPath {
+                jsonResponse.data = self.jsonData(json: jsonResponse.result.value, fromKeyPath: keyPath)
             }
-            guard let keyPath = keyPath else { return }
-            switch JSONResponse(response: dataResponse).result {
-            case .success(let json):
-                objectResponse.data = self.jsonData(json: json, fromKeyPath: keyPath)
-            case .failure:
-                return
+            queue.async {
+                completionHandler(jsonResponse)
             }
         }
     }
 
-    private func jsonData(json: Any, fromKeyPath keypathString: String) -> Data? {
+    @discardableResult
+    public func responseObject<Value>(keyPath: String? = nil, queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (ObjectResponse<Value>) -> Void) -> RequestTask? {
+        return response { dataResponse in
+            var objectResponse = ObjectResponse<Value>(response: dataResponse)
+            if let keyPath = keyPath {
+                objectResponse.data = self.jsonData(json: JSONResponse(response: dataResponse).result.value, fromKeyPath: keyPath)
+            }
+            queue.async {
+                completionHandler(objectResponse)
+            }
+        }
+    }
+
+    private func jsonData(json: Any?, fromKeyPath keypathString: String) -> Data? {
+        guard var json = json else { return nil }
         let keypath = keypathString.components(separatedBy: ".")
-        var json = json
         for key in keypath {
             if let subjson = json as? [String: Any] {
                 json = subjson[key] as Any
@@ -195,7 +192,7 @@ public struct HTTPRequest {
         guard var urlComponents = URLComponents(string: url) else {
             return .failure(.invalidUrl(url))
         }
-        
+
         if parameterEncoding == .url, let payload = payload {
             var queryItems = urlComponents.queryItems ?? [URLQueryItem]()
             queryItems.append(contentsOf: payload.urlQueryItems)
@@ -208,5 +205,4 @@ public struct HTTPRequest {
 
         return .success(URLRequest(url: requestUrl))
     }
-    
 }
