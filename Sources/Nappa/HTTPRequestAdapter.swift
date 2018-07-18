@@ -9,9 +9,19 @@
 import Foundation
 import Result
 
+public protocol RequestTask {
+    func resume()
+    func cancel()
+    func suspend()
+
+    var state: URLSessionTask.State { get }
+}
+
+extension URLSessionDataTask: RequestTask {}
+
 public protocol HTTPRequestAdapter {
     var cookieStorage: HTTPCookieStorage { get }
-    func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void)
+    @discardableResult func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void) -> RequestTask?
 }
 
 public extension HTTPRequestAdapter {
@@ -31,17 +41,16 @@ public struct SimpleRequestAdapter: HTTPRequestAdapter {
         self.urlSession = URLSession(configuration: configuration)
     }
 
-    public func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void) {
-
+    public func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void)  -> RequestTask? {
         let dataTask = urlSession.dataTask(with: request) { data, response, error in
             let httpResponse = response as? HTTPURLResponse
             if let error = error {
                 return completionHandler(DataResponse(request: request, response: httpResponse, data: data, error: .other(error)))
             }
             return completionHandler(DataResponse(request: request, response: httpResponse, data: data))
-
         }
         dataTask.resume()
+        return dataTask
     }
 }
 
