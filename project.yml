@@ -1,4 +1,6 @@
 name: Nappa
+options:
+  bundleIdPrefix: xyz.tavares
 targets:
   Nappa:
     type: framework
