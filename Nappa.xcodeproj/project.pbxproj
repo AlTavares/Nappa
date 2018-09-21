@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF_105259002003 /* Nappa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FR_796667246637 /* Nappa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF_112453870838 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_568441684154 /* DispatchQueueExtension.swift */; };
 		BF_124089818653 /* ResultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_713473588937 /* ResultExtension.swift */; };
 		BF_127568623990 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_644549055969 /* HTTPServiceErrors.swift */; };
 		BF_129193848891 /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_673192695383 /* NappaSpec.swift */; };
 		BF_129824919156 /* Nappa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_508315009310 /* Nappa.framework */; };
 		BF_152441867091 /* ErrorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_307256165747 /* ErrorsTest.swift */; };
+		BF_174275271610 /* Nappa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FR_508315009310 /* Nappa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF_179643365688 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_584425140013 /* Result.framework */; };
 		BF_195627607899 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_203595670254 /* ResponseTest.swift */; };
 		BF_196119562912 /* ResultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_713473588937 /* ResultExtension.swift */; };
@@ -35,6 +37,7 @@
 		BF_432365061296 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_568441684154 /* DispatchQueueExtension.swift */; };
 		BF_434251377062 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_148949275824 /* Nimble.framework */; };
 		BF_446583788378 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_584425140013 /* Result.framework */; };
+		BF_446812934061 /* Nappa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FR_877555305779 /* Nappa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF_462790411008 /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_673192695383 /* NappaSpec.swift */; };
 		BF_462902522685 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_825944699583 /* Nimble.framework */; };
 		BF_478322213095 = {isa = PBXBuildFile; fileRef = FR_510950885990 /* NappaTests.xctest */; };
@@ -73,6 +76,7 @@
 		BF_833973924379 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_432383830816 /* URLRequestExtension.swift */; };
 		BF_838192685355 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_644549055969 /* HTTPServiceErrors.swift */; };
 		BF_839505631735 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_763057275314 /* Result.framework */; };
+		BF_840125036768 /* Nappa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FR_318150429601 /* Nappa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF_845875460604 /* NappaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_673192695383 /* NappaSpec.swift */; };
 		BF_845879405524 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_835885405711 /* HTTPService.swift */; };
 		BF_846627864897 /* HTTPServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_644549055969 /* HTTPServiceErrors.swift */; };
@@ -85,46 +89,77 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CIP_18475544960 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = P_4799463617120 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = NT_318150429601;
-			remoteInfo = Nappa_tvOS;
-		};
-		CIP_38983213506 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = P_4799463617120 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = NT_796667246637;
-			remoteInfo = Nappa_macOS;
-		};
-		CIP_51095088599 /* PBXContainerItemProxy */ = {
+		CIP_29493833118 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = P_4799463617120 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = NT_508315009310;
 			remoteInfo = Nappa_iOS;
 		};
-		CIP_72590300129 /* PBXContainerItemProxy */ = {
+		CIP_47011863404 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = P_4799463617120 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = NT_318150429601;
+			remoteInfo = Nappa_tvOS;
+		};
+		CIP_60477855011 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = P_4799463617120 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = NT_877555305779;
 			remoteInfo = Nappa_watchOS;
 		};
+		CIP_83464488031 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = P_4799463617120 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = NT_796667246637;
+			remoteInfo = Nappa_macOS;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		CFBP_3211844803 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BF_446812934061 /* Nappa.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFBP_3281815586 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BF_840125036768 /* Nappa.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CFBP_4102339083 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				BF_105259002003 /* Nappa.framework in CopyFiles */,
 				"BF_376433861149-1" /* Result.framework in CopyFiles */,
 				"BF_388705230428-1" /* Quick.framework in CopyFiles */,
 				"BF_732039026396-1" /* Nimble.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFBP_4689444002 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BF_174275271610 /* Nappa.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +410,7 @@
 			buildPhases = (
 				SBP_18475544960 /* Sources */,
 				FBP_18475544960 /* Frameworks */,
+				CFBP_3281815586 /* CopyFiles */,
 				SSBP_1606752751 /* Carthage */,
 			);
 			buildRules = (
@@ -443,6 +479,7 @@
 			buildPhases = (
 				SBP_51095088599 /* Sources */,
 				FBP_51095088599 /* Frameworks */,
+				CFBP_4689444002 /* CopyFiles */,
 				SSBP_2866217384 /* Carthage */,
 			);
 			buildRules = (
@@ -461,6 +498,7 @@
 			buildPhases = (
 				SBP_72590300129 /* Sources */,
 				FBP_72590300129 /* Frameworks */,
+				CFBP_3211844803 /* CopyFiles */,
 				SSBP_5439772566 /* Carthage */,
 			);
 			buildRules = (
@@ -703,22 +741,22 @@
 		TD_175760225391 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = NT_796667246637 /* Nappa_macOS */;
-			targetProxy = CIP_38983213506 /* PBXContainerItemProxy */;
+			targetProxy = CIP_83464488031 /* PBXContainerItemProxy */;
 		};
 		TD_400182061485 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = NT_877555305779 /* Nappa_watchOS */;
-			targetProxy = CIP_72590300129 /* PBXContainerItemProxy */;
+			targetProxy = CIP_60477855011 /* PBXContainerItemProxy */;
 		};
 		TD_416829491967 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = NT_508315009310 /* Nappa_iOS */;
-			targetProxy = CIP_51095088599 /* PBXContainerItemProxy */;
+			targetProxy = CIP_29493833118 /* PBXContainerItemProxy */;
 		};
 		TD_779397602658 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = NT_318150429601 /* Nappa_tvOS */;
-			targetProxy = CIP_18475544960 /* PBXContainerItemProxy */;
+			targetProxy = CIP_47011863404 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -733,7 +771,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -780,7 +817,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
@@ -825,7 +861,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
@@ -868,7 +903,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
@@ -971,7 +1005,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
@@ -1001,7 +1034,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1048,7 +1080,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/watchOS",
@@ -1125,7 +1156,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/watchOS",
