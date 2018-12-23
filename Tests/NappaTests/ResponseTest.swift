@@ -6,13 +6,12 @@
 //  Copyright © 2017 Nappa. All rights reserved.
 //
 
-import XCTest
-import Quick
-import Nimble
 @testable import Nappa
+import Nimble
+import Quick
+import XCTest
 
 class ResponseTest: QuickSpec {
-
     override func spec() {
         let url = "http://test.url"
         let service = HTTPService(adapter: FakeRequestAdapter(data: TestData.jsonData))
@@ -65,9 +64,19 @@ class ResponseTest: QuickSpec {
                     }
                 }
             }
+            it("should decode the json into a map with keypath") {
+                let service = HTTPService(adapter: FakeRequestAdapter(data: TestData.keypathData))
+                let request = service.request(method: .get, url: url)
+                waitUntil { done in
+                    request.responseJSON(keyPath: "key") { jsonResponse in
+                        expect(jsonResponse.result.isSuccess) == true
+                        expect((jsonResponse.result.value as! [String: String])) == TestData.expectedMap
+                        done()
+                    }
+                }
+            }
         }
     }
-
 }
 
 struct TestObject: Codable, Equatable {
@@ -87,11 +96,9 @@ struct TestObject: Codable, Equatable {
 }
 
 fileprivate struct FakeRequestAdapter: HTTPRequestAdapter {
-
     var data: Data
 
     func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void) -> RequestTask? {
-
         let response = HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)!
         let dataResponse = DataResponse(request: request, response: response, data: data, error: nil)
         completionHandler(dataResponse)
@@ -101,11 +108,11 @@ fileprivate struct FakeRequestAdapter: HTTPRequestAdapter {
 
 struct TestData {
     static let jsonString = """
-    {
-        "property_one" : "value one",
-        "property_two" : "value two"
-    }
-"""
+        {
+            "property_one" : "value one",
+            "property_two" : "value two"
+        }
+    """
     static let jsonData = TestData.jsonString.data(using: .utf8)!
 
     static let expectedMap = [
@@ -113,8 +120,6 @@ struct TestData {
         "property_two": "value two",
     ]
     static let expectedObject = TestObject(propertyOne: "value one", propertyTwo: "value two")
-    
+
     static let keypathData = "{\"key\": \(TestData.jsonString)}".data(using: .utf8)!
 }
-
-

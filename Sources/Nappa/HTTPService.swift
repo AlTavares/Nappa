@@ -69,7 +69,6 @@ public struct HTTPService {
     public func request(method: HTTPMethod, url: String, headers: Headers? = nil) -> HTTPRequest {
         return HTTPRequest(method: method, url: url, headers: headers, adapter: adapter)
     }
-
 }
 
 public struct HTTPRequest {
@@ -94,8 +93,6 @@ public struct HTTPRequest {
             return nil
         }
     }
-    
-    
 
     fileprivate init(method: HTTPMethod, url: String, payload: AnyEncodable? = nil, data: Data? = nil, headers: Headers? = nil, parameterEncoding: ParameterEncoding? = nil, adapter: HTTPRequestAdapter) {
         self.method = method
@@ -108,21 +105,20 @@ public struct HTTPRequest {
     }
 
     /// Only performs the request and doesn' call back
-    public func perform(queue: DispatchQueue = DispatchQueue.main) {
-        response { response in
-            print(response)
-        }
+    public func perform(queue: DispatchQueue = DispatchQueue.main) -> RequestTask? {
+        return response { _ in }
     }
 
     // MARK: Response
 
-    private func response(completionHandler: @escaping (DataResponse) -> Void) {
+    private func response(completionHandler: @escaping (DataResponse) -> Void) -> RequestTask? {
         var request: URLRequest
         switch buildRequest(forUrl: url) {
         case .success(let urlRequest):
             request = urlRequest
         case .failure(let error):
-            return completionHandler(DataResponse(error: error))
+            completionHandler(DataResponse(error: error))
+            return nil
         }
 
         request.httpMethod = method.rawValue
@@ -134,50 +130,54 @@ public struct HTTPRequest {
         }
         request.allHTTPHeaderFields = headerFields
 
-        adapter.performRequest(request: request, completionHandler: completionHandler)
+        return adapter.performRequest(request: request, completionHandler: completionHandler)
     }
 
-    public func responseData(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (DataResponse) -> Void) {
-        response { dataResponse in
+    @discardableResult
+    public func responseData(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (DataResponse) -> Void) -> RequestTask? {
+        return response { dataResponse in
             queue.async {
                 completionHandler(dataResponse)
             }
         }
     }
 
-    public func responseJSON(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (JSONResponse) -> Void) {
-        responseData(queue: queue) { dataResponse in
-            completionHandler(JSONResponse(response: dataResponse))
-        }
-    }
-
-    public func responseString(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (StringResponse) -> Void) {
-        responseData(queue: queue) { dataResponse in
+    @discardableResult
+    public func responseString(queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (StringResponse) -> Void) -> RequestTask? {
+        return responseData(queue: queue) { dataResponse in
             completionHandler(StringResponse(response: dataResponse))
         }
     }
 
-    public func responseObject<Value>(keyPath: String? = nil, queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (ObjectResponse<Value>) -> Void) {
-        response { dataResponse in
-            var objectResponse = ObjectResponse<Value>(response: dataResponse)
-            defer {
-                queue.async {
-                    completionHandler(objectResponse)
-                }
+    @discardableResult
+    public func responseJSON(keyPath: String? = nil, queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (JSONResponse) -> Void) -> RequestTask? {
+        return response { dataResponse in
+            var jsonResponse = JSONResponse(response: dataResponse)
+            if let keyPath = keyPath {
+                jsonResponse.data = self.jsonData(json: jsonResponse.result.value, fromKeyPath: keyPath)
             }
-            guard let keyPath = keyPath else { return }
-            switch JSONResponse(response: dataResponse).result {
-            case .success(let json):
-                objectResponse.data = self.jsonData(json: json, fromKeyPath: keyPath)
-            case .failure:
-                return
+            queue.async {
+                completionHandler(jsonResponse)
             }
         }
     }
 
-    private func jsonData(json: Any, fromKeyPath keypathString: String) -> Data? {
+    @discardableResult
+    public func responseObject<Value>(keyPath: String? = nil, queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (ObjectResponse<Value>) -> Void) -> RequestTask? {
+        return response { dataResponse in
+            var objectResponse = ObjectResponse<Value>(response: dataResponse)
+            if let keyPath = keyPath {
+                objectResponse.data = self.jsonData(json: JSONResponse(response: dataResponse).result.value, fromKeyPath: keyPath)
+            }
+            queue.async {
+                completionHandler(objectResponse)
+            }
+        }
+    }
+
+    private func jsonData(json: Any?, fromKeyPath keypathString: String) -> Data? {
+        guard var json = json else { return nil }
         let keypath = keypathString.components(separatedBy: ".")
-        var json = json
         for key in keypath {
             if let subjson = json as? [String: Any] {
                 json = subjson[key] as Any
@@ -192,7 +192,7 @@ public struct HTTPRequest {
         guard var urlComponents = URLComponents(string: url) else {
             return .failure(.invalidUrl(url))
         }
-        
+
         if parameterEncoding == .url, let payload = payload {
             var queryItems = urlComponents.queryItems ?? [URLQueryItem]()
             queryItems.append(contentsOf: payload.urlQueryItems)
@@ -205,5 +205,4 @@ public struct HTTPRequest {
 
         return .success(URLRequest(url: requestUrl))
     }
-    
 }

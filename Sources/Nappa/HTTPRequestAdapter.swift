@@ -21,7 +21,7 @@ extension URLSessionDataTask: RequestTask {}
 
 public protocol HTTPRequestAdapter {
     var cookieStorage: HTTPCookieStorage { get }
-    @discardableResult func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void) -> RequestTask?
+    func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void) -> RequestTask?
 }
 
 public extension HTTPRequestAdapter {
