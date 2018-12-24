@@ -8,31 +8,13 @@
 
 import Foundation
 
-public enum HTTPServiceError: Error, CustomStringConvertible {
-    case invalidUrl(String)
-    case other(Error)
-
-    public var localizedDescription: String {
-        return description
-    }
-
-    public var description: String {
-        switch self {
-        case .invalidUrl(let url):
-            return "Invalid URL: \(url)"
-        case .other(let error):
-            return "Unexpected error, caused by: \(error.localizedDescription)"
-        }
-    }
-
-}
-
 public enum HTTPResponseError: Error, CustomStringConvertible {
     case emptyData
     case responseNil
     case unableToDecodeString
     case unableToDecodeJSON(Error)
-    case serviceError(HTTPServiceError)
+    case requestError(Error)
+    case invalidURL(String)
 
     public var localizedDescription: String {
         return description
@@ -48,8 +30,10 @@ public enum HTTPResponseError: Error, CustomStringConvertible {
             return "Unable to decode JSON: \(error.localizedDescription)"
         case .unableToDecodeString:
             return "Unable to decode String"
-        case .serviceError(let error):
-            return "HTTP Service error: \(error.localizedDescription)"
+        case .requestError(let error):
+            return "Request error: \(error.localizedDescription)"
+        case .invalidURL(let url):
+            return "Invalid URL: \(url)"
         }
     }
 }

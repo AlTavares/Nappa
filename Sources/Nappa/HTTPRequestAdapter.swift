@@ -45,7 +45,7 @@ public struct SimpleRequestAdapter: HTTPRequestAdapter {
         let dataTask = urlSession.dataTask(with: request) { data, response, error in
             let httpResponse = response as? HTTPURLResponse
             if let error = error {
-                return completionHandler(DataResponse(request: request, response: httpResponse, data: data, error: .other(error)))
+                return completionHandler(DataResponse(request: request, response: httpResponse, data: data, error: .requestError(error)))
             }
             return completionHandler(DataResponse(request: request, response: httpResponse, data: data))
         }

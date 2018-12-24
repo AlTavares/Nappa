@@ -112,25 +112,23 @@ public struct HTTPRequest {
     // MARK: Response
 
     private func response(completionHandler: @escaping (DataResponse) -> Void) -> RequestTask? {
-        var request: URLRequest
-        switch buildRequest(forUrl: url) {
-        case .success(let urlRequest):
-            request = urlRequest
-        case .failure(let error):
-            completionHandler(DataResponse(error: error))
+        do {
+            var request = try buildRequest(forUrl: url).dematerialize()
+
+            request.httpMethod = method.rawValue
+            var headerFields = headers ?? Headers()
+
+            request.httpBody = body
+            if request.httpBody != nil && headerFields["Content-Type"] == nil {
+                headerFields["Content-Type"] = parameterEncoding.contentType
+            }
+            request.allHTTPHeaderFields = headerFields
+
+            return adapter.performRequest(request: request, completionHandler: completionHandler)
+        } catch {
+            completionHandler(DataResponse(error: error as? HTTPResponseError))
             return nil
         }
-
-        request.httpMethod = method.rawValue
-        var headerFields = headers ?? Headers()
-
-        request.httpBody = body
-        if request.httpBody != nil && headerFields["Content-Type"] == nil {
-            headerFields["Content-Type"] = parameterEncoding.contentType
-        }
-        request.allHTTPHeaderFields = headerFields
-
-        return adapter.performRequest(request: request, completionHandler: completionHandler)
     }
 
     @discardableResult
@@ -152,7 +150,7 @@ public struct HTTPRequest {
     @discardableResult
     public func responseJSON(keyPath: String? = nil, queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (JSONResponse) -> Void) -> RequestTask? {
         return response { dataResponse in
-            var jsonResponse = JSONResponse(response: dataResponse)
+            let jsonResponse = JSONResponse(response: dataResponse)
             if let keyPath = keyPath {
                 jsonResponse.data = self.jsonData(json: jsonResponse.result.value, fromKeyPath: keyPath)
             }
@@ -165,7 +163,7 @@ public struct HTTPRequest {
     @discardableResult
     public func responseObject<Value>(keyPath: String? = nil, queue: DispatchQueue = DispatchQueue.main, completionHandler: @escaping (ObjectResponse<Value>) -> Void) -> RequestTask? {
         return response { dataResponse in
-            var objectResponse = ObjectResponse<Value>(response: dataResponse)
+            let objectResponse = ObjectResponse<Value>(response: dataResponse)
             if let keyPath = keyPath {
                 objectResponse.data = self.jsonData(json: JSONResponse(response: dataResponse).result.value, fromKeyPath: keyPath)
             }
@@ -188,9 +186,9 @@ public struct HTTPRequest {
 
     // MARK: Request
 
-    private func buildRequest(forUrl: String) -> Result<URLRequest, HTTPServiceError> {
+    private func buildRequest(forUrl url: String) -> Result<URLRequest, HTTPResponseError> {
         guard var urlComponents = URLComponents(string: url) else {
-            return .failure(.invalidUrl(url))
+            return .failure(.invalidURL(url))
         }
 
         if parameterEncoding == .url, let payload = payload {
@@ -200,7 +198,7 @@ public struct HTTPRequest {
         }
 
         guard let requestUrl = urlComponents.url else {
-            return .failure(.invalidUrl(String(describing: urlComponents.url)))
+            return .failure(.invalidURL(String(describing: urlComponents.url)))
         }
 
         return .success(URLRequest(url: requestUrl))

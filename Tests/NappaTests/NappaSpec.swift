@@ -68,14 +68,13 @@ class NappaSpec: QuickSpec {
     
     func test<T: Encodable>(url urlString: String, method: HTTPMethod, withEncoding encoding: ParameterEncoding, params: T, expectedParams: [String: Any]) {
         let service = HTTPService()
-        var response: JSONResponse!
         waitUntil(timeout: 5) { done in
-            service.request(method: method, url: urlString, payload: params, headers: Stubs.headers, parameterEncoding: encoding).responseJSON { res in
-                response = res
+            service.request(method: method, url: urlString, payload: params, headers: Stubs.headers, parameterEncoding: encoding).responseJSON { response in
+                self.testResult(response: response, params: expectedParams, headers: Stubs.headers, parameterEncoding: encoding)
                 done()
             }
         }
-        self.testResult(response: response, params: expectedParams, headers: Stubs.headers, parameterEncoding: encoding)
+
     }
     
     func testResult(response: JSONResponse, params: [String: Any] = [:], headers: [String: String] = [:], parameterEncoding: ParameterEncoding) {
