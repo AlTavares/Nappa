@@ -156,7 +156,7 @@ public struct HTTPRequest {
         return response { dataResponse in
             let jsonResponse = JSONResponse(response: dataResponse)
             if let keyPath = keyPath {
-                jsonResponse.data = self.jsonData(json: jsonResponse.result.value, fromKeyPath: keyPath)
+                jsonResponse.data = self.jsonData(json: jsonResponse.decodeResult().value, fromKeyPath: keyPath)
             }
             queue.async {
                 completionHandler(jsonResponse)
