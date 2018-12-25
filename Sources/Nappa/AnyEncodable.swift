@@ -9,31 +9,32 @@
 import Foundation
 
 public struct AnyEncodable: Encodable {
-    
     private let encodable: Encodable
-    
+
     public init(_ encodable: Encodable) {
         self.encodable = encodable
     }
-    
+
+    public init(_ dictionary: [String: Encodable]) {
+        self.encodable = dictionary.mapValues { AnyEncodable($0) }
+    }
+
     public func encode(to encoder: Encoder) throws {
         try encodable.encode(to: encoder)
     }
-    
 }
 
-//Internal methods
+// Internal methods
 extension AnyEncodable {
-    
     var json: Data? {
         return try? JSONEncoder().encode(self)
     }
-    
+
     var dictionary: [String: Any]? {
         guard let data = self.json else { return nil }
-        return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments))  as? [String: Any]
+        return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any]
     }
-    
+
     var formData: Data? {
         var components = URLComponents()
         components.queryItems = self.urlQueryItems
@@ -42,7 +43,7 @@ extension AnyEncodable {
         }
         return nil
     }
-    
+
     var urlQueryItems: [URLQueryItem] {
         var queryItems = [URLQueryItem]()
         if let dictionary = self.dictionary {
@@ -52,7 +53,7 @@ extension AnyEncodable {
         }
         return queryItems
     }
-    
+
     private func queryComponents(fromKey key: String, value: Any) -> [URLQueryItem] {
         var components = [URLQueryItem]()
         if let dictionary = value as? [String: Any] {
@@ -68,7 +69,7 @@ extension AnyEncodable {
         } else {
             components.append(URLQueryItem(name: key, value: "\(value)"))
         }
-        
+
         return components
     }
 }

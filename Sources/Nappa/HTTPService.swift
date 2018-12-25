@@ -48,7 +48,7 @@ public enum ParameterEncoding {
 }
 
 /// A dictionary of parameters to apply to a `URLRequest`.
-public typealias Parameters = [String: AnyEncodable]
+public typealias Parameters = [String: Encodable]
 public typealias Headers = [String: String]
 
 public struct HTTPService {
@@ -56,6 +56,10 @@ public struct HTTPService {
 
     public init(adapter: HTTPRequestAdapter = DefaultRequestAdapter) {
         self.adapter = adapter
+    }
+
+    public func request(method: HTTPMethod, url: String, payload: [String: Encodable], headers: Headers? = nil, parameterEncoding: ParameterEncoding? = nil) -> HTTPRequest {
+        return request(method: method, url: url, payload: AnyEncodable(payload), headers: headers, parameterEncoding: parameterEncoding)
     }
 
     public func request<T: Encodable>(method: HTTPMethod, url: String, payload: T, headers: Headers? = nil, parameterEncoding: ParameterEncoding? = nil) -> HTTPRequest {
