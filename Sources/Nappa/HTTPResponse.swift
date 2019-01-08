@@ -9,35 +9,36 @@
 import Foundation
 import Result
 
-public protocol Response: CustomStringConvertible, CustomDebugStringConvertible {
+public protocol ResponseResult: CustomStringConvertible, CustomDebugStringConvertible {
     associatedtype Value
-    /// The URL request sent to the server.
-    var request: URLRequest? { get set }
-
-    /// The server's response to the URL request.
-    var response: HTTPURLResponse? { get set }
-
-    /// The data returned by the server.
-    var data: Data? { get set }
-
     /// The result of response serialization.
     var result: Result<Value, HTTPResponseError> { get }
-
-    /// The error that may be occurred in the request.
-    var error: HTTPServiceError? { get set }
-
-    init()
-
-    // Method to decode the result
-    func decodeResult() -> Result<Value, HTTPResponseError>
 }
 
-public extension Response {
-
+extension ResponseResult {
     /// The textual representation used when written to an output stream, which includes whether the result was a
     /// success or failure.
     public var description: String {
         return result.debugDescription
+    }
+}
+
+extension ResponseResult where Self: Response {
+    fileprivate func decodeData() -> Result<Data, HTTPResponseError> {
+        if let error = error {
+            return .failure(error)
+        }
+        guard let response = response else {
+            return .failure(.responseNil)
+        }
+
+        if emptyDataStatusCodes.contains(response.statusCode) { return .success(Data()) }
+
+        guard let validData = data else {
+            return .failure(.emptyData)
+        }
+
+        return .success(validData)
     }
 
     /// The debug textual representation used when written to an output stream, which includes the URL request, the URL
@@ -52,68 +53,41 @@ public extension Response {
 
         return output.joined(separator: "\n")
     }
+}
 
-    public init(request: URLRequest? = nil, response: HTTPURLResponse? = nil, data: Data? = nil, error: HTTPServiceError? = nil) {
-        self.init()
+public class Response {
+    /// The URL request sent to the server.
+    public var request: URLRequest?
+
+    /// The server's response to the URL request.
+    public var response: HTTPURLResponse?
+
+    /// The data returned by the server.
+    public var data: Data?
+
+    /// The error that may be occurred in the request.
+    public var error: HTTPResponseError?
+
+    public init(request: URLRequest? = nil, response: HTTPURLResponse? = nil, data: Data? = nil, error: HTTPResponseError? = nil) {
         self.request = request
         self.response = response
         self.data = data
         self.error = error
     }
 
-    public init<SomeResponse: Response>(response: SomeResponse) {
+    public convenience init<SomeResponse: Response>(response: SomeResponse) {
         self.init(request: response.request, response: response.response, data: response.data, error: response.error)
     }
-
-    public var result: Result<Value, HTTPResponseError> {
-        if let error = error {
-            return .failure(.serviceError(error))
-        }
-        return decodeResult()
-    }
-
-    fileprivate func decodeData() -> Result<Data, HTTPResponseError> {
-        guard let response = response else {
-            return .failure(.responseNil)
-        }
-
-        if emptyDataStatusCodes.contains(response.statusCode) { return .success(Data()) }
-
-        guard let validData = data else {
-            return .failure(.emptyData)
-        }
-
-        return .success(validData)
-    }
 }
 
-public struct DataResponse: Response {
-    public var request: URLRequest?
-    public var response: HTTPURLResponse?
-    public var data: Data?
-    public var error: HTTPServiceError?
-
-    public init() {}
-
-    public func decodeResult() -> Result<Data, HTTPResponseError> {
-        return decodeData()
-    }
+public class DataResponse: Response, ResponseResult {
+    public lazy var result: Result<Data, HTTPResponseError> = decodeData()
 }
 
-public struct JSONResponse: Response {
-    public var request: URLRequest?
-    public var response: HTTPURLResponse?
-    public var data: Data?
-    public var error: HTTPServiceError?
+public class JSONResponse: Response, ResponseResult {
+    public lazy var result: Result<Any, HTTPResponseError> = decodeResult(options: .allowFragments)
 
-    public init() {}
-
-    public func decodeResult() -> Result<Any, HTTPResponseError> {
-        return decodeResult(options: .allowFragments)
-    }
-
-    public func decodeResult(options: JSONSerialization.ReadingOptions) -> Result<Any, HTTPResponseError> {
-
+    public func decodeResult(options: JSONSerialization.ReadingOptions = .allowFragments) -> Result<Any, HTTPResponseError> {
         let validData: Data
         switch decodeData() {
         case .success(let data):
@@ -131,17 +105,8 @@ public struct JSONResponse: Response {
     }
 }
 
-public struct StringResponse: Response {
-    public var request: URLRequest?
-    public var response: HTTPURLResponse?
-    public var data: Data?
-    public var error: HTTPServiceError?
-
-    public init() {}
-
-    public func decodeResult() -> Result<String, HTTPResponseError> {
-        return decodeResult(encoding: String.Encoding.utf8)
-    }
+public class StringResponse: Response, ResponseResult {
+    public lazy var result: Result<String, HTTPResponseError> = decodeResult(encoding: String.Encoding.utf8)
 
     public func decodeResult(encoding: String.Encoding) -> Result<String, HTTPResponseError> {
         let validData: Data
@@ -158,20 +123,10 @@ public struct StringResponse: Response {
             return .failure(.unableToDecodeString)
         }
     }
-
 }
 
-public struct ObjectResponse<Value: Decodable>: Response {
-    public var request: URLRequest?
-    public var response: HTTPURLResponse?
-    public var data: Data?
-    public var error: HTTPServiceError?
-
-    public init() {}
-
-    public func decodeResult() -> Result<Value, HTTPResponseError> {
-        return decodeResult(decoder: JSONDecoder())
-    }
+public class ObjectResponse<Value: Decodable>: Response, ResponseResult {
+    public lazy var result: Result<Value, HTTPResponseError> = decodeResult(decoder: JSONDecoder())
 
     public func decodeResult(decoder: JSONDecoder) -> Result<Value, HTTPResponseError> {
         let validData: Data

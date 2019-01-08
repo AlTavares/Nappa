@@ -23,10 +23,10 @@ class ErrorsTest: QuickSpec {
                         .responseData(completionHandler: { response in
                             expect(response.error).toNot(beNil())
                             switch response.error! {
-                            case .invalidUrl:
+                            case .invalidURL:
                                 break
                             default:
-                                fail("Error different than expected. Got \(response.error!), expected \(HTTPServiceError.invalidUrl(url))")
+                                fail("Error different than expected. Got \(response.error!), expected \(HTTPResponseError.invalidURL(url))")
                             }
                             done()
                         })

@@ -67,11 +67,15 @@ class ResponseTest: QuickSpec {
             it("should decode the json into a map with keypath") {
                 let service = HTTPService(adapter: FakeRequestAdapter(data: TestData.keypathData))
                 let request = service.request(method: .get, url: url)
-                waitUntil { done in
+                waitUntil(timeout: 10) { done in
                     request.responseJSON(keyPath: "key") { jsonResponse in
+                        defer { done() }
                         expect(jsonResponse.result.isSuccess) == true
-                        expect((jsonResponse.result.value as! [String: String])) == TestData.expectedMap
-                        done()
+                        guard let result = jsonResponse.result.value as? [String: String] else {
+                            fail("Result format invalid\noriginal result: \(describing: jsonResponse.result.value ?? nil)")
+                            return
+                        }
+                        expect(result) == TestData.expectedMap
                     }
                 }
             }
