@@ -2,7 +2,7 @@
 @testable import Nappa
 import Nimble
 import Quick
-import Result
+
 
 let testHost = "https://httpbin.org"
 class NappaSpec: QuickSpec {

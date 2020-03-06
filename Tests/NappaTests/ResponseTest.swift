@@ -72,7 +72,7 @@ class ResponseTest: QuickSpec {
                         defer { done() }
                         expect(jsonResponse.result.isSuccess) == true
                         guard let result = jsonResponse.result.value as? [String: String] else {
-                            fail("Result format invalid\noriginal result: \(describing: jsonResponse.result.value ?? nil)")
+                            fail("Result format invalid\noriginal result: \(String(describing: jsonResponse.result.value ?? nil))")
                             return
                         }
                         expect(result) == TestData.expectedMap

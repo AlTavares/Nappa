@@ -11,18 +11,15 @@ targets:
       MACOSX_DEPLOYMENT_TARGET: 10.13
       WATCHOS_DEPLOYMENT_TARGET: 2.0
     sources: Sources/Nappa
-    dependencies:
-      - carthage: Result
     scheme:
       testTargets:
-        - NappaTests_$platform
+        - NappaTests_${platform}
   NappaTests:
     type: bundle.unit-test
     platform: [iOS, tvOS, watchOS]
     sources: Tests/NappaTests
     dependencies:
-      - target: Nappa_$platform
-      - carthage: Result
+      - target: Nappa_${platform}
       - carthage: Quick
       - carthage: Nimble
   NappaTests_macOS:
@@ -31,7 +28,6 @@ targets:
     sources: Tests/NappaTests
     dependencies:
       - target: Nappa_macOS
-      - carthage: Result
       - carthage: Quick
       - carthage: Nimble
     settings:
