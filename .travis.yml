@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode11.2
+osx_image: xcode11.3
 cache:
   directories:
   - $HOME/Library/Caches/org.carthage.CarthageKit/dependencies
@@ -14,17 +14,13 @@ env:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
   matrix:
-    - CMD="testIOSDebug"          platform="iOS"
-    - CMD="testIOSRelease"        platform="iOS"
-    - CMD="testMacOSDebug"        platform="macOS"
-    - CMD="testMacOSRelease"      platform="macOS"
-    - CMD="testTVOSDebug"         platform="tvOS"
-    - CMD="testTVOSRelease"       platform="tvOS"
-    - CMD="buildWatchOSDebug"     platform="watchOS"
-    - CMD="buildWatchOSRelease"   platform="watchOS"
+    - platform="iOS"
+    - platform="macOS"
+    - platform="tvOS"
+    - platform="watchOS"
 
 script:
-  - ./swiftmage $CMD
+  - make test_$platform
 
 jobs:
   include:
