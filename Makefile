@@ -1,6 +1,5 @@
 
-.PHONY: install bootstrap
-
+.PHONY: install bootstrap test_iOS test_tvOS test_watchOS test_macOS
 
 iOS_Scheme = "Nappa_iOS"
 tvOS_Scheme = "Nappa_tvOS"
@@ -14,9 +13,11 @@ appleWatch = "Apple Watch Series 3 - 42mm"
 install:
 	brew update
 	brew install xcodegen
+	brew outdated carthage || brew upgrade carthage
 
 bootstrap:
-	carthage bootstrap --no-use-binaries  --configuration Debug --cache-builds
+	@test ${platform} || ( echo ">> platform is not set"; exit 1 )
+	carthage bootstrap --no-use-binaries  --configuration Debug --cache-builds --platform ${platform}
 	xcodegen
 
 test_iOS:

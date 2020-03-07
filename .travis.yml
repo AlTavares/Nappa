@@ -4,10 +4,10 @@ cache:
   directories:
   - $HOME/Library/Caches/org.carthage.CarthageKit/dependencies
   - Carthage
-before_install:
-  - ./swiftmage updateTools
+
 install:
-  - ./swiftmage bootstrap
+  - make install
+  - make bootstrap
 
 env:
   global:
