@@ -1,8 +1,7 @@
-
+import Foundation
 @testable import Nappa
 import Nimble
 import Quick
-
 
 let testHost = "https://httpbin.org"
 class NappaSpec: QuickSpec {
