@@ -36,9 +36,6 @@ test: test_iOS test_macOS test_tvOS test_watchOS
 .PHONY: release
 release:
 	@test ${version} || ( echo ">> version is not set"; exit 1 )
-	agvtool new-version -all 0
-	agvtool new-marketing-version ${version}
-	git add ./\*.plist
 	git commit -m "Set version to ${version}" || echo "No changes to commit"
 	git tag -a ${version} -m "Release ${version}" -f
 	git push || true
