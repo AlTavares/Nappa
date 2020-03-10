@@ -27,5 +27,5 @@ jobs:
       - name: test tvOS
         run: make test_tvOS
 
-      - name: test watchOS
-        run: make test_watchOS
+      # - name: test watchOS
+        # run: make test_watchOS
