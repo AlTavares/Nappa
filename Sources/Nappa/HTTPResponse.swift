@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Result
 
 public protocol ResponseResult: CustomStringConvertible, CustomDebugStringConvertible {
     associatedtype Value

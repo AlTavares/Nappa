@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Result
 
 public protocol RequestTask {
     func resume()
@@ -25,7 +24,7 @@ public protocol HTTPRequestAdapter {
 }
 
 public extension HTTPRequestAdapter {
-    public var cookieStorage: HTTPCookieStorage {
+    var cookieStorage: HTTPCookieStorage {
         return HTTPCookieStorage.shared
     }
 }
@@ -34,14 +33,14 @@ public struct SimpleRequestAdapter: HTTPRequestAdapter {
     var urlSession: URLSession
 
     public var cookieStorage: HTTPCookieStorage {
-        return self.urlSession.configuration.httpCookieStorage ?? HTTPCookieStorage.shared
+        return urlSession.configuration.httpCookieStorage ?? HTTPCookieStorage.shared
     }
 
     public init(configuration: URLSessionConfiguration) {
-        self.urlSession = URLSession(configuration: configuration)
+        urlSession = URLSession(configuration: configuration)
     }
 
-    public func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void)  -> RequestTask? {
+    public func performRequest(request: URLRequest, completionHandler: @escaping (DataResponse) -> Void) -> RequestTask? {
         let dataTask = urlSession.dataTask(with: request) { data, response, error in
             let httpResponse = response as? HTTPURLResponse
             if let error = error {

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
  s.name = 'Nappa'
- s.version = '3.0.0'
+ s.version = ENV['LIB_VERSION']
  s.license = { :type => "MIT", :file => "LICENSE" }
  s.summary = 'Wrapper around URLSession that uses Dependency injection making it easy to test network requests.'
  s.homepage = 'https://github.com/AlTavares/Nappa'
@@ -14,7 +14,6 @@ Pod::Spec.new do |s|
  s.subspec "Core" do |ss|
      ss.source_files  = "Sources/**/*.swift"
      ss.framework  = "Foundation"
-     ss.dependency 'Result', '~> 4.0.0'
  end
 
 end

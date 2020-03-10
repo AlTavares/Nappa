@@ -1,0 +1,31 @@
+name: Test
+
+on: push
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: bootstrap
+        run: make install bootstrap
+
+      - name: build
+        run: swift build -v
+
+      - name: list devices
+        run: xcrun simctl list
+
+      - name: test iOS
+        run: make test_iOS
+
+      - name: test macOS
+        run: make test_macOS
+
+      - name: test tvOS
+        run: make test_tvOS
+
+      # - name: test watchOS
+        # run: make test_watchOS

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Result
+
 
 /// HTTP method definitions.
 ///
@@ -117,7 +117,7 @@ public struct HTTPRequest {
 
     private func response(completionHandler: @escaping (DataResponse) -> Void) -> RequestTask? {
         do {
-            var request = try buildRequest(forUrl: url).dematerialize()
+            var request = try buildRequest(forUrl: url).get()
 
             request.httpMethod = method.rawValue
             var headerFields = headers ?? Headers()

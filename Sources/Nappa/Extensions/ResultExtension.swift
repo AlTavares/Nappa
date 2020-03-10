@@ -1,6 +1,8 @@
-import Result
-
 extension Result {
+    var value: Success? {
+        try? get()
+    }
+
     /// Returns `true` if the result is a success, `false` otherwise.
     public var isSuccess: Bool {
         switch self {
@@ -15,5 +17,15 @@ extension Result {
     public var isFailure: Bool {
         return !isSuccess
     }
+}
 
+extension Result: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        switch self {
+        case .success(let value):
+            return "SUCCESS: \(value)"
+        case .failure(let error):
+            return "FAILURE: \(error)"
+        }
+    }
 }

@@ -1,6 +1,13 @@
 name: Nappa
 options:
   bundleIdPrefix: xyz.tavares
+packages:
+  Quick:
+    url: https://github.com/Quick/Quick
+    from: 2.2.0
+  Nimble:
+    url: https://github.com/Quick/Nimble
+    exactVersion: 8.0.2
 targets:
   Nappa:
     type: framework
@@ -11,28 +18,22 @@ targets:
       MACOSX_DEPLOYMENT_TARGET: 10.13
       WATCHOS_DEPLOYMENT_TARGET: 2.0
     sources: Sources/Nappa
-    dependencies:
-      - carthage: Result
     scheme:
       testTargets:
-        - NappaTests_$platform
+        - NappaTests_${platform}
   NappaTests:
     type: bundle.unit-test
     platform: [iOS, tvOS, watchOS]
     sources: Tests/NappaTests
     dependencies:
-      - target: Nappa_$platform
-      - carthage: Result
-      - carthage: Quick
-      - carthage: Nimble
+      - target: Nappa_${platform}
+      - package: Quick
+      - package: Nimble
   NappaTests_macOS:
     type: bundle.unit-test
     platform: macOS
     sources: Tests/NappaTests
     dependencies:
       - target: Nappa_macOS
-      - carthage: Result
-      - carthage: Quick
-      - carthage: Nimble
-    settings:
-      LD_RUNPATH_SEARCH_PATHS: "@executable_path/../Frameworks @loader_path/../Frameworks"
+      - package: Quick
+      - package: Nimble
