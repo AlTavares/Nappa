@@ -8,8 +8,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: bootstrap
         run: make install bootstrap
+
+      - name: build
+        run: swift build -v
 
       - name: list devices
         run: xcrun simctl list
