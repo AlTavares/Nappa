@@ -13,10 +13,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - run: sudo xcode-select -s '/Applications/Xcode_${{ matrix.xcode }}.app'
 
       - name: bootstrap
-      - run: make install bootstrap
+        run: make install bootstrap
 
       - name: build
         run: swift build -v
