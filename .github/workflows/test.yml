@@ -4,28 +4,26 @@ on: push
 
 jobs:
   test:
+    name: Test on Xcode ${{ matrix.xcode }} - ${{ matrix.platform }}
     runs-on: macos-latest
+    strategy:
+      matrix:
+        xcode: [11, 11.1, 11.2, 11.3]
+        platform: [iOS, macOS, tvOS, watchOS]
 
     steps:
       - uses: actions/checkout@v2
+      - run: sudo xcode-select -s '/Applications/Xcode_${{ matrix.xcode }}.app'
 
       - name: bootstrap
-        run: make install bootstrap
+      - run: make install bootstrap
 
       - name: build
         run: swift build -v
 
-      - name: list devices
-        run: xcrun simctl list
+      - run: ls /Applications | grep Xcode
+      - run: xcodebuild -showsdks
+      - run: xcrun simctl list
 
-      - name: test iOS
-        run: make test_iOS
-
-      - name: test macOS
-        run: make test_macOS
-
-      - name: test tvOS
-        run: make test_tvOS
-
-      # - name: test watchOS
-        # run: make test_watchOS
+      - name: test ${{ matrix.platform }}
+        run: make test_${{ matrix.platform }}
