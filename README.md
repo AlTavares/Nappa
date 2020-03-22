@@ -7,8 +7,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/Nappa.svg)](https://cocoapods.org/pods/Nappa)
 
-[![Travis](https://img.shields.io/travis/AlTavares/Nappa/master.svg)](https://travis-ci.org/AlTavares/Nappa/branches)
-[![JetpackSwift](https://img.shields.io/badge/JetpackSwift-framework-red.svg)](http://github.com/JetpackSwift/Framework)
+![Test](https://github.com/AlTavares/Nappa/workflows/Test/badge.svg)
 
 Adaptable HTTP client
 
@@ -35,11 +34,7 @@ $ gem install cocoapods
 To integrate Nappa into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
-use_frameworks!
-
-pod 'Nappa', '~> 2.0'
+pod 'Nappa', '~> 4.0.0'
 ```
 
 Then, run the following command:
@@ -62,21 +57,16 @@ $ brew install carthage
 To integrate Nappa into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "AlTavares/Nappa" ~> 2.0
+github "AlTavares/Nappa" ~> 4.0.0
 ```
 ### Swift Package Manager
 
 To use Nappa as a [Swift Package Manager](https://swift.org/package-manager/) package just add the following in your Package.swift file.
 
 ``` swift
-import PackageDescription
-
-let package = Package(
-    name: "HelloNappa",
-    dependencies: [
-        .Package(url: "https://github.com/AlTavares/Nappa.git", "2.0.0")
-    ]
-)
+dependencies: [
+    .package(url: "https://github.com/AlTavares/Nappa.git", from: "4.0.0")
+]
 ```
 
 ### Manually
