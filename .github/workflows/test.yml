@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         xcode: [11, 11.1, 11.2, 11.3]
-        platform: [iOS, macOS, tvOS, watchOS]
+        platform: [iOS, macOS, tvOS]
 
     steps:
       - uses: actions/checkout@v2
