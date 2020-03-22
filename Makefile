@@ -1,10 +1,15 @@
-LATEST_IOS_SDK_VERSION = $(call latestVersion,iphonesimulator)
-LATEST_TVOS_SDK_VERSION = $(call latestVersion,appletvsimulator)
-LATEST_WATCHOS_SDK_VERSION = $(call latestVersion,watchsimulator)
+LATEST_IOS_SDK_VERSION = $(call latestVersion,iOS)
+LATEST_TVOS_SDK_VERSION = $(call latestVersion,tvOS)
+LATEST_WATCHOS_SDK_VERSION = $(call latestVersion,watchOS)
 
 define latestVersion
-$(shell xcodebuild -showsdks | grep $(1) | cut -d ' ' -f 4)
+$(shell  xcrun simctl list runtimes | grep $(1) | awk '{print $$3}' | tail -n 1 | cut -c 2-)
 endef
+
+ovo:
+	echo $(LATEST_IOS_SDK_VERSION)
+	echo $(LATEST_TVOS_SDK_VERSION)
+	echo $(LATEST_WATCHOS_SDK_VERSION)
 
 .PHONY: install
 install:
