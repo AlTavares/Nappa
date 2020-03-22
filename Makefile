@@ -1,3 +1,16 @@
+LATEST_IOS_SDK_VERSION = $(call latestVersion,iOS)
+LATEST_TVOS_SDK_VERSION = $(call latestVersion,tvOS)
+LATEST_WATCHOS_SDK_VERSION = $(call latestVersion,watchOS)
+
+define latestVersion
+$(shell  xcrun simctl list runtimes | grep $(1) | awk '{print $$3}' | tail -n 1 | cut -c 2-)
+endef
+
+ovo:
+	echo $(LATEST_IOS_SDK_VERSION)
+	echo $(LATEST_TVOS_SDK_VERSION)
+	echo $(LATEST_WATCHOS_SDK_VERSION)
+
 .PHONY: install
 install:
 	brew update
@@ -8,30 +21,33 @@ bootstrap:
 	xcodegen
 
 .PHONY: test_iOS
-test_iOS:
-	set -o pipefail && xcodebuild -scheme Nappa_iOS \
-		-destination 'OS=13.3,name=iPhone 11' \
-		-configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c
+test_iOS: scheme = Nappa_iOS
+test_iOS: destination = OS=$(LATEST_IOS_SDK_VERSION),name=iPhone 11
+test_iOS: test
 
 .PHONY: test_tvOS
-test_tvOS:
-	set -o pipefail && xcodebuild -scheme Nappa_tvOS \
-		-destination 'OS=13.3,name=Apple TV 4K' \
-		-configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c
+test_tvOS: scheme = Nappa_tvOS
+test_tvOS: destination = OS=$(LATEST_TVOS_SDK_VERSION),name=Apple TV 4K
+test_tvOS: test
 
 .PHONY: test_watchOS
-test_watchOS:
-	set -o pipefail && xcodebuild -scheme Nappa_watchOS \
-		-destination 'OS=6.1.1,name=Apple Watch Series 5 - 44mm' \
-		-configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c
+test_watchOS: scheme = Nappa_watchOS
+test_watchOS: destination = OS=$(LATEST_WATCHOS_SDK_VERSION),name=Apple Watch Series 5 - 44mm
+test_watchOS: test
 
 .PHONY: test_macOS
-test_macOS:
-	set -o pipefail && xcodebuild -scheme Nappa_macOS -destination 'arch=x86_64' \
-		-configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c
+test_macOS: scheme = Nappa_macOS
+test_macOS: destination = arch=x86_64
+test_macOS: test
+
+.PHONY: test_all
+test_all: test_iOS test_macOS test_tvOS test_watchOS
 
 .PHONY: test
-test: test_iOS test_macOS test_tvOS test_watchOS
+test:
+	set -o pipefail && xcodebuild -scheme $(scheme) \
+		-destination '$(destination)' \
+		-configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c
 
 .PHONY: release
 release:
